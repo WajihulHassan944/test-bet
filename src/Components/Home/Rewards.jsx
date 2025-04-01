@@ -1,7 +1,4 @@
 import React from 'react'
-import RewardTokens from "../../Assets/reward-freetokens.png";
-import RewardAdmin from "../../Assets/reward-admin.png";
-import RewardPot from "../../Assets/reward-pot.png";
 
 import "./Sponsors.module.css";
 import Image from 'next/image';
@@ -22,7 +19,7 @@ const Rewards = () => {
         
         <div className='reward-item'>
             <div className='reward-image'>
-                <Image src={RewardPot} alt='reward' className='rewardimage' />
+                <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743522314/home/nrarejwnri8cdalxtlgo.png" alt='reward' className='rewardimage' />
                 <div className='rewardAbsolute'>
                 <h2>WINNER Award</h2>
                 <p>As specified</p>
@@ -36,7 +33,7 @@ const Rewards = () => {
     
         <div className='reward-item'>
             <div className='reward-image'>
-                <Image src={RewardAdmin} alt='reward' className='rewardimage' />
+                <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743522401/home/t5vvnlqqu57vgpeumtj2.png" alt='reward' className='rewardimage' />
                 <div className='rewardAbsolute'>
                 <h2>ADMIN Award</h2>
                 <p>As specified</p>
@@ -50,7 +47,7 @@ const Rewards = () => {
     
         <div className='reward-item'>
             <div className='reward-image'>
-                <Image src={RewardTokens} alt='reward' className='rewardimage' />
+                <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743522571/home/hbkim5wxsjmhryavrat0.png" alt='reward' className='rewardimage' />
                 <div className='rewardAbsolute'>
                 <h2>FREE tokens</h2>
                 <p>As specified</p>

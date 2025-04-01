@@ -14,7 +14,13 @@ import "@/styles/fightapproved.css";
 import "@/styles/pastpromotions.css";
 import "@/styles/promo.css";
 import "@/styles/usersplayed.css";
-
+import "@/styles/sponsors.css";
+import "@/styles/newsfeed.css";
+import "@/styles/homeleaderboard.css";
+import "react-calendar/dist/Calendar.css";
+import "@/styles/contact.css";
+import "@/styles/calendaroffights.css";
+import "@/styles/testimonials.css";
 
 import { Provider } from "react-redux";
 import { wrapper } from "../Redux/store"; // Updated for next-redux-wrapper
