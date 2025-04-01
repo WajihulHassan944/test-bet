@@ -19,6 +19,8 @@ export default function Document() {
                 <link href="https://fonts.googleapis.com/css2?family=Trebuchet+MS&display=swap" rel="stylesheet" />
                 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet" />
                 <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet" />
+              
 
                 {/* Preload Local Fonts */}
                 <link rel="preload" href="/Fonts/UFCSans-CondensedMedium.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />

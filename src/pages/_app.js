@@ -1,4 +1,21 @@
 import "@/styles/globals.css";
+import "@/styles/upcomingfightsuser.css";
+import "@/styles/pastfights.css";
+import "@/styles/addtokenstowallet.css";
+import "@/styles/profile.css";
+import "@/styles/publicprofile.css";
+import "@/styles/guide.css";
+import "@/styles/addnewmatch.css";
+import "@/styles/affiliatedashboardnew.css";
+import "@/styles/affiliateleague.css";
+import "@/styles/affiliatematchdetailscss.css";
+import "@/styles/affiliateprofile.css";
+import "@/styles/fightapproved.css";
+import "@/styles/pastpromotions.css";
+import "@/styles/promo.css";
+import "@/styles/usersplayed.css";
+
+
 import { Provider } from "react-redux";
 import { wrapper } from "../Redux/store"; // Updated for next-redux-wrapper
 import { GoogleOAuthProvider } from "@react-oauth/google";
