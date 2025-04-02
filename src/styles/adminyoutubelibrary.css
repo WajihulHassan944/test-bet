@@ -1,7 +1,7 @@
 .youtubeLibrary{
     flex-direction: column;
     gap:30px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url(../../Assets/banner.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url(/Assets/banner.png);
   }
 .youtubeLibrary h1{
     font-family: 'UFCSans', "Arial Narrow", Arial, sans-serif;

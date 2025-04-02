@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMatches } from '../../Redux/matchSlice';
-import promoBackground from "../../Assets/imgone.png";
+import { fetchMatches } from '@/Redux/matchSlice';
 const EditMatch = ({ matchId, isShadow }) => {
     
   const dispatch = useDispatch();
   const matches = useSelector((state) => state.matches.data);
   const matchStatus = useSelector((state) => state.matches.status);
+
   const match = matches.find((m) => m._id === matchId);
 
   const [formData, setFormData] = useState({
@@ -53,7 +53,7 @@ const EditMatch = ({ matchId, isShadow }) => {
               promotionBackground:specificMatch.promotionBackground || null ,
               maxRounds: specificMatch.maxRounds || '',
               matchCategoryTwo: specificMatch.matchCategoryTwo || '',
-              addToShadowTemplates: match.shadowTemplatesAdditionStatus || false,
+              addToShadowTemplates: false,
     
             });
           }
@@ -166,7 +166,7 @@ const EditMatch = ({ matchId, isShadow }) => {
         console.log('Response received:', result);
         alert('Match updated successfully!');
 
-        if (formData.addToShadowTemplates && match.shadowTemplatesAdditionStatus === false) {
+        if (formData.addToShadowTemplates && match?.shadowTemplatesAdditionStatus === false) {
           const shadowData = new FormData();
           shadowData.append('matchCategory', formData.matchCategory);
           shadowData.append('matchCategoryTwo', formData.matchCategoryTwo);
@@ -328,7 +328,7 @@ const EditMatch = ({ matchId, isShadow }) => {
 ) : (
   // If neither condition is met, display the default promoBackground
   <img
-    src={promoBackground}
+    src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743561422/home/qf8hkfqxlaobsriijvmj.png"
     alt="promotionBackground"
     style={{ width: '70%', objectFit: 'cover', height: 'auto', margin: 'auto' }}
   />

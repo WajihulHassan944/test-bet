@@ -1,10 +1,9 @@
 import React from 'react'
-import "./MatchDetailsPromotion.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState, useRef }  from 'react';
-import { fetchMatches } from '../../Redux/matchSlice';
 import QRCode from 'qrcode'; 
 import { toast } from 'react-toastify';
+import { fetchMatches } from '@/Redux/matchSlice';
 
 
 

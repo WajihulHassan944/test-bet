@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './AdminSponsor.css';
 
 const AdminSponsor = () => {
   const [sponsors, setSponsors] = useState([]);

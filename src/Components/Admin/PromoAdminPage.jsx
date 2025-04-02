@@ -1,7 +1,7 @@
+import { fetchMatches } from '@/Redux/matchSlice';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { fetchMatches } from '../../Redux/matchSlice';
 
 const PromoAdminPage = () => {
     const dispatch = useDispatch();

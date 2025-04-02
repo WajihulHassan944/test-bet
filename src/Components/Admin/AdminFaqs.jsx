@@ -1,5 +1,5 @@
+import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 const AdminFaqs = () => {
   const [faqs, setFaqs] = useState([]);
@@ -7,8 +7,7 @@ const AdminFaqs = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [newFaq, setNewFaq] = useState({ title: "", description: "" });
   const [editFaq, setEditFaq] = useState(null);
-const navigate = useNavigate();
-  // Fetch FAQs
+  const router = useRouter();
   useEffect(() => {
     const fetchFaqs = async () => {
       try {
@@ -81,7 +80,7 @@ const navigate = useNavigate();
      <i
         className="fa fa-arrow-circle-left"
         aria-hidden="true"
-        onClick={() => navigate(-1)} // Go back to the previous page
+        onClick={() => router.push(-1)} // Go back to the previous page
         style={{ position: 'absolute', top: '38px', left: '18%', cursor: 'pointer', fontSize: '24px', color: '#007bff', zIndex: '99999' }}
       ></i>
   

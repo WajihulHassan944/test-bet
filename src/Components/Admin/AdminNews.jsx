@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 const AdminNews = () => {
   const [news, setNews] = useState([]);
@@ -7,8 +6,7 @@ const AdminNews = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [newNews, setNewNews] = useState({ title: "", description: "", notify: false });
   const [editNews, setEditNews] = useState(null);
-  const navigate = useNavigate();
-
+  
   // Fetch News
   useEffect(() => {
     const fetchNews = async () => {
@@ -79,21 +77,7 @@ const AdminNews = () => {
 
   return (
     <div className="newswrapper-admin">
-      <i
-        className="fa fa-arrow-circle-left"
-        aria-hidden="true"
-        onClick={() => navigate(-1)}
-        style={{
-          position: "absolute",
-          top: "38px",
-          left: "18%",
-          cursor: "pointer",
-          fontSize: "24px",
-          color: "#007bff",
-          zIndex: "99999",
-        }}
-      ></i>
-
+    
       <div className="flexedDivNews">
         <h1>News</h1>
         <button className="add-news-btn" onClick={() => setIsPopupOpen(true)}>

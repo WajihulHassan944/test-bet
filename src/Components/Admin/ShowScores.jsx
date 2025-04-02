@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import PunchHand from '../../Assets/hand-removebg-preview.png';
 
 const ShowScores = ({ matchId, filter }) => {
     const [shadowMatches, setShadowMatches] = useState([]);
@@ -146,7 +145,7 @@ const ShowScores = ({ matchId, filter }) => {
                                     <div className='roundinput-image'>
                                         <h2>{label1}</h2>
                                         <div className='roundInputImgWrap'>
-                                            <img src={PunchHand} alt={`${label1} Icon`} />
+                                            <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743258002/home/cozzru3dapikvamnd44q.png" alt={`${label1} Icon`} />
                                         </div>
                                     </div>
                                     <div className='roundInputDivOne'>
@@ -173,7 +172,7 @@ const ShowScores = ({ matchId, filter }) => {
                                     <div className='roundinput-image'>
                                         <h2>{label2}</h2>
                                         <div className='roundInputImgWrap'>
-                                            <img src={PunchHand} alt={`${label2} Icon`} />
+                                            <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743258002/home/cozzru3dapikvamnd44q.png" alt={`${label2} Icon`} />
                                         </div>
                                     </div>
                                     <div className='roundInputDivOne'>
@@ -199,7 +198,7 @@ const ShowScores = ({ matchId, filter }) => {
                                     <div className='roundinput-image'>
                                         <h2>{label3}</h2>
                                         <div className='roundInputImgWrap'>
-                                            <img src={PunchHand} alt={`${label3} Icon`} />
+                                            <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743258002/home/cozzru3dapikvamnd44q.png" alt={`${label3} Icon`} />
                                         </div>
                                     </div>
                                     <div className='roundInputDivOne'>
@@ -227,7 +226,7 @@ const ShowScores = ({ matchId, filter }) => {
                                         <div className='roundinput-image'>
                                             <h2>{label4}</h2>
                                             <div className='roundInputImgWrap'>
-                                                <img src={PunchHand} alt={`${label4} Icon`} />
+                                                <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743258002/home/cozzru3dapikvamnd44q.png" alt={`${label4} Icon`} />
                                             </div>
                                         </div>
                                         <div className='roundInputDivOne'>

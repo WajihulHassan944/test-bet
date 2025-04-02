@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMatches } from '../../Redux/matchSlice';
 import AdminPredictions from './AdminPredictions';
 import ShowScores from './ShowScores';
-import { useNavigate } from 'react-router-dom';
-import "./upcomingFightsPopup.css";
+
 import MatchDetailsPromotion from './MatchDetailsPromotion';
+import { fetchMatches } from '@/Redux/matchSlice';
+import { useRouter } from 'next/navigation';
 const UpcomingFights = () => {
+  const router = useRouter();
   const dispatch = useDispatch();
   const matches = useSelector((state) => state.matches.data);
   const matchStatus = useSelector((state) => state.matches.status);
@@ -19,7 +20,6 @@ const UpcomingFights = () => {
   const [showPromote, setShowPromote] = useState(false);
   
   const [shadowTemplates, setShadowTemplates] = useState([]);
-  const navigate = useNavigate();
   
   useEffect(() => {
     if (matchStatus === 'idle') {
@@ -193,7 +193,7 @@ const UpcomingFights = () => {
      <i
         className="fa fa-arrow-circle-left"
         aria-hidden="true"
-        onClick={() => navigate(-1)} // Go back to the previous page
+        onClick={() => router.push(-1)} // Go back to the previous page
         style={{ position: 'absolute', top: '38px', left: '18%', cursor: 'pointer', fontSize: '24px', color: '#007bff', zIndex: '99999' }}
       ></i>
    {showPopup && (

@@ -1,10 +1,8 @@
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
-
 const AdminForumList = () => {
     const [threads, setThreads] = useState([]);
-    const navigate = useNavigate(); // Use useNavigate to handle navigation
-  
+    const router = useRouter();
     useEffect(() => {
       fetch('https://fantasymmadness-game-server-three.vercel.app/threads')
         .then(res => res.json())
@@ -49,7 +47,7 @@ const AdminForumList = () => {
     };
   
     const handleThreadClick = (threadId) => {
-        navigate(`/administration/threads/${threadId}`);
+      router.push(`/administration/threads/${threadId}`);
     };
   
     return (
@@ -57,7 +55,7 @@ const AdminForumList = () => {
        <i
         className="fa fa-arrow-circle-left"
         aria-hidden="true"
-        onClick={() => navigate(-1)} // Go back to the previous page
+        onClick={() => router.push(-1)} // Go back to the previous page
         style={{ position: 'absolute', top: '38px', left: '18%', cursor: 'pointer', fontSize: '24px', color: '#007bff', zIndex: '99999' }}
       ></i>
   

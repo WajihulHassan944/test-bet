@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMatches } from '../../Redux/matchSlice';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
+import { fetchMatches } from '@/Redux/matchSlice';
 
 const AdminRecords = () => {
   const dispatch = useDispatch();
   const matches = useSelector((state) => state.matches.data);
-  const navigate = useNavigate();
-  const [adminTokens, setAdminTokens] = useState([]);
+  const router = useRouter();
+    const [adminTokens, setAdminTokens] = useState([]);
   const [affiliates, setAffiliates] = useState([]);
 
   // Fetch admin tokens from API using fetch
@@ -54,7 +54,7 @@ const AdminRecords = () => {
      <i
         className="fa fa-arrow-circle-left"
         aria-hidden="true"
-        onClick={() => navigate(-1)} // Go back to the previous page
+        onClick={() => router.push(-1)} // Go back to the previous page
         style={{ position: 'absolute', top: '38px', left: '18%', cursor: 'pointer', fontSize: '24px', color: '#007bff', zIndex: '99999' }}
       ></i>
   

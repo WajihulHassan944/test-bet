@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import "./AffiliateUsers.css";
 import UserDetails from './UserDetails';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 const AffiliateUsers = () => {
   const [affiliateUsers, setAffiliateUsers] = useState([]);
@@ -15,8 +14,7 @@ const AffiliateUsers = () => {
   const [loading, setLoading] = useState(false);
 
 const [deleteText, setDeleteText] = useState("Delete");
-const navigate = useNavigate();
-
+const router = useRouter();
 
 const fetchData = async () => {
   try {
@@ -48,7 +46,7 @@ const fetchData = async () => {
   }, [searchQuery, filterStatus, affiliateUsers]);
 
   const handleNavigation = () => {
-    navigate('/administration/adminRecords');
+    router.push('/administration/adminRecords');
   };
 
   
@@ -138,7 +136,7 @@ const fetchData = async () => {
      <i
         className="fa fa-arrow-circle-left"
         aria-hidden="true"
-        onClick={() => navigate(-1)} // Go back to the previous page
+        onClick={() => router.push(-1)} // Go back to the previous page
         style={{ position: 'absolute', top: '16px', left: '17%', cursor: 'pointer', fontSize: '24px', color: '#007bff', zIndex: '99999' }}
       ></i>
   
@@ -177,7 +175,7 @@ const fetchData = async () => {
       Admin Records
     </h1>
     
-    <h1 onClick={() => navigate('/administration/payouts')} style={{ cursor: 'pointer' }}>
+    <h1 onClick={() => router.push('/administration/payouts')} style={{ cursor: 'pointer' }}>
       Payouts
     </h1>
     

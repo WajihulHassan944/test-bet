@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import UserDetails from './UserDetails';
 import PaymentPopup from './PaymentPopup';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 const AffiliatesPayouts = () => {
     const [affiliateUsers, setAffiliateUsers] = useState([]);
@@ -13,8 +13,7 @@ const AffiliatesPayouts = () => {
     const [selectedPayout, setSelectedPayout] = useState(null); // State for selected payout
     const [detailsOpen, setDetailsOpen] = useState(false);
     const [popupVisible, setPopupVisible] = useState(false); // State to manage popup visibility
-    const navigate = useNavigate();
-    
+    const router = useRouter();    
     const fetchData = async () => {
         try {
             const response = await fetch('https://fantasymmadness-game-server-three.vercel.app/affiliates');
@@ -95,7 +94,7 @@ const AffiliatesPayouts = () => {
          <i
         className="fa fa-arrow-circle-left"
         aria-hidden="true"
-        onClick={() => navigate(-1)} // Go back to the previous page
+        onClick={() => router.push(-1)} // Go back to the previous page
         style={{ position: 'absolute', top: '16px', left: '17%', cursor: 'pointer', fontSize: '24px', color: '#007bff', zIndex: '99999' }}
       ></i>
   

@@ -1,14 +1,18 @@
 // src/Components/AdminPrivateRoute.js
 import React from 'react';
-import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-const AdminPrivateRoute = ({ element, ...rest }) => {
+const AdminPrivateRoute = ({ children }) => {
   const { isAdminAuthenticated } = useSelector((state) => state.adminAuth);
   
   console.log("AdminPrivateRoute - isAdminAuthenticated condition:", isAdminAuthenticated); // Debug log
 
-  return isAdminAuthenticated ? element : <Navigate to="/administration/login" />;
+  if (typeof window !== "undefined" && !isAdminAuthenticated) {
+    window.location.href = "/administration/login";
+    return null;
+  }
+
+  return children;
 };
 
 export default AdminPrivateRoute;

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import FighterOne from "../../Assets/fighterOne.png";
 
 const UserDetails = ({ user }) => {
     const [showEmailTemplate, setShowEmailTemplate] = useState(false);
@@ -97,7 +96,7 @@ const UserDetails = ({ user }) => {
     
             <div className='affiliateDetailsWrapper'>
                 <div className='imgAffiliate'>
-                    <img src={user.profileUrl || FighterOne} alt="User Profile" />
+                    <img src={user.profileUrl || "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743589918/home/rb0ajzfkodtx4da3jyiq.png"} alt="User Profile" />
                 </div>
 
                 <div className='affiliateDetailsWrapperTwo'>

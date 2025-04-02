@@ -1,6 +1,6 @@
+import { fetchMatches } from '@/Redux/matchSlice';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMatches } from '../../Redux/matchSlice';
 
 const AffiliatePodcasts = () => {
   const dispatch = useDispatch();

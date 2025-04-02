@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import FighterOne from "../../Assets/fighterOne.png";
-import "./RegisteredUsers.css";
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 const SuspendedAccounts = () => {
-const navigate = useNavigate();
     const [users, setUsers] = useState([]);
-
+    const router = useRouter();
     const fetchData = async () => {
         try {
             const response = await fetch('https://fantasymmadness-game-server-three.vercel.app/redusers');
@@ -52,7 +49,7 @@ const navigate = useNavigate();
          <i
         className="fa fa-arrow-circle-left"
         aria-hidden="true"
-        onClick={() => navigate(-1)} // Go back to the previous page
+        onClick={() => router.push(-1)} // Go back to the previous page
         style={{ position: 'absolute', top: '38px', left: '18%', cursor: 'pointer', fontSize: '24px', color: '#007bff', zIndex: '99999' }}
       ></i>
   
@@ -65,7 +62,7 @@ const navigate = useNavigate();
                         users.map((user) => (
                             <div key={user._id} className='leaderboardItem'>
                                 <div className='leaderboard-item-image'>
-                                    <img src={user.profileUrl || FighterOne} alt="User Profile" />
+                                    <img src={user.profileUrl || "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743589918/home/rb0ajzfkodtx4da3jyiq.png"} alt="User Profile" />
                                 </div>
                                 <h1>{user.email}</h1>
                                 <button onClick={() => handleDelete(user.email)} className='deleteButton'>Delete</button>

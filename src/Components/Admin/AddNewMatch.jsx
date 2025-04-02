@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import "./AddNewMatch.css";
 import AdminPredictions from './AdminPredictions';
-import { useNavigate } from 'react-router-dom';
-import promoBackground from "../../Assets/imgone.png";
+import { useRouter } from 'next/router';
 const AddNewMatch = () => {
-  const navigate = useNavigate();
-  
+  const router = useRouter();  
   const [formData, setFormData] = useState({
     matchCategory: 'boxing',
     matchName: '',
@@ -187,7 +184,7 @@ const AddNewMatch = () => {
      <i
         className="fa fa-arrow-circle-left"
         aria-hidden="true"
-        onClick={() => navigate(-1)} // Go back to the previous page
+        onClick={() => router.push(-1)} // Go back to the previous page
         style={{ position: 'absolute', top: '38px', left: '18%', cursor: 'pointer', fontSize: '24px', color: '#007bff', zIndex: '99999' }}
       ></i>
   
@@ -275,7 +272,7 @@ const AddNewMatch = () => {
             <div className='input-wrap-one' style={{flexDirection:'column'}}>
             {formData.promotionBackground instanceof File
                 ? <img src={URL.createObjectURL(formData.promotionBackground)} alt="promotionBackground" style={{ width: '70%', objectFit: 'cover', height: 'auto', margin:'auto' }} />
-                : <img src={promoBackground} alt="promotionBackground" style={{ width: '70%', objectFit: 'cover',  height: 'auto', margin:'auto' }} />
+                : <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743561422/home/qf8hkfqxlaobsriijvmj.png" alt="promotionBackground" style={{ width: '70%', objectFit: 'cover',  height: 'auto', margin:'auto' }} />
               }
             <div className="input-group">
   <label>Promotion Background <span>*</span></label>

@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMatches } from '../../Redux/matchSlice';
 import EditMatch from './EditMatch';
-import './deleteFights.css';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { fetchMatches } from '@/Redux/matchSlice';
+import { useRouter } from 'next/router';
 
 const DeleteFights = () => {
   const dispatch = useDispatch();
   const matches = useSelector((state) => state.matches.data);
   const matchStatus = useSelector((state) => state.matches.status);
-  const navigate = useNavigate();
-
+  const router = useRouter();
   const [selectedMatchId, setSelectedMatchId] = useState(null);
   const [selectedAffiliateId, setSelectedAffiliateId] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
@@ -134,7 +132,7 @@ const DeleteFights = () => {
           <i
             className="fa fa-arrow-circle-left"
             aria-hidden="true"
-            onClick={() => navigate(-1)}
+            onClick={() => router.push(-1)}
             style={{ position: 'absolute', top: '38px', left: '18%', cursor: 'pointer', fontSize: '24px', color: '#007bff', zIndex: '99999' }}
           ></i>
           <div className='homeSecond' style={{ background: 'transparent' }}>

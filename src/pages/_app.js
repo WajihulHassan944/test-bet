@@ -21,6 +21,23 @@ import "react-calendar/dist/Calendar.css";
 import "@/styles/contact.css";
 import "@/styles/calendaroffights.css";
 import "@/styles/testimonials.css";
+import "@/styles/adminaffiliateusers.css";
+import "@/styles/admincalendar.css";
+import "@/styles/admindeletefights.css";
+import "@/styles/adminemail.css";
+import "@/styles/adminhome.css";
+import "@/styles/adminmatchdetailspromotion.css";
+import "@/styles/adminpaymentpopup.css";
+import "@/styles/adminpopup.css";
+import "@/styles/adminpredictions.css";
+import "@/styles/adminregisteredusers.css";
+import "@/styles/adminshadowlibrary.css";
+import "@/styles/adminsponsor.css";
+import "@/styles/adminupcomingfightspopup.css";
+import "@/styles/adminvisitorsanalytics.css";
+import "@/styles/adminyoutubelibrary.css";
+import "@/styles/faqs.css";
+import "@/styles/threaddetails.css";
 
 import { Provider } from "react-redux";
 import { wrapper } from "../Redux/store"; // Updated for next-redux-wrapper
@@ -41,6 +58,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import "react-calendar/dist/Calendar.css";
+import AdminHeader from "@/Components/Header/AdminHeader";
 
 
 
@@ -79,7 +97,8 @@ function AppContent({ children }) {
   const isPlaying = useSelector((state) => state.music.isPlaying);
   const seekPosition = useSelector((state) => state.music.seekPosition);
   const howlerRef = useRef(null);
-
+  const { isAdminAuthenticated } = useSelector((state) => state.adminAuth);
+  
   // Paths where Header & Footer should NOT be displayed
   const hideLayout =
     router.pathname.startsWith("/administration") ||
@@ -184,6 +203,7 @@ function AppContent({ children }) {
      <ToastContainer />
    
       {!hideLayout && <Header />}
+      {hideLayout && isAdminAuthenticated && <AdminHeader />}
       <main>{children}</main>
       {!hideLayout && <Footer />}
     </>

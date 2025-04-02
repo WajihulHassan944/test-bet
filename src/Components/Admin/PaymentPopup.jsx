@@ -1,5 +1,4 @@
 import React from 'react';
-import './PaymentPopup.css'; // Ensure this file includes the styles we defined
 
 const PaymentPopup = ({ user, onClose, onConfirm , payout}) => {
     return (

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMatches } from '../../Redux/matchSlice';
 import Popup from './Popup';
-import { getWinnerDetails } from '../../CustomFunctions/winnerUtils';
-import { useNavigate } from 'react-router-dom';
+import { fetchMatches } from '@/Redux/matchSlice';
+import { getWinnerDetails } from '@/CustomFunctions/winnerUtils';
+import { useRouter } from 'next/router';
 
 const PreviousMatches = () => {
     const dispatch = useDispatch();
@@ -16,8 +16,8 @@ const PreviousMatches = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredMatches, setFilteredMatches] = useState([]);
 
-const navigate = useNavigate();
-    useEffect(() => {
+    const router = useRouter();
+        useEffect(() => {
         dispatch(fetchMatches());
     }, [dispatch]);
 
@@ -158,7 +158,7 @@ const navigate = useNavigate();
          <i
         className="fa fa-arrow-circle-left"
         aria-hidden="true"
-        onClick={() => navigate(-1)} // Go back to the previous page
+        onClick={() => router.push(-1)} // Go back to the previous page
         style={{ position: 'absolute', top: '38px', left: '18%', cursor: 'pointer', fontSize: '24px', color: '#007bff', zIndex: '99999' }}
       ></i>
   

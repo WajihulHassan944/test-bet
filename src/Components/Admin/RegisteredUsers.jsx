@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import FighterOne from "../../Assets/fighterOne.png";
-import "./RegisteredUsers.css";
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 
 const RegisteredUsers = () => {
@@ -11,8 +9,7 @@ const RegisteredUsers = () => {
   const [tokensToGive, setTokensToGive] = useState('');
   const [addUserPopup, setAddUserPopup] = useState(false);
   const [loading, setLoading] = useState(false);
-
-const navigate = useNavigate();
+  const router = useRouter();
   const fetchData = async () => {
     try {
       const response = await fetch('https://fantasymmadness-game-server-three.vercel.app/users');
@@ -143,14 +140,14 @@ const addUser = async (data) => {
    <i
         className="fa fa-arrow-circle-left"
         aria-hidden="true"
-        onClick={() => navigate(-1)} // Go back to the previous page
+        onClick={() => router.push(-1)} // Go back to the previous page
         style={{ position: 'absolute', top: '38px', left: '18%', cursor: 'pointer', fontSize: '24px', color: '#007bff', zIndex: '99999' }}
       ></i>
    
    <div className='toFlexRowTitle'>
       <h1 className='thirdHeadingOne'>Registered Users</h1>
         <div>
-      <button className='suspendedAccntsBtn' onClick={()=>navigate('/administration/suspended-accounts')}>Suspended Accounts</button>
+      <button className='suspendedAccntsBtn' onClick={()=>router.push('/administration/suspended-accounts')}>Suspended Accounts</button>
       <button className='addAccountsBtn' onClick={() => setAddUserPopup(true)}>Add User</button>
       </div>
       </div>
@@ -160,7 +157,7 @@ const addUser = async (data) => {
           {users.map((user) => (
             <div key={user._id} className='leaderboardItem'>
               <div className='leaderboard-item-image'>
-                <img src={user.profileUrl || FighterOne} alt={`${user.firstName} ${user.lastName}`} />
+                <img src={user.profileUrl || "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743589918/home/rb0ajzfkodtx4da3jyiq.png"} alt={`${user.firstName} ${user.lastName}`} />
               </div>
               <h1>  {user.firstName} <span className='toRemove'>{user.lastName}</span></h1>
 <h1 className='toRemove'>Current Plan: {user.currentPlan}</h1>
@@ -172,7 +169,7 @@ const addUser = async (data) => {
       </div>
       {selectedUser && (
     <div className='userDetails'>
-        <img src={selectedUser.profileUrl || FighterOne} alt={`${selectedUser.firstName} ${selectedUser.lastName}`} />
+        <img src={selectedUser.profileUrl || "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743589918/home/rb0ajzfkodtx4da3jyiq.png"} alt={`${selectedUser.firstName} ${selectedUser.lastName}`} />
         <p><strong>Name:</strong> {`${selectedUser.firstName} ${selectedUser.lastName}`}</p>
         <p><strong>Email:</strong> {selectedUser.email}</p>
         <p><strong>Phone:</strong> {selectedUser.phone}</p>

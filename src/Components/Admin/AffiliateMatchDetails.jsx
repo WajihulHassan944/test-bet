@@ -1,5 +1,4 @@
 import React from 'react'
-import FighterOne from "../../Assets/fighterOne.png";
 
 const AffiliateMatchDetails = () => {
     return (
@@ -8,7 +7,7 @@ const AffiliateMatchDetails = () => {
             <h1 className='thirdHeadingOne'>Affiliate Details</h1>
     
     <div className='affiliateDetailsWrapper'>
-        <div className='imgAffiliate'><img src={FighterOne} /></div>
+        <div className='imgAffiliate'><img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743589918/home/rb0ajzfkodtx4da3jyiq.png" /></div>
 
         <div className='affiliateDetailsWrapperTwo'>
             <h1>First Name</h1>

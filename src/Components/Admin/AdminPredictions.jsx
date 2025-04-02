@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import "./AdminPredictions.css";
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { getWinnerDetails } from '../../CustomFunctions/winnerUtils';

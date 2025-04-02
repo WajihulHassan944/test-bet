@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
-import './Admin.css';
 import VisitorsAnalytics from './VisitorsAnalytics'; 
+import { useRouter } from 'next/router';
 const Admin = () => {
   const [showAnalytics, setShowAnalytics] = useState(false);
   const [dashboardCounts, setDashboardCounts] = useState({
@@ -12,8 +11,7 @@ const Admin = () => {
     totalClicks: 0, // Add totalClicks state
   });
 
-  const navigate = useNavigate(); // Initialize useNavigate
-
+  const router = useRouter();
   // Fetch all dashboard counts from the API
   useEffect(() => {
     const fetchDashboardCounts = async () => {
@@ -73,25 +71,25 @@ const Admin = () => {
       <h1 className='frontPageHeading'>Welcome to admin Dashboard</h1>
 
       <div className='boxesContainer'>
-        <div className='boxx totalMatches' onClick={() => navigate('/administration/upcomingFights')}>
+        <div className='boxx totalMatches' onClick={() => router.push('/administration/upcomingFights')}>
           <i className='fa fa-futbol-o'></i>
           <h2>Total Matches</h2>
           <p>{matchesCount}</p> {/* Render total matches */}
         </div>
 
-        <div className='boxx shadowTemplates' onClick={() => navigate('/administration/ShadowFightsLibrary')}>
+        <div className='boxx shadowTemplates' onClick={() => router.push('/administration/ShadowFightsLibrary')}>
           <i className='fa fa-clone'></i>
           <h2>Shadow Templates</h2>
           <p>{shadowTemplatesCount}</p> {/* Render shadow templates count */}
         </div>
 
-        <div className='boxx registeredUsers' onClick={() => navigate('/administration/RegisteredUsers')}>
+        <div className='boxx registeredUsers' onClick={() => router.push('/administration/RegisteredUsers')}>
           <i className='fa fa-users'></i>
           <h2>Registered Users</h2>
           <p>{usersCount}</p> {/* Render users count */}
         </div>
 
-        <div className='boxx affiliates' onClick={() => navigate('/administration/AffiliateUsers')}>
+        <div className='boxx affiliates' onClick={() => router.push('/administration/AffiliateUsers')}>
           <i className='fa fa-handshake-o'></i>
           <h2>Affiliates</h2>
           <p>{affiliatesCount}</p> {/* Render affiliates count */}

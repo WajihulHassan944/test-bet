@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './VisitorsAnalytics.css'; // Styles for the analytics page
 import { Line } from 'react-chartjs-2'; // Chart.js for the graph
 import 'chart.js/auto';
 

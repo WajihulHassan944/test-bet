@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { loginAdmin } from '../../Redux/adminAuthSlice';
-import { NavLink } from 'react-router-dom';
-import logoimage from "../../Assets/logo.png";
-import "./AdminLogin.module.css";
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { loginAdmin } from '@/Redux/adminAuthSlice';
 
 const AdminLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { loading, error } = useSelector((state) => state.adminAuth);
+  const router = useRouter();
+    const { loading, error } = useSelector((state) => state.adminAuth);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginAdmin({ email, password })).then((action) => {
       if (action.type === 'adminAuth/loginAdmin/fulfilled') {
-        navigate('/administration'); // Redirect to admin dashboard on successful login
+        router.push('/administration'); // Redirect to admin dashboard on successful login
       }
     });
   };
@@ -26,8 +24,8 @@ const AdminLogin = () => {
     <div className='adminLogin'>
       <div className='login-wrapper'>
         <div className='loginCard'>
-          <img src={logoimage} alt="Logo" />
-          <h1>Please Login Below</h1>
+        <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" />
+        <h1>Please Login Below</h1>
 
           <form onSubmit={handleSubmit}>
             <input 
@@ -53,7 +51,7 @@ const AdminLogin = () => {
           {error && <p className='error-message'>{error}</p>} {/* Display error message */}
 
           <h2>- OR -</h2>
-          <NavLink to="/" className="loginNavLink">Move To Homepage</NavLink>
+          <Link href="/" className="loginNavLink">Move To Homepage</Link>
         </div>
       </div>
     </div>

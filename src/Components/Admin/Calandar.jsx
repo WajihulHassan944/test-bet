@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMatches } from '../../Redux/matchSlice';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import './calendar.css'; // Make sure to include your styles here
-import { useNavigate } from 'react-router-dom';
+import { fetchMatches } from '@/Redux/matchSlice';
+import { useRouter } from 'next/router';
 
 const Calandar = () => {
     const dispatch = useDispatch();
@@ -16,8 +14,7 @@ const Calandar = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [currentMatch, setCurrentMatch] = useState(null);
     const [dateModalVisible, setDateModalVisible] = useState(false);
-    const navigate = useNavigate();
-
+    const router = useRouter();
     useEffect(() => {
         if (matchStatus === 'idle') {
             dispatch(fetchMatches());
@@ -74,7 +71,7 @@ const Calandar = () => {
             <i
                 className="fa fa-arrow-circle-left"
                 aria-hidden="true"
-                onClick={() => navigate(-1)} // Go back to the previous page
+                onClick={() => router.push(-1)} // Go back to the previous page
                 style={{ position: 'absolute', top: '38px', left: '18%', cursor: 'pointer', fontSize: '24px', color: '#007bff', zIndex: '99999' }}
             ></i>
 

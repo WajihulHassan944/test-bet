@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchMatches } from '../../Redux/matchSlice';
-import "./shadowLibrary.css";
 import EditMatch from './EditMatch';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { fetchMatches } from '@/Redux/matchSlice';
+import { useRouter } from 'next/router';
 
 const ShadowFightsLibrary = () => {
     const dispatch = useDispatch();
@@ -17,8 +16,7 @@ const ShadowFightsLibrary = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredMatches, setFilteredMatches] = useState([]);
 
-    const navigate = useNavigate();
-
+    const router = useRouter();
     // Function to fetch matches
     const fetchMatchesData = async () => {
         try {
@@ -162,7 +160,7 @@ const ShadowFightsLibrary = () => {
         <i
         className="fa fa-arrow-circle-left shadowFightLibraryIcon"
         aria-hidden="true"
-        onClick={() => navigate(-1)} // Go back to the previous page
+        onClick={() => router.push(-1)} // Go back to the previous page
       ></i>
    
             <div className='adminWrapper '>
