@@ -38,7 +38,7 @@ import "@/styles/adminvisitorsanalytics.css";
 import "@/styles/adminyoutubelibrary.css";
 import "@/styles/faqs.css";
 import "@/styles/threaddetails.css";
-
+import Script from "next/script";
 import { Provider } from "react-redux";
 import { wrapper } from "../Redux/store"; // Updated for next-redux-wrapper
 import { GoogleOAuthProvider } from "@react-oauth/google";
@@ -78,8 +78,31 @@ function App({ Component, ...rest }) {
           rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         />
+        
       </Head>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=AW-16787825610"
+      ></Script>
 
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-16787825610');
+        `}
+      </Script>
+
+      {/* Google AdSense Script - Only One Instance */}
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7572941850845854"
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+      />
+
+      
       <GoogleOAuthProvider clientId="261076841125-1n3ps24u5fco1js6o1u212nac7agp9dg.apps.googleusercontent.com">
         <Provider store={store}>
           <AppContent>
