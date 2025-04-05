@@ -17,10 +17,6 @@
           {
             "type": "host",
             "value": "www.fantasymmadness.com"
-          },
-          {
-            "type": "protocol",
-            "value": "http"
           }
         ],
         "destination": "https://www.fantasymmadness.com/:path*",
