@@ -38,6 +38,7 @@ import "@/styles/adminvisitorsanalytics.css";
 import "@/styles/adminyoutubelibrary.css";
 import "@/styles/faqs.css";
 import "@/styles/threaddetails.css";
+import "@/styles/blogs.css";
 import Script from "next/script";
 import { Provider } from "react-redux";
 import { wrapper } from "../Redux/store"; // Updated for next-redux-wrapper
@@ -65,9 +66,16 @@ import AdminHeader from "@/Components/Header/AdminHeader";
 function App({ Component, ...rest }) {
   const { store, props } = wrapper.useWrappedStore(rest); // Wrapped store for SSR
 
+  const router = useRouter();
+  const DOMAIN = "https://www.fantasymmadness.com";
+  const canonicalUrl = `${DOMAIN}${router.asPath === "/" ? "" : router.asPath.split("?")[0]}`;
+
+
+
   return (
     <>
       <Head>
+      <link rel="canonical" href={canonicalUrl} />
         {/* Font Awesome Latest */}
         <link
           rel="stylesheet"
