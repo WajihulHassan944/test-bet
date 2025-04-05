@@ -1,0 +1,31 @@
+{
+    "redirects": [
+      {
+        "source": "/:path*",
+        "has": [
+          {
+            "type": "host",
+            "value": "fantasymmadness.com"
+          }
+        ],
+        "destination": "https://www.fantasymmadness.com/:path*",
+        "permanent": true
+      },
+      {
+        "source": "/:path*",
+        "has": [
+          {
+            "type": "host",
+            "value": "www.fantasymmadness.com"
+          },
+          {
+            "type": "protocol",
+            "value": "http"
+          }
+        ],
+        "destination": "https://www.fantasymmadness.com/:path*",
+        "permanent": true
+      }
+    ]
+  }
+  
