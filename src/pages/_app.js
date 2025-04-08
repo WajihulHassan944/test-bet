@@ -38,6 +38,7 @@ import "@/styles/adminvisitorsanalytics.css";
 import "@/styles/adminyoutubelibrary.css";
 import "@/styles/faqs.css";
 import "@/styles/threaddetails.css";
+import "@/styles/adminaddnewblog.css";
 import "@/styles/blogs.css";
 import Script from "next/script";
 import { Provider } from "react-redux";

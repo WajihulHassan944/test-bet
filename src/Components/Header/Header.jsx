@@ -61,6 +61,8 @@ const Header = () => {
 
   const isFightsActive =
   pathname?.startsWith('/upcomingfights') ||
+  pathname?.startsWith('/blogs') ||
+  pathname?.startsWith('/blog-details') ||
   pathname?.startsWith('/past-fights') ||
   pathname?.startsWith('/YourFights') ||
   pathname?.startsWith('/calendar-of-fights') ||
@@ -259,6 +261,9 @@ const Header = () => {
           <Link href="/past-fights-records" className="submenuLink">Past Fights Videos</Link>
           <Link href="/fights-rewards" className="submenuLink">Fight Rewards</Link>
           <Link href="/fights-news" className="submenuLink">Fight News</Link>
+       
+          <Link href="/blogs" className="submenuLink">Fight Blogs</Link>
+       
         </div>
       </Link>
  
@@ -310,6 +315,7 @@ const Header = () => {
           <Link href="/fights-news" className="submenuLink">Fight News</Link>
           <Link href="/global-leaderboard" className="submenuLink">Fighters Leaderboard</Link>
           <Link href="/spin-wheel" className="submenuLink">Spin the Wheel</Link>
+          <Link href="/blogs" className="submenuLink">Fight Blogs</Link>
           </div>
       </Link>
  
@@ -408,6 +414,7 @@ const Header = () => {
           <Link href="/fights-news" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Fight News</Link>
           <Link href="/spin-wheel" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Spin the Wheel</Link>
           <Link href="/calendar-of-fights" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Fight Calendar</Link>
+          <Link href="/blogs" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Fight Blogs</Link>
           
               <Link href="/Sponsors" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Sponsors</Link>
               <Link href="/login" className='anchorlinks mobileAnchorLinks' onClick={closeMenu}>

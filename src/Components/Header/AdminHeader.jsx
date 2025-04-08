@@ -58,7 +58,16 @@ const AdminHeader = () => {
              {/* <Link href="/administration/SubscribedUsers" className={`anchorlinksAdmin ${pathname === "/administration/upcomingFights" ? "activeLinkAdmin" : ""}`}>Subscribed Users</Link>
              */} <Link href="/administration/AffiliateUsers" className={`anchorlinksAdmin ${pathname === "/administration/AffiliateUsers" ? "activeLinkAdmin" : ""}`}>Affiliate Users</Link>
               <Link href="/administration/Email" className={`anchorlinksAdmin ${pathname === "/administration/Email" ? "activeLinkAdmin" : ""}`}>Email Template</Link>
-           
+
+
+
+
+              <h1 className='matchHeading' style={{marginTop:'13px', fontSize:'21px'}}>Blogs</h1>
+              <Link href="/administration/blogs" className={`anchorlinksAdmin ${pathname === "/administration/blogs" || pathname?.startsWith('/administration/blogs/blog-details-admin') ? "activeLinkAdmin" : ""}`}>All Blogs</Link>
+              <Link href="/administration/blogs/add-new-blog" className={`anchorlinksAdmin ${pathname === "/administration/blogs/add-new-blog" ? "activeLinkAdmin" : ""}`}>Add a blog</Link>
+          
+
+
             </div>
           </div>
 
