@@ -2135,7 +2135,9 @@ margin-bottom: 10px;
 font-family: 'UfcSansRegular', Arial, sans-serif;
 color: #e2211c;
 }
-
+body{
+  overflow-x: hidden !important;
+}
 /* Thread body text (limited height) */
 .thread-body-updated {
 font-size: 20px;
