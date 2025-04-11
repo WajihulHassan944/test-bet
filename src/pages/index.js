@@ -97,16 +97,23 @@ const Home = ({ slideData }) => {
   <h3 className={styles.thirdHomePageHeading}>🎉 Welcome, NEW USERS! 🎉</h3>
   <h2 className={styles.thirdHomePageSubheading}>Claim Your $20 Tokens Free Today!</h2>
   <p className={styles.thirdHomePageDescription}>
-    Join the action now and kickstart your journey in Fantasy MMA Madness with an exclusive bonus!
+    Step into the world of fantasy combat sports and feel the *thrill of combat* like never before! Whether you're a hardcore fight fan or a strategic thinker,
+    this is your chance to jump into the action and start building your legacy.
   </p>
   <p className={styles.thirdHomePageDescription}>
-    As a new user, you'll receive $20 worth of free tokens to build your fantasy fight card, make strategic picks, and test your combat sports knowledge.
+    As a new user, you’ll receive $20 worth of free tokens — a powerful head start to fuel your journey through the adrenaline-pumping universe of Fantasy MMA Madness.
+    Use your tokens to create your ultimate fantasy fight card, pick your champions, and outwit your opponents with each matchup.
   </p>
   <p className={styles.thirdHomePageDescription}>
-    Whether you're into MMA, Boxing, Kickboxing, or Bare Knuckle brawls — this is your chance to dominate the virtual arena and win real prizes.
+    The *thrill of combat* isn't just in the cage — it's in every decision you make, every pick you choose, and every virtual showdown you dominate.
+    From MMA and Boxing to Kickboxing and Bare Knuckle brawls, the intensity never stops. Each fight night brings new opportunities to win big and prove your skills.
   </p>
   <p className={styles.thirdHomePageDescription}>
-    Sign up now to compete in weekly fantasy matchups, earn rewards, and experience the adrenaline of fight night like never before!
+    Join thousands of fans who live for the fight. Compete in weekly contests, climb the leaderboard, and earn real rewards.
+    Experience the *thrill of combat* in a whole new way — through strategy, excitement, and unmatched fantasy gameplay.
+  </p>
+  <p className={styles.thirdHomePageDescription}>
+    Ready to dive in? Sign up now, claim your bonus, and bring the heat. Because the *thrill of combat* starts the moment you enter the arena.
   </p>
   <Link href="/CreateAccount">
     <button className={styles.thirdHomePageButton}>Sign Up Now 🚀</button>
