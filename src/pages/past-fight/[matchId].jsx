@@ -2,9 +2,6 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image';
-// Import assets
-import one from "../../Assets/calender/four.png";
-import two from "../../Assets/calender/six.png";
 import { fetchMatches } from '@/Redux/matchSlice';
 
 const PastFightDetails = () => {
@@ -29,9 +26,9 @@ console.log(match);
 
     return (
         <div className='past-fights-container details-of-past-fight'>
-            <Image src={one} alt="one" className='one-in-past' />
-            <Image src={two} alt="two" className='two-in-past' />
-            <Image src={two} alt="three" className='three-in-past' />
+            <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744521489/home/j07ebmpdpu819pyk9mpy.png" alt="one" className='one-in-past' />
+            <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744521571/home/avbwladhpntcpvvwextc.png" alt="two" className='two-in-past' />
+            <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744521571/home/avbwladhpntcpvvwextc.png" alt="three" className='three-in-past' />
 
             <div className='past-fights-details'>
                 <h1>{match.matchName}</h1>

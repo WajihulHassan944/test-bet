@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMatches } from '../../Redux/matchSlice';
-import "../../Components/Dashboard/FightDetails.module.css";
-import "../CreateAccount/CreateAccount.module.css";
 const PromoTwo = ({matchId , affiliateId}) => {
     const dispatch = useDispatch();
       const [affiliate, setAffiliate] = useState(null);

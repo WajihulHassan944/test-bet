@@ -2,18 +2,16 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../../Assets/logo.png";
-import Facebook from "../../Assets/facebook-removebg-preview-two.png";
-import Twitter from "../../Assets/twitter-removebg-preview-two.png";
-import Insta from "../../Assets/insta-removebg-preview-two.png";
-import Tiktok from "../../Assets/tiktok.png";
 import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
     <footer className={styles.footerDistributed}>
       <div className={styles.footerLeft}>
-        <Image src={Logo} alt="Logo" width={70} height={70} />
+        <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo"
+            width={70}
+              height={70}
+            />
         <p>2350 Beaver Ruin Rd, Norcross Georgia 30071</p>
         <p>
           <a href="mailto:Contact@fantasymmadness.com">
@@ -57,12 +55,13 @@ const Footer = () => {
             rel="noopener noreferrer"
             style={{ background: "transparent" }}
           >
-            <Image
-              src={Facebook}
+            <img
+              src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520491/home/sdypowaaa41si4blo55j.png"
               alt="Facebook"
+              style={{ objectFit: "cover", borderRadius: "50%" }}
               width={40}
               height={40}
-              style={{ objectFit: "cover", borderRadius: "50%" }}
+          
             />
           </a>
           <a
@@ -71,8 +70,8 @@ const Footer = () => {
             rel="noopener noreferrer"
             style={{ background: "transparent" }}
           >
-            <Image
-              src={Insta}
+            <img
+              src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520538/home/f4jdp7xacrjykuamdtrr.png"
               alt="Instagram"
               width={40}
               height={40}
@@ -85,8 +84,8 @@ const Footer = () => {
             rel="noopener noreferrer"
             style={{ background: "transparent" }}
           >
-            <Image
-              src={Twitter}
+            <img
+              src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520575/home/okbosgyxz2el7kqdrtlb.png"
               alt="Twitter"
               width={40}
               height={40}
@@ -99,8 +98,8 @@ const Footer = () => {
             rel="noopener noreferrer"
             style={{ background: "transparent" }}
           >
-            <Image
-              src={Tiktok}
+            <img
+              src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520574/home/eywwmlypt3qlh0btknoc.png"
               alt="Tiktok"
               width={40}
               height={40}

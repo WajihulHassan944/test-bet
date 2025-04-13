@@ -1,10 +1,5 @@
 import React from 'react';
-import Four from "../../Assets/affiliateDashboard/fourone.png";
-import FourTwo from "../../Assets/affiliateDashboard/fourone.png";
-import Five from "../../Assets/affiliateDashboard/five.png";
-import Six from "../../Assets/affiliateDashboard/six.png";
 import { useRouter } from 'next/router';
-import "../HowToPlay/HowToPlay.module.css";
 import Image from 'next/image';
 const HowItWorks = () => {
     const router = useRouter();
@@ -19,10 +14,10 @@ const HowItWorks = () => {
       ></i>
    
             <div className='howtoplay-wrapper howtoplay-updated'>
-           <Image src={Four} alt="img" className='four' />
-           <Image src={FourTwo} alt="img" className='five' />
-           <Image src={Five} alt="img" className='six' />
-           <Image src={Six} alt="img" className='seven' />
+           <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520027/home/eputtbnopyk67zsjwgxg.png" alt="img" className='four' />
+           <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520027/home/eputtbnopyk67zsjwgxg.png" alt="img" className='five' />
+           <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520113/home/la9zzjpiy0skfugkdsws.png" alt="img" className='six' />
+           <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520162/home/ngsmbx2ki7ewp1fv3fjg.webp" alt="img" className='seven' />
            
            
            

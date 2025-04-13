@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./testimonials.module.css";
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);

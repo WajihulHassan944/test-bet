@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import FighterOne from "../../Assets/fighterOne.png";
-import "./FightLeaderboard.module.css";
-import "./FightLeaderboardUpdated.module.css";
 import { useSelector, useDispatch } from 'react-redux';
 import { stopMusic, playMusic } from '../../Redux/musicSlice';
 import { fetchMatches } from '../../Redux/matchSlice';
@@ -230,7 +227,7 @@ const renderLeaderboardItems = () => {
     .map((item, index) => (
       <div className='leaderboardItemUpdated' key={index}>
         <div className='leaderboard-item-imageUpdated'>
-          <img src={item.user.profileUrl || FighterOne} alt={item.user.firstName} />
+          <img src={item.user.profileUrl || "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519663/home/dpwqg3n2k6xljperunif.png"} alt={item.user.firstName} />
         </div>
         <h1>{item.user.firstName} <span className='toRemove'>{item.user.lastName}</span></h1>
         <h1>Points {item.totalPoints}</h1>

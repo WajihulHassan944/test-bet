@@ -1,8 +1,5 @@
 import React, {useEffect} from 'react';
 import { useSelector } from 'react-redux';
-import "../UserProfile/Profile.module.css";
-import "./affiliateprofile.module.css";
-import "../CreateAccount/Membership.module.css";
 import { useDispatch } from 'react-redux';
 import { fetchMatches } from '../../Redux/matchSlice';
 import { useRouter } from 'next/router';

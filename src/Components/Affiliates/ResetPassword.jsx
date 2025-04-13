@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import logoimage from "../../Assets/logo.png";
 
 const ResetPassword = () => {
     const { token } = useParams();
@@ -52,7 +51,7 @@ const ResetPassword = () => {
     return (
         <div className="login-wrapper">
             <div className="loginCard">
-            <img src={logoimage} alt="Logo" />
+            <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" />
          
                 <h1>Reset Your Password</h1>
                 <form onSubmit={handleSubmit}>

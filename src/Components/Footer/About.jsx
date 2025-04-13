@@ -1,5 +1,4 @@
 import React from 'react'
-import "../Home/Sponsors.module.css";
 const About = () => {
     return (
         <div className='sponsors-wrap'>

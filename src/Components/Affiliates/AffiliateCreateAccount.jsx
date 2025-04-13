@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import "../CreateAccount/CreateAccount.module.css";
 import AffiliateThankyou from './AffiliateThankyou';  // Import Thankyou component
 import ReCAPTCHA from "react-google-recaptcha";  // Import reCAPTCHA
-import Logo1 from "../../Assets/FA.png";
 
 const AffiliateCreateAccount = () => {
     const [formData, setFormData] = useState({
@@ -163,7 +161,7 @@ const AffiliateCreateAccount = () => {
 
                     <div className='input-wrap-one specialDivInputs'>
                         <div className='input-group special-input-group'>
-                            <img src={formData.affiliateImage || Logo1} alt="Affiliate Logo" style={{background:'#fff', border:'2px solid blue'}} />
+                            <img src={formData.affiliateImage || "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519110/home/mzfjvo1lq3q8tv7fwjjz.png"} alt="Affiliate Logo" style={{background:'#fff', border:'2px solid blue'}} />
                         </div>
                     </div>
                     <div className='input-wrap-one'>

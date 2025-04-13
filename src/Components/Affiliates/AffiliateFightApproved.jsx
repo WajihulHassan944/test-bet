@@ -1,5 +1,4 @@
 import React from 'react'
-import Logo from "../../Assets/fighterOne.png";
 import "./fightApproved.module.css";
 const AffiliateFightApproved = () => {
     return (
@@ -8,7 +7,7 @@ const AffiliateFightApproved = () => {
                 <div className='fightDetails global-leaderboard'>
                     <div className='member-header'>
                         <div className='member-header-image'>
-                            <img src={Logo} alt="Logo" />
+                            <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519663/home/dpwqg3n2k6xljperunif.png" alt="Logo" />
                         </div>
                         <h3><span className='toRemove'>Member Name - </span>Wajih</h3>
                         <h3>Balance: $2500</h3>
@@ -32,14 +31,14 @@ const AffiliateFightApproved = () => {
                         <div className='fightersImagesInFightDetails'>
                             <div className='flexColumn'>
                                 <div className='imgWrapFights' style={{border:'none'}}>
-                                    <img src={Logo} style={{border:'3px solid blue'}}  />
+                                    <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519663/home/dpwqg3n2k6xljperunif.png" style={{border:'3px solid blue'}}  />
                                 </div>
                                 <h1 className='fightTypeInFightDetails'>matchFighterA</h1>
                             </div>
                             <h1>VS</h1>
                             <div className='flexColumn'>
                                 <div className='imgWrapFights' style={{border:'none'}}>
-                                    <img src={Logo} style={{border:'3px solid red'}} />
+                                    <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519663/home/dpwqg3n2k6xljperunif.png" style={{border:'3px solid red'}} />
                                 </div>
                                 <h1 className='fightTypeInFightDetails'>matchFighterB</h1>
                             </div>
@@ -59,12 +58,12 @@ const AffiliateFightApproved = () => {
     <h1>Group chat started</h1>
     <div className='chatsWrapper'>
         <div className='chatLine'>
-            <img src={Logo} />
+            <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519663/home/dpwqg3n2k6xljperunif.png" />
             <h2>Wajih</h2>
             <p>Wow! This is pretty cool.</p>
         </div>
         <div className='chatLine'>
-        <div className='userImage'><img src={Logo} /></div>
+        <div className='userImage'><img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519663/home/dpwqg3n2k6xljperunif.png" /></div>
             <h2>Wajih</h2>
             <p>Wow! This is pretty cool.</p>
         </div>

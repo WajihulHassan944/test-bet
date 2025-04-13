@@ -1,6 +1,5 @@
 import React from 'react'
 
-import "./Sponsors.module.css";
 import Image from 'next/image';
 const Rewards = () => {
     return (

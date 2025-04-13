@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import "./CreateAccount.module.css";
-import backgroundImg from "../../Assets/new-bg.png";
 import Thankyou from './Thankyou';  // Import Thankyou component
 import UploadAvatar from './UploadAvatar';  // Import UploadAvatar component
 import ReCAPTCHA from "react-google-recaptcha";  // Import reCAPTCHA
@@ -470,7 +468,7 @@ iubenda hosts this content and only collects the Personal Data strictly necessar
             </div>
 
             <div className='backgrounfImg'>
-                <Image className='gloveInCreateAccnt' src={backgroundImg} alt="Background" />
+                <img className='gloveInCreateAccnt' src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744521164/home/pxgowottasyocvwangbb.png" alt="Background" />
             </div>
         </div>
     );

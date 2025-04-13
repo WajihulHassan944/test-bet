@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './MakePredictions.module.css';
-import "../CreateAccount/CreateAccount.module.css";
 import { useSelector } from 'react-redux';
 
 const MakePredictions = ({ matchId }) => {

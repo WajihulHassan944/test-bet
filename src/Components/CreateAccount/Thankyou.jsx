@@ -1,6 +1,4 @@
 import React from 'react';
-import "./Thankyou.module.css";
-import Background from "../../Assets/thankyou.png";
 
 const Thankyou = ({ response }) => {
   return (
@@ -11,7 +9,7 @@ const Thankyou = ({ response }) => {
       </div>
      
       <div className='imgwrap'>
-        <img src={Background} alt="Thank you" />
+        <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519848/home/a2k9s7ohq2hmnhlgokjk.png" alt="Thank you" />
       </div>
     </div>
   );

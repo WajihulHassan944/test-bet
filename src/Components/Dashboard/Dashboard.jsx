@@ -1,10 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './Dashboard.module.css';
-import "../Home/Home.module.css";
 import { fetchMatches } from '../../Redux/matchSlice';
-import "../CreateAccount/Membership.module.css";
 import FightCosting from './FightCosting'
 import FightLeaderboard from '../GlobalLeaderboard/FightLeaderboard';
 import PurchaseTokensIntimation from './PurchaseTokensIntimation';

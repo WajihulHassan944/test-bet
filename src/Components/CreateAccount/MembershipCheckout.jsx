@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import "./MembershipCheckout.module.css";
 import { useSelector } from 'react-redux';
 import ThankyouPurchaseTokens from '../Dashboard/ThankyouPurchaseTokens';
 import Link from 'next/link';

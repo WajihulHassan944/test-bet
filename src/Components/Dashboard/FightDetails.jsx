@@ -1,8 +1,4 @@
 import React from 'react'
-import "./FightDetails.module.css";
-import Logoimage from "../../Assets/myimg.jpg";
-import FighterOne from "../../Assets/fighterOne.png";
-import FightTwo from "../../Assets/fighterTwo.png";
 const FightDetails = () => {
   return (
     <div className='fightDetails'>
@@ -10,7 +6,7 @@ const FightDetails = () => {
       
       <div className='member-header'>
         <div className='member-header-image'>
-          <img src={Logoimage} alt="Logo" />
+          <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" />
         </div>
         <h3>Member Name - upgrade</h3>
         <h3>Current plan: None</h3>
@@ -28,9 +24,9 @@ const FightDetails = () => {
         <h1 className='fightDetailsContainerFirstHeading'>Fight: <span>Fight TiTLE</span></h1>
 
         <div className='fightersImagesInFightDetails'>
-            <div className='imgWrapFights'><img src={FighterOne} /></div>
+            <div className='imgWrapFights'><img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519663/home/dpwqg3n2k6xljperunif.png" /></div>
             <h1>VS</h1>
-            <div className='imgWrapFights'><img src={FightTwo} /></div>
+            <div className='imgWrapFights'><img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519663/home/dpwqg3n2k6xljperunif.png" /></div>
         </div>
 
             <h1 className='fightTypeInFightDetails'>Fight type: <span>Boxing</span>

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './homeLeaderboard.module.css';
-import FighterOne from '../../Assets/fighterOne.png';
 import useLeaderboardData from '../../CustomFunctions/useLeaderboardData';
 import Link from "next/link";
 import { fetchMatches } from '../../Redux/matchSlice';
@@ -42,7 +40,7 @@ const dispatch = useDispatch();
     return leaderboard.map((user, index) => (
       <div className='homeLeaderboardItem' key={user._id}>
         <div className='home-leaderboard-item-image'>
-          <img src={user.profileUrl || FighterOne} alt={user.firstName} />
+          <img src={user.profileUrl || "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519663/home/dpwqg3n2k6xljperunif.png"} alt={user.firstName} />
         </div>
         <div className='home-leaderboard-userdata'>
         

@@ -1,8 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import "./YourFights.module.css";
-import "../CreateAccount/Membership.module.css";
-import "../Dashboard/Dashboard.module.css";
-import "../Home/Home.module.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMatches } from '../../Redux/matchSlice';
 import FightLeaderboard from '../GlobalLeaderboard/FightLeaderboard';

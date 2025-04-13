@@ -1,5 +1,4 @@
 import React from 'react'
-import "../HowToPlay/HowToPlay.module.css";
 const PrivacyPolicy = () => {
     return (
        

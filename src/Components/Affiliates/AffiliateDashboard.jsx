@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import "./AffiliatedashboardNew.module.css";
 import AffiliateAddNewMatch from './AffiliateAddNewMatch';
 import AffiliateMatchDetails from './AffiliateMatchDetails';
-import AffiliateHeadingBackground from "../../Assets/affiliateDashboard/ten.png";
-import Fighter from "../../Assets/affiliateDashboard/elevenu.png";
 import { fetchMatches } from '../../Redux/matchSlice';
 import Image from 'next/image';
-const MAX_CARDS = 5; // Max number of fight cards to display at a time
+const MAX_CARDS = 5; 
 
 const AffiliateDashboard = () => {
   const [shadowMatchId, setShadowMatchId] = useState(null);
@@ -136,14 +133,14 @@ const AffiliateDashboard = () => {
         </section>
         
         <section className="affiliate-dashboard-fights">
-          <Image src={Fighter} alt="fighter" className='section-fighter' />
+          <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519558/home/e0ussa6oqjjgbzbdxl0h.png" alt="fighter" className='section-fighter' />
           <div className="fights-div-promotion">
             <div className='fights-grid-affiliate'>
 
               {/* Promotion Fights */}
               <div className="column one">
                 <div className="promotion-container">
-                  <Image src={AffiliateHeadingBackground} alt="Background" className="promotion-bg" />
+                  <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519300/home/n9m6d30myiherfs0ico2.png" alt="Background" className="promotion-bg" />
                   <h1 className="promotion-heading">Shadow Templates</h1>
                 </div>
 
@@ -165,7 +162,7 @@ const AffiliateDashboard = () => {
               {/* Promoted Fights */}
               <div className="column two">
                 <div className="promotion-container">
-                  <Image src={AffiliateHeadingBackground} alt="Background" className="promotion-bg" />
+                  <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519300/home/n9m6d30myiherfs0ico2.png" alt="Background" className="promotion-bg" />
                   <h1 className="promotion-heading">Promoted Fights</h1>
                 </div>
 

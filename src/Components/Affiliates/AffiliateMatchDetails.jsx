@@ -6,8 +6,6 @@ import AffiliateFightLeaderboard from './AffiliateFightLeaderboard';
 import { fetchMatches } from '../../Redux/matchSlice';
 import QRCode from 'qrcode'; 
 import dynamic from "next/dynamic";
-import "./affiliateprofile.module.css";
-import "../CreateAccount/CreateAccount.module.css"
 const ReactMediaRecorder = dynamic(
   () => import("react-media-recorder").then((mod) => mod.ReactMediaRecorder),
   { ssr: false }
@@ -15,7 +13,6 @@ const ReactMediaRecorder = dynamic(
 
 import s3 from "../Config/s3Config"; // Importing the configured S3 instance
 import { toast } from 'react-toastify';
-import "../Dashboard/FightDetails.module.css"
 import { stopMusic, playMusic } from '../../Redux/musicSlice';
 import { Signer } from 'aws-sdk';
 import UsersPlayed from './UsersPlayed/UsersPlayed';

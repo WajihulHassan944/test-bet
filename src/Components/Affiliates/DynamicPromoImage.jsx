@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import BackgroundImg from "../../Assets/imgone.png"; // Adjust the path as needed
 
 const DynamicPromoImage = () => {
   const canvasRef = useRef(null);
@@ -22,7 +21,7 @@ const DynamicPromoImage = () => {
     const ctx = canvas.getContext('2d');
 
     const backgroundImage = new Image();
-    backgroundImage.src = BackgroundImg;
+    backgroundImage.src = "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743561422/home/qf8hkfqxlaobsriijvmj.png";
 
     const fighterOneImage = new Image();
     fighterOneImage.crossOrigin = "anonymous";

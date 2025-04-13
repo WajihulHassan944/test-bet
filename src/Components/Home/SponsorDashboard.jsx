@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import "../Home/Sponsors.module.css";
 const SponsorDashboard = () => {
   const [sponsor, setSponsor] = useState(null);
 

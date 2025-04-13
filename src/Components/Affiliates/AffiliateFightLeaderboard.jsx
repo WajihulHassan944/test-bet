@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import FighterOne from "../../Assets/fighterOne.png";
 import { useSelector } from 'react-redux';
 
 const AffiliateFightLeaderboard = ({ matchId }) => {
@@ -192,7 +191,7 @@ const AffiliateFightLeaderboard = ({ matchId }) => {
     
         return (
           <div className='leaderboardItem' key={index}>
-            <div className='leaderboard-item-image'><img src={user.profileUrl || FighterOne} alt={user.firstName} /></div>
+            <div className='leaderboard-item-image'><img src={user.profileUrl || "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519663/home/dpwqg3n2k6xljperunif.png"} alt={user.firstName} /></div>
             <h1>{user.firstName} <span className='toRemove'>{user.lastName}</span></h1>
             <h1 className='toRemove'>#RW</h1> <h1 className='toRemove'>#KO</h1>
             <h1>Points {totalPoints}</h1>

@@ -2,12 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../Redux/authSlice';
 import { logoutAffiliate } from '../../Redux/affiliateAuthSlice';
-import Logo from "../../Assets/logo.png";
-import "./Header.module.css";
 import Link from "next/link"; 
 import { toast } from 'react-toastify';
 import Image from "next/image";
-import WinImg from "../../Assets/promotional-banner-home-removebg-preview.png";
 import { useRouter } from 'next/router';
 
 const Header = () => {
@@ -143,7 +140,7 @@ const Header = () => {
         <div className="container-promotion-absolute-center">
           <div className="close-button" onClick={handleClose}>✖</div>
           <div className='imgpromotionContainer'>
-            <Image src={WinImg} alt="winimg" className="promotion-image-in-header" />
+            <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520875/home/vcq7lbcvchzpapwpqsly.png" alt="winimg" className="promotion-image-in-header" />
           </div>
           <Link href="/CreateAccount" onClick={handleClose}>
             <button className="signup-button">Sign up Now</button>
@@ -160,7 +157,7 @@ const Header = () => {
         <div className="header user-header" style={headerStyles}>
           <div className="logoimg">
             <Link href="/">
-              <Image src={Logo} alt="Logo" className="logoimageactual" />
+              <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
             </Link>
           </div>
           <div className="anchorLinksWrapper">
@@ -187,7 +184,7 @@ const Header = () => {
         <div className="header user-header">
           <div className="logoimg">
             <Link href="/">
-              <Image src={Logo} alt="Logo" className="logoimageactual" />
+              <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
             </Link>
           </div>
           <div className="anchorLinksWrapper">
@@ -230,7 +227,7 @@ const Header = () => {
         <div className="header public-header" style={headerStyles}>
           <div className="logoimg">
             <Link href="/">
-              <Image src={Logo} alt="Logo" className="logoimageactual" />
+              <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
             </Link>
           </div>
           <div className="anchorLinksWrapper">
@@ -271,7 +268,7 @@ const Header = () => {
         <div className="header public-header" style={headerStyles}>
           <div className="logoimg">
             <Link href="/">
-              <Image src={Logo} alt="Logo" className="logoimageactual" />
+              <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
             </Link>
           </div>
           <div className="anchorLinksWrapper">
@@ -322,7 +319,7 @@ const Header = () => {
         <div className="logoimg">
           <Link href="/" onClick={closeMenu}>
             <center>
-              <Image src={Logo} alt="Logo" className="logoimageactual" />
+              <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
             </center>
           </Link>
         </div>

@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import './GlobalLeaderboard.module.css';
-import "../CreateAccount/Membership.module.css";
-import "../Dashboard/FightDetails.module.css";
-import "../Home/Home.module.css";
-import FighterOne from '../../Assets/fighterOne.png';
 import useLeaderboardData from '../../CustomFunctions/useLeaderboardData';
 import { useRouter } from 'next/router';
 
@@ -39,7 +34,7 @@ const router = useRouter();
     return leaderboard.map((user, index) => (
       <div className='leaderboardItem' key={user._id} data-aos="zoom-in">
         <div className='leaderboard-item-image'>
-          <img src={user.profileUrl || FighterOne} alt={user.firstName} />
+          <img src={user.profileUrl || "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519663/home/dpwqg3n2k6xljperunif.png"} alt={user.firstName} />
         </div>
         <h1>{user.firstName} <span className='toRemove'>{user.lastName}</span></h1>
         <h1 className='toRemove'>RW#</h1>

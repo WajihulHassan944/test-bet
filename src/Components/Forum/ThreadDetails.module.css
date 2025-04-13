@@ -6,7 +6,7 @@
     align-items: center;
     padding-top: 100px;
     padding-bottom: 50px;
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../../Assets/banner.png);
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(/Assets/banner.png);
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -171,7 +171,7 @@
     padding-left: 72px;
     padding-right: 30px;
     min-height: 100vh; /* Full-screen height */
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)),url(../../Assets/backone.png);
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)),url(/Assets/backone.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

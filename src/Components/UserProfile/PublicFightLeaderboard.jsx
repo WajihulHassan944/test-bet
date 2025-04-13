@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import FighterOne from "../../Assets/fighterOne.png";
 import { useSelector } from 'react-redux';
-import "../GlobalLeaderboard/FightLeaderboard.module.css";
-import "../GlobalLeaderboard/GlobalLeaderboard.module.css";
-import "../CreateAccount/Membership.module.css";
-import "../Dashboard/FightDetails.module.css";
 const PublicFightLeaderboard = ({ matchId ,name, plan, profileUrl }) => {
     const [scores, setScores] = useState([]);
   const [users, setUsers] = useState([]);
@@ -114,7 +109,7 @@ const PublicFightLeaderboard = ({ matchId ,name, plan, profileUrl }) => {
   
       return (
         <div className='leaderboardItem' key={index}>
-          <div className='leaderboard-item-image'><img src={user.profileUrl || FighterOne} alt={user.firstName} /></div>
+          <div className='leaderboard-item-image'><img src={user.profileUrl || "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744519663/home/dpwqg3n2k6xljperunif.png"} alt={user.firstName} /></div>
           <h1>{user.firstName} {user.lastName}</h1>
           <h1>#RW</h1> <h1>#KO</h1>
           <h1>Points {totalPoints}</h1>

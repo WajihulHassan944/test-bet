@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import "./UploadAvatar.module.css";
-import Image from "../../Assets/logo.png";
 import Membership from './Membership'; // Import the Membership component
 
 const UploadAvatar = ({ email }) => {
@@ -53,7 +51,7 @@ const UploadAvatar = ({ email }) => {
   return (
     <div className='uploadAvatar'>
       <h1>Registration Confirmed <br /> Upload your player image avatar below </h1>
-      <img src={selectedImage ? URL.createObjectURL(selectedImage) : Image} alt="Player Avatar" />
+      <img src={selectedImage ? URL.createObjectURL(selectedImage) : "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp"} alt="Player Avatar" />
       <input
         type="file"
         accept="image/*"

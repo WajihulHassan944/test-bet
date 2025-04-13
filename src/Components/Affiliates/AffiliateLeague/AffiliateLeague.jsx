@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './style.module.css';
 import { useSelector } from 'react-redux';
 
 const AffiliateLeague = () => {

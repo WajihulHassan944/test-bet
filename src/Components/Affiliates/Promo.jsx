@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchMatches } from '../../Redux/matchSlice';
 import AffiliateFightLeaderboard from './AffiliateFightLeaderboard';
-import "./promo.module.css";
-import title from "../../Assets/promotional/title.png";
 
 const Promo = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -167,7 +165,7 @@ const Promo = () => {
 <h2 className="round-show">${match.matchTokens} Ticket Hurry Up</h2>	
 	
 		<div className="title-wrap">
-		<img src={title} className="fancy-title-img" />
+		<img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744522571/home/zn6g3lrpztxemnxzn4ud.png" className="fancy-title-img" />
 		<h1 className="fancy-title">POT: ${match.pot}, Max Rounds: {match.maxRounds}</h1>
 		</div>
 		

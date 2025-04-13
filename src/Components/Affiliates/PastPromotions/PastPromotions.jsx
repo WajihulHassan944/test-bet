@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
-import "../UsersPlayed/style.module.css";
-import "./style.module.css";
 import { fetchMatches } from '../../../Redux/matchSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
