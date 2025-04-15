@@ -33,6 +33,20 @@ export default function Document() {
                 <link rel="preload" href="/Fonts/UFCSans-CondensedBold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
                 <link rel="preload" href="/Fonts/UFCSans-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
                 <link rel="preload" href="/Assets/affiliateDashboard/edosz.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+            
+<meta property="og:title" content="Fantasy Mmadness | Fantasy Sports Reimagined" />
+<meta property="og:description" content="Join Fantasy Mmadness for exciting fantasy MMA games and more." />
+<meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/174/174857.png" />
+<meta property="og:url" content="https://fantasymmadness.com" />
+<meta property="og:type" content="website" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@davis_kell51697" />
+<meta name="twitter:title" content="Fantasy Mmadness | Fantasy Sports Reimagined" />
+<meta name="twitter:description" content="Join Fantasy Mmadness for exciting fantasy MMA games and more." />
+<meta name="twitter:image" content="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" />
+
+
             </Head>
             <body>
                 <Main />

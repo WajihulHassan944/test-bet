@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./Footer.module.css";
 
@@ -8,10 +7,12 @@ const Footer = () => {
   return (
     <footer className={styles.footerDistributed}>
       <div className={styles.footerLeft}>
-        <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo"
-            width={70}
-              height={70}
-            />
+        <img
+          src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp"
+          alt="Logo"
+          width={70}
+          height={70}
+        />
         <p>2350 Beaver Ruin Rd, Norcross Georgia 30071</p>
         <p>
           <a href="mailto:Contact@fantasymmadness.com">
@@ -50,7 +51,7 @@ const Footer = () => {
 
         <div className={styles.footerIcons}>
           <a
-            href="https://www.facebook.com/share/2pzYV9XdQpAU7n6p/?mibextid=LQQJ4d"
+            href="https://www.facebook.com/fantasymmadness" // <-- Use actual page URL
             target="_blank"
             rel="noopener noreferrer"
             style={{ background: "transparent" }}
@@ -61,9 +62,9 @@ const Footer = () => {
               style={{ objectFit: "cover", borderRadius: "50%" }}
               width={40}
               height={40}
-          
             />
           </a>
+
           <a
             href="https://www.instagram.com/fantasymmadness"
             target="_blank"
@@ -78,6 +79,7 @@ const Footer = () => {
               style={{ objectFit: "cover", borderRadius: "50%" }}
             />
           </a>
+
           <a
             href="https://x.com/davis_kell51697"
             target="_blank"
@@ -86,12 +88,13 @@ const Footer = () => {
           >
             <img
               src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520575/home/okbosgyxz2el7kqdrtlb.png"
-              alt="Twitter"
+              alt="Twitter (X)"
               width={40}
               height={40}
               style={{ objectFit: "cover", borderRadius: "50%" }}
             />
           </a>
+
           <a
             href="https://www.tiktok.com/@fantasy.mmadness"
             target="_blank"
@@ -106,6 +109,22 @@ const Footer = () => {
               style={{ objectFit: "cover", borderRadius: "50%" }}
             />
           </a>
+
+<a
+  href="https://www.youtube.com/@FantasyMMadness"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{ background: "transparent" }}
+>
+  <img
+    src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
+    alt="YouTube"
+    width={40}
+    height={40}
+    style={{ objectFit: "cover", marginLeft:'3px'}}
+  />
+</a>
+
         </div>
       </div>
     </footer>
