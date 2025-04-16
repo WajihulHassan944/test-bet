@@ -2,12 +2,13 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./Footer.module.css";
+import Image from "next/image";
 
 const Footer = () => {
   return (
     <footer className={styles.footerDistributed}>
       <div className={styles.footerLeft}>
-        <img
+        <Image
           src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp"
           alt="Logo"
           width={70}
@@ -15,11 +16,16 @@ const Footer = () => {
         />
         <p>2350 Beaver Ruin Rd, Norcross Georgia 30071</p>
         <p>
-          <a href="mailto:Contact@fantasymmadness.com">
-            Contact@fantasymmadness.com
-          </a>
+        <Image
+  src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744772242/home/n5zql2bybao3c7q82hi2.png"
+  alt="Contact Email"
+  width={200}
+  height={25}
+  className={styles.contactImg}
+/>
+
         </p>
-        <p className={styles.footerCompanyName}>Fantasy Mmadness © 2024</p>
+        <p className={styles.footerCompanyName}>Fantasy Mmadness © 2025</p>
       </div>
 
       <div className={styles.footerCenter}>
@@ -56,7 +62,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             style={{ background: "transparent" }}
           >
-            <img
+            <Image
               src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520491/home/sdypowaaa41si4blo55j.png"
               alt="Facebook"
               style={{ objectFit: "cover", borderRadius: "50%" }}
@@ -71,7 +77,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             style={{ background: "transparent" }}
           >
-            <img
+            <Image
               src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520538/home/f4jdp7xacrjykuamdtrr.png"
               alt="Instagram"
               width={40}
@@ -86,7 +92,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             style={{ background: "transparent" }}
           >
-            <img
+            <Image
               src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520575/home/okbosgyxz2el7kqdrtlb.png"
               alt="Twitter (X)"
               width={40}
@@ -101,7 +107,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             style={{ background: "transparent" }}
           >
-            <img
+            <Image
               src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520574/home/eywwmlypt3qlh0btknoc.png"
               alt="Tiktok"
               width={40}
@@ -116,7 +122,7 @@ const Footer = () => {
   rel="noopener noreferrer"
   style={{ background: "transparent" }}
 >
-  <img
+  <Image
     src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
     alt="YouTube"
     width={40}

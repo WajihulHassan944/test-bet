@@ -11,6 +11,9 @@ const nextConfig = {
   experimental: {
     appDir: true, // Ensure Next.js recognizes the custom structure
   },
+  images: {
+    domains: ['res.cloudinary.com', 'cdn-icons-png.flaticon.com'],
+  },
 };
 
 export default nextConfig;
