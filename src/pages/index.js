@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/Home.module.css";
 import { playMusic, stopMusic } from "@/Redux/musicSlice";
+import ReactPlayer from 'react-player/lazy';
 
 export async function getServerSideProps() {
   const slideData = [
@@ -42,7 +43,7 @@ const Home = ({ slideData }) => {
   return (
     <>
       <Head>
-        <title>Fantasy MMA Madness - Fantasy Combat Sports & MMA Leagues</title>
+        <title>Fantasy MMAadness | Fantasy Combat & MMA Leagues</title>
         <meta
           name="description"
           content="Experience the thrill of combat sports like Boxing, MMA, Kickboxing, and Bare Knuckle. Join now and claim your $20 free tokens today!"
@@ -86,15 +87,16 @@ const Home = ({ slideData }) => {
 
         <div className="video-embed-wrapper">
           <div className="no-hover">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/C5wHWEzPrrs?autoplay=1&loop=1&playlist=C5wHWEzPrrs&controls=0&modestbranding=1&rel=0&fs=0"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
+          <ReactPlayer
+  url="https://www.youtube.com/watch?v=C5wHWEzPrrs"
+  playing
+  loop
+  controls={false}
+  
+  width="100%"
+  height="100%"
+/>
+
           </div>
         </div>
       </div>

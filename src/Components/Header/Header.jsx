@@ -38,7 +38,7 @@ const Header = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPromotion(true);
-    }, 1000); // 1-second delay
+    }, 5000); // 1-second delay
 
     return () => clearTimeout(timer);
   }, []);
@@ -140,7 +140,7 @@ const Header = () => {
         <div className="container-promotion-absolute-center">
           <div className="close-button" onClick={handleClose}>✖</div>
           <div className='imgpromotionContainer'>
-            <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520875/home/vcq7lbcvchzpapwpqsly.png" alt="winimg" className="promotion-image-in-header" />
+            <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520875/home/vcq7lbcvchzpapwpqsly.png" alt="winimg"  loading="lazy" className="promotion-image-in-header" />
           </div>
           <Link href="/CreateAccount" onClick={handleClose}>
             <button className="signup-button">Sign up Now</button>
@@ -172,7 +172,7 @@ const Header = () => {
           </div>
           <div className="affiliateAccountShow">
             <div className="affiliate-image">
-              {affiliate && affiliate.profileUrl && (<img src={affiliate.profileUrl} alt="Logo" />)}
+              {affiliate && affiliate.profileUrl && (<img src={affiliate.profileUrl} alt="Logo"  loading="lazy" />)}
             </div>
             {affiliate && affiliate.firstName && (<h3>{affiliate.firstName}</h3>)}
           </div>
@@ -184,7 +184,7 @@ const Header = () => {
         <div className="header user-header">
           <div className="logoimg">
             <Link href="/">
-              <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
+              <img  loading="lazy" src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
             </Link>
           </div>
           <div className="anchorLinksWrapper">
@@ -227,7 +227,7 @@ const Header = () => {
         <div className="header public-header" style={headerStyles}>
           <div className="logoimg">
             <Link href="/">
-              <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
+              <img  loading="lazy" src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
             </Link>
           </div>
           <div className="anchorLinksWrapper">
@@ -268,7 +268,7 @@ const Header = () => {
         <div className="header public-header" style={headerStyles}>
           <div className="logoimg">
             <Link href="/">
-              <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
+              <img  loading="lazy" src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
             </Link>
           </div>
           <div className="anchorLinksWrapper">
@@ -319,7 +319,7 @@ const Header = () => {
         <div className="logoimg">
           <Link href="/" onClick={closeMenu}>
             <center>
-              <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
+              <img  loading="lazy" src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
             </center>
           </Link>
         </div>
@@ -339,7 +339,7 @@ const Header = () => {
                 </button>
                 <div className="affiliateAccountShow affiliateAccountShowMob">
                   <div className="affiliate-image">
-                    {affiliate && affiliate.profileUrl && (<img src={affiliate.profileUrl} alt="Logo" />)}
+                    {affiliate && affiliate.profileUrl && (<img src={affiliate.profileUrl} alt="Logo"  loading="lazy" />)}
                   </div>
                   {affiliate && affiliate.firstName && (<h3>{affiliate.firstName}</h3>)}
                 </div>

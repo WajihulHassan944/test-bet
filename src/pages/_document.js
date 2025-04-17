@@ -47,6 +47,40 @@ export default function Document() {
 <meta name="twitter:image" content="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" />
 
 
+
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Fantasy MMAadness",
+      "image": "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp",
+      "url": "https://fantasymmadness.com",
+      "telephone": "+1-555-555-5555",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2350 Beaver Ruin Rd",
+        "addressLocality": "Norcross",
+        "addressRegion": "GA",
+        "postalCode": "30071",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "33.9331",
+        "longitude": "-84.1930"
+      },
+      "openingHours": "Mo-Sa 09:00-18:00",
+      "sameAs": [
+        "https://www.facebook.com/fantasymmadness",
+        "https://www.instagram.com/fantasymmadness"
+      ]
+    }),
+  }}
+/>
+
+
             </Head>
             <body>
                 <Main />
