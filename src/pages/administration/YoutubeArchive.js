@@ -1,4 +1,12 @@
-import YoutubeArchive from '@/Components/Admin/YoutubeArchive'
+import dynamic from 'next/dynamic';
+
+const YoutubeArchive = dynamic(
+  () => import('@/Components/Admin/YoutubeArchive'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
 import AdminPrivateRoute from '@/Components/PrivateRoute/PrivateRouteAdmin'
 import React from 'react'
 

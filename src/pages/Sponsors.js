@@ -1,4 +1,12 @@
-import Sponsors from "@/Components/Home/Sponsors";
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+const Sponsors = dynamic(
+  () => import('@/Components/Home/Sponsors'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 const SponsorsPage = ({ sponsors }) => {
   return <Sponsors sponsors={sponsors} />;

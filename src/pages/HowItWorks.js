@@ -1,5 +1,12 @@
-import HowItWorks from '@/Components/Affiliates/HowItWorks'
-import React from 'react'
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+const HowItWorks = dynamic(
+  () => import('@/Components/Affiliates/HowItWorks'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 const index = () => {
   return <HowItWorks />

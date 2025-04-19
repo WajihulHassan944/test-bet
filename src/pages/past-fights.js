@@ -1,4 +1,13 @@
-import PastFightsNew from "@/Components/PastFightsNew/PastFightsNew";
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+const PastFightsNew = dynamic(
+  () => import('@/Components/PastFightsNew/PastFightsNew'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
 import { fetchMatchesSSR } from "@/Redux/matchSlice"; // ✅ Corrected Import
 
 const PastFightsPage = ({ pastMatches }) => {

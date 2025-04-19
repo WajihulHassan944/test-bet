@@ -1,8 +1,12 @@
-import AffiliateGuide from '@/Components/Affiliates/AffiliateGuide'
-import React from 'react'
+import dynamic from 'next/dynamic';
+import React from 'react';
 
-const index = () => {
-  return <AffiliateGuide />
-}
+const AffiliateGuide = dynamic(() => import('@/Components/Affiliates/AffiliateGuide'), {
+  loading: () => <p>Loading...</p>,
+});
 
-export default index
+const Index = () => {
+  return <AffiliateGuide />;
+};
+
+export default Index;

@@ -1,4 +1,13 @@
-import DeleteFights from '@/Components/Admin/DeleteFights'
+import dynamic from 'next/dynamic';
+
+const DeleteFights = dynamic(
+  () => import('@/Components/Admin/DeleteFights'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
+
 import AdminPrivateRoute from '@/Components/PrivateRoute/PrivateRouteAdmin'
 import React from 'react'
 

@@ -1,4 +1,12 @@
-import FrequentAskedQuestions from "@/Components/Footer/FrequentAskedQuestions";
+import dynamic from 'next/dynamic';
+
+const FrequentAskedQuestions = dynamic(
+  () => import('@/Components/Footer/FrequentAskedQuestions'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
 
 const FAQsPage = ({ faqs }) => {
   return <FrequentAskedQuestions faqs={faqs} />;

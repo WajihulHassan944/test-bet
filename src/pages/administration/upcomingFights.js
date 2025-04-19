@@ -1,4 +1,12 @@
-import UpcomingFights from "@/Components/Admin/UpcomingFights";
+import dynamic from 'next/dynamic';
+
+const UpcomingFights = dynamic(
+  () => import('@/Components/Admin/UpcomingFights'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
 import AdminPrivateRoute from "@/Components/PrivateRoute/PrivateRouteAdmin";
 
 const Index = () => {

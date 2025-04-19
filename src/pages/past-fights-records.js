@@ -1,5 +1,12 @@
-import PastFightVideos from '@/Components/Home/PastFightVideos'
-import React from 'react'
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+const PastFightVideos = dynamic(
+  () => import('@/Components/Home/PastFightVideos'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 const index = () => {
   return <PastFightVideos />

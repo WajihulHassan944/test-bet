@@ -1,5 +1,12 @@
-import Testimonials from '@/Components/Home/Testimonials'
-import React from 'react'
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+const Testimonials = dynamic(
+  () => import('@/Components/Home/Testimonials'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 const index = () => {
   return <Testimonials />

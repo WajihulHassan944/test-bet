@@ -1,4 +1,13 @@
-import AdminForumList from '@/Components/Admin/AdminForumList'
+import dynamic from 'next/dynamic';
+
+const AdminForumList = dynamic(
+  () => import('@/Components/Admin/AdminForumList'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
+
 import AdminPrivateRoute from '@/Components/PrivateRoute/PrivateRouteAdmin'
 import React from 'react'
 

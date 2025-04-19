@@ -1,5 +1,12 @@
-import CreateThread from '@/Components/Forum/CreateThread'
-import React from 'react'
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+const CreateThread = dynamic(
+  () => import('@/Components/Forum/CreateThread'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 const index = () => {
   return <CreateThread />

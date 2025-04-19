@@ -1,8 +1,12 @@
-import About from '@/Components/Footer/About'
-import React from 'react'
+import dynamic from 'next/dynamic';
+import React from 'react';
 
-const index = () => {
-  return <About />
-}
+const About = dynamic(() => import('@/Components/Footer/About'), {
+  loading: () => <p>Loading...</p>, // Optional placeholder
+});
 
-export default index
+const Index = () => {
+  return <About />;
+};
+
+export default Index;

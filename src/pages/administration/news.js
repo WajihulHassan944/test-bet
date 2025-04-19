@@ -1,4 +1,12 @@
-import AdminNews from '@/Components/Admin/AdminNews'
+import dynamic from 'next/dynamic';
+
+const AdminNews = dynamic(
+  () => import('@/Components/Admin/AdminNews'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+
 import AdminPrivateRoute from '@/Components/PrivateRoute/PrivateRouteAdmin'
 import React from 'react'
 

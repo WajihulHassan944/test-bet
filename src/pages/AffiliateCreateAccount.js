@@ -1,5 +1,12 @@
-import AffiliateCreateAccount from '@/Components/Affiliates/AffiliateCreateAccount'
-import React from 'react'
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+const AffiliateCreateAccount = dynamic(
+  () => import('@/Components/Affiliates/AffiliateCreateAccount'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 const index = () => {
   return <AffiliateCreateAccount />

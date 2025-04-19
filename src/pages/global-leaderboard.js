@@ -1,5 +1,12 @@
-import HomeLeaderboard from '@/Components/GlobalLeaderboard/HomeLeaderboard'
-import React from 'react'
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+const HomeLeaderboard = dynamic(
+  () => import('@/Components/GlobalLeaderboard/HomeLeaderboard'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 const index = () => {
   return <HomeLeaderboard />

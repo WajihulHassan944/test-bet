@@ -1,6 +1,12 @@
-// pages/our-fighters.js
-import React from "react";
-import Fighters from "@/Components/Home/Fighters";
+import dynamic from 'next/dynamic';
+import React from 'react';
+
+const Fighters = dynamic(
+  () => import('@/Components/Home/Fighters'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 const OurFighters = ({ fighters }) => {
   return <Fighters fighters={fighters} />;

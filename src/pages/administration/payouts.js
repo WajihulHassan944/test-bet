@@ -1,4 +1,11 @@
-import AffiliatesPayouts from '@/Components/Admin/AffiliatesPayouts'
+import dynamic from 'next/dynamic';
+
+const AffiliatesPayouts = dynamic(
+  () => import('@/Components/Admin/AffiliatesPayouts'),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 import AdminPrivateRoute from '@/Components/PrivateRoute/PrivateRouteAdmin'
 import React from 'react'
 
