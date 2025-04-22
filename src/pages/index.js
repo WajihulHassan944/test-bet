@@ -48,7 +48,7 @@ const Home = ({ slideData }) => {
           name="description"
           content="Experience the thrill of combat sports like Boxing, MMA, Kickboxing, and Bare Knuckle. Join now and claim your $20 free tokens today!"
         />
-        <meta property="og:title" content="Fantasy MMA Madness - Thrill of Combat" />
+        <meta property="og:title" content="Fantasy MMAadness - Thrill of Combat" />
         <meta
           property="og:description"
           content="Experience the thrill of combat sports like Boxing, MMA, Kickboxing, and Bare Knuckle. Join now and claim your $20 free tokens today!"
@@ -56,7 +56,7 @@ const Home = ({ slideData }) => {
         <meta property="og:url" content="https://fantasymmadness.com/" />
         <meta
           name="keywords"
-          content="MMA, Fantasy Sports, Boxing, Kickboxing, Bare Knuckle, Combat Sports, Free Tokens, Fantasy MMA Madness"
+          content="MMA, Fantasy Sports, Boxing, Kickboxing, Bare Knuckle, Combat Sports, Free Tokens, Fantasy MMAadness"
         />
         <script
           type="application/ld+json"
@@ -64,7 +64,7 @@ const Home = ({ slideData }) => {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "Fantasy MMA Madness",
+              "name": "Fantasy MMAadness",
               "url": "https://www.fantasymmadness.com",
               "description": "Create, manage, and win in fantasy MMA and combat sports leagues.",
               "potentialAction": {
