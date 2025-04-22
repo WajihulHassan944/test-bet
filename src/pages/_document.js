@@ -36,7 +36,7 @@ export default function Document() {
             
 <meta property="og:title" content="Fantasy Mmadness | Fantasy Sports Reimagined" />
 <meta property="og:description" content="Join Fantasy Mmadness for exciting fantasy MMA games and more." />
-<meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/174/174857.png" />
+<meta property="og:image" content="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" />
 <meta property="og:url" content="https://fantasymmadness.com" />
 <meta property="og:type" content="website" />
 
@@ -44,7 +44,7 @@ export default function Document() {
 <meta name="twitter:site" content="@davis_kell51697" />
 <meta name="twitter:title" content="Fantasy Mmadness | Fantasy Sports Reimagined" />
 <meta name="twitter:description" content="Join Fantasy Mmadness for exciting fantasy MMA games and more." />
-<meta name="twitter:image" content="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" />
+<meta name="twitter:image" content="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" />
 
 
 
