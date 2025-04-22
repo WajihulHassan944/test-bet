@@ -1,7 +1,10 @@
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 const MakePredictions = ({ matchId }) => {
+   const router = useRouter();
+  
   const user = useSelector((state) => state.user);
   const matches = useSelector((state) => state.matches.data);
 
@@ -192,7 +195,7 @@ const MakePredictions = ({ matchId }) => {
         <h3><span className='toRemove'>Current</span> Plan: {user.currentPlan}</h3>
       </div>
 
-      <div className='fightwalletWrap'>
+      <div className='fightwalletWrap' onClick={() => router.push('/checkout')}>
         <div className='fightWallet'>
           <h1><i className="fa fa-shopping-bag" aria-hidden="true"></i> Fight Wallet</h1>
           <h2>Tokens Remaining: <span>{user.tokens}</span></h2>

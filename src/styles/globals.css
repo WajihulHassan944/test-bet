@@ -5316,6 +5316,8 @@ display: none;
   color: #ccc;
   margin-top:20px;
   padding-right: 20px;
+  cursor: pointer;
+  z-index: 999999;
 }
 
 

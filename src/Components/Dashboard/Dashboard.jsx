@@ -293,7 +293,7 @@ const Dashboard = () => {
               <h3 data-aos="zoom-in"><span className='toRemove'>Current </span>Plan: {user.currentPlan}</h3>
       </div>
 
-      <div className='fightwalletWrap'>
+      <div className='fightwalletWrap' onClick={() => router.push('/checkout')}>
         <div className='fightWallet' data-aos="zoom-in">
           <h1><i className="fa fa-shopping-bag" aria-hidden="true"></i> Fight Wallet</h1>
           <h2>Tokens Remaining: <span>{user.tokens}</span></h2>

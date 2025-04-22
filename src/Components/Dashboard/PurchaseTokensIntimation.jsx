@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux'; // Import useSelector to access Redux store
 import AddTokensToWallet from '../UserProfile/AddTokensToWallet';
+import { useRouter } from 'next/router';
 
 const PurchaseTokensIntimation = ({ matchId }) => {
+  const router = useRouter();
  
   const user = useSelector((state) => state.user);
   const matches = useSelector((state) => state.matches.data);
@@ -88,7 +90,7 @@ if (showPredictions) {
         <h3><span className='toRemove'>Current </span>Plan: {user.currentPlan} </h3>
       </div>
 
-    <div className='fightwalletWrap'>
+    <div className='fightwalletWrap' onClick={() => router.push('/checkout')}>
       <div className='fightWallet'>
       <h1><i className="fa fa-shopping-bag" aria-hidden="true"></i> Fight Wallet</h1>
       <h2>Tokens Remaining: <span>{user.tokens}</span></h2>

@@ -109,7 +109,7 @@ console.log(user);
         <h3 data-aos="zoom-in"><span className='toRemove'>Current </span>Plan: {user.currentPlan}</h3>
       </div>
     
-      <div className='fightwalletWrap'>
+      <div className='fightwalletWrap' onClick={() => router.push('/checkout')}>
         <div className='totalPoints' data-aos="zoom-in">
         </div>
           

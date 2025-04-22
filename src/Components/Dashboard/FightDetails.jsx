@@ -1,5 +1,8 @@
+import { useRouter } from 'next/router';
 import React from 'react'
 const FightDetails = () => {
+   const router = useRouter();
+  
   return (
     <div className='fightDetails'>
       
@@ -12,7 +15,7 @@ const FightDetails = () => {
         <h3>Current plan: None</h3>
       </div>
 
-      <div className='fightwalletWrap'>
+      <div className='fightwalletWrap' onClick={() => router.push('/checkout')}>
         <div className='fightWallet'>
         <h1><i className="fa fa-shopping-bag" aria-hidden="true"></i> Fight Wallet</h1>
         <h2>Tokens Remaining: <span>35</span></h2>

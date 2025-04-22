@@ -7,15 +7,23 @@ const MembershipCheckout = (userId) => {
   const reduxUser = useSelector((state) => state.user); // Access user details from Redux store
   const [user, setUser] = useState(reduxUser);
   const [paymentSuccessful, setPaymentSuccessful] = useState(false);
+  if (!user) {
+    return <div>Loading...</div>;
+  }
 
+  useEffect(() => {
+    if (reduxUser && reduxUser._id !== user?._id) {
+      setUser(reduxUser); 
+    }
+  }, [reduxUser, user]);
   const [billingInfo, setBillingInfo] = useState({
-    firstName: user.firstName || '',
-    lastName: user.lastName || '',
-    address: user.billing?.address || '',
-    city: user.billing?.city || '',
-    state: user.billing?.state || '',
-    zipCode: user.zipCode || '',
-    phone: user.phone || '',
+    firstName: user?.firstName || '',
+    lastName: user?.lastName || '',
+    address: user?.billing?.address || '',
+    city: user?.billing?.city || '',
+    state: user?.billing?.state || '',
+    zipCode: user?.zipCode || '',
+    phone: user?.phone || '',
     creditCardNumber: '',
     expMonth: '',
     expYear: '',
@@ -25,7 +33,7 @@ const MembershipCheckout = (userId) => {
   });
 
   useEffect(() => {
-    // If user is not found in Redux store, fetch user data using userId prop
+    // If user? is not found in Redux store, fetch user data using userId prop
     if (!user || !user._id) {
       const fetchUser = async () => {
         try {

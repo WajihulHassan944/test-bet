@@ -219,12 +219,12 @@ const YourFights = () => {
         <h3 data-aos="zoom-in"><span className='toRemove'>Current </span>Plan: {user.currentPlan}</h3>
       </div>
     
-      <div className='fightwalletWrap'>
+      <div className='fightwalletWrap' >
         <div className='totalPoints' data-aos="zoom-in">
           <h1>Your Total Points : <span style={{color:"#38b90c"}}>{totalPoints}</span></h1>
         </div>
           
-        <div className='fightWallet' data-aos="zoom-in">
+        <div className='fightWallet' data-aos="zoom-in" onClick={() => router.push('/checkout')}>
         <h1><i className="fa fa-shopping-bag" aria-hidden="true"></i> Fight Wallet</h1>
         <h2>Tokens Remaining: <span>{user.tokens}</span></h2>
     </div>

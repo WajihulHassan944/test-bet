@@ -3,7 +3,10 @@ import { useSelector } from 'react-redux';
 import { getWinnerDetails } from '../../CustomFunctions/winnerUtils';
 import { useDispatch } from 'react-redux';
 import { stopMusic, playMusic } from '../../Redux/musicSlice';
+import { useRouter } from 'next/router';
 const FinishedFightUserBoard = ({ matchId }) => {
+     const router = useRouter();
+    
     const [scores, setScores] = useState([]);
     const [scoresHigh, setScoresHigh] = useState([]);
     const [users, setUsers] = useState([]);
@@ -412,7 +415,7 @@ const FinishedFightUserBoard = ({ matchId }) => {
                         <h3 data-aos="zoom-in"><span className='toRemove'>Member Name - </span>{user.firstName} {user.lastName}</h3>
                         <h3 data-aos="zoom-in"><span className='toRemove'>Current </span>Plan: {user.currentPlan}</h3>
                     </div>
-                    <div className='fightwalletWrap'>
+                    <div className='fightwalletWrap' >
                         <div className='totalPoints'>
                             <h1 data-aos="zoom-in" className='fightTypeInFightDetails'>
                                 Fight type: <span>{match.matchCategoryTwo ? match.matchCategoryTwo : match.matchCategory}</span> - 
@@ -421,7 +424,7 @@ const FinishedFightUserBoard = ({ matchId }) => {
                             </h1>
                             <h1 data-aos="zoom-in" style={{textAlign:'left'}}>POT: <span style={{color:"#38b90c"}}>{match.pot}</span> &nbsp;Players: <span style={{color:"#38b90c"}}>{match.userPredictions.length}</span></h1>
                         </div>
-                        <div className='fightWallet' data-aos="zoom-in">
+                        <div className='fightWallet' data-aos="zoom-in" onClick={() => router.push('/checkout')}>
                             <h1><i className="fa fa-shopping-bag" aria-hidden="true"></i> Fight Wallet</h1>
                             <h2>Tokens Remaining: <span>{user.tokens}</span></h2>
                         </div>

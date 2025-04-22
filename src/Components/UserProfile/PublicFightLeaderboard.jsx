@@ -1,6 +1,9 @@
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 const PublicFightLeaderboard = ({ matchId ,name, plan, profileUrl }) => {
+   const router = useRouter();
+  
     const [scores, setScores] = useState([]);
   const [users, setUsers] = useState([]);
   const matches = useSelector((state) => state.matches.data);
@@ -130,7 +133,7 @@ const PublicFightLeaderboard = ({ matchId ,name, plan, profileUrl }) => {
           <h3>Current plan: {plan}</h3>
         </div>
 
-        <div className='fightwalletWrap'>
+        <div className='fightwalletWrap' >
           <div className='totalPoints'>
             <h1 className='fightTypeInFightDetails'>
               Fight type: <span>{match.matchCategoryTwo ? match.matchCategoryTwo : match.matchCategory}</span> - 
