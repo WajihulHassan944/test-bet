@@ -88,7 +88,7 @@ const Home = ({ slideData }) => {
         <div className="video-embed-wrapper">
           <div className="no-hover">
           <ReactPlayer
-  url="https://www.youtube.com/watch?v=C5wHWEzPrrs"
+  url="https://www.youtube.com/watch?v=erHfHDovoCE"
   playing
   loop
   controls={false}
