@@ -978,8 +978,8 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 .thirdHomePageSection .moneyone{
   width:100px;
   position: absolute;
-  top:10%;
-  right:15%;
+  top:27%;
+  right:10%;
   transform: rotate(30deg);
   height: 15%;
 }
@@ -987,7 +987,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 .thirdHomePageSection .moneytwo{
   width:100px;
   position: absolute;
-  top:50%;
+  top:43%;
   left:5%;
   height: 20%;
 }

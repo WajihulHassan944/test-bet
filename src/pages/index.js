@@ -9,13 +9,12 @@ import ReactPlayer from 'react-player/lazy';
 
 export async function getServerSideProps() {
   const slideData = [
-    { h1: "The thrill of combat", h2: "Boxing, MMA, Kickboxing & Bare knuckle" },
-    { h1: "Unleash your fight IQ", h2: "Pick fighters. Score big. Climb the leaderboard." },
-    { h1: "Real combat, virtual stakes", h2: "Boxing & MMA fantasy leagues for real fans." },
-    { h1: "Build your dream fight card", h2: "Every punch, kick, and takedown counts." },
-    { h1: "Earn rewards for winning picks", h2: "Fantasy meets combat sports like never before." },
+    { h1: "Fantasy MMA, Boxing & Combat Sports", h2: "Draft fighters, score knockouts, rule the fantasy leagues." },
+    { h1: "Fantasy UFC & Fantasy BKFC Action", h2: "Climb the fantasy fighter rankings and earn epic rewards." },
+    { h1: "Create Your Fantasy Matchups", h2: "Experience fantasy bare knuckle, fantasy kickboxing, and more." },
+    { h1: "Dominate Fantasy Combat Sports", h2: "Every punch, kick, and knockout moves you up the leaderboard." },
+    { h1: "Fantasy Fighting at Its Finest", h2: "Build dream teams across MMA, boxing, and fantasy wrestling." },
   ];
-
   return { props: { slideData } };
 }
 
@@ -43,20 +42,20 @@ const Home = ({ slideData }) => {
   return (
     <>
       <Head>
-        <title>Fantasy MMAadness | Fantasy Combat & MMA Leagues</title>
+        <title>Fantasy MMAadness | Fantasy Combat Sports, MMA, Boxing</title>
         <meta
           name="description"
-          content="Experience the thrill of combat sports like Boxing, MMA, Kickboxing, and Bare Knuckle. Join now and claim your $20 free tokens today!"
+          content="Play Fantasy MMA, Fantasy Boxing, Fantasy UFC, Fantasy BKFC, Fantasy Kickboxing, and Fantasy Bare Knuckle. Create dream fantasy fights, climb fighter rankings, and dominate fantasy combat leagues."
         />
-        <meta property="og:title" content="Fantasy MMAadness - Thrill of Combat" />
+        <meta property="og:title" content="Fantasy MMAadness - Fantasy Fighting Action Awaits" />
         <meta
           property="og:description"
-          content="Experience the thrill of combat sports like Boxing, MMA, Kickboxing, and Bare Knuckle. Join now and claim your $20 free tokens today!"
+          content="Join Fantasy MMAadness and experience the ultimate fantasy combat sports world. Build lineups for Fantasy MMA, Boxing, Wrestling, and more!"
         />
         <meta property="og:url" content="https://fantasymmadness.com/" />
         <meta
           name="keywords"
-          content="MMA, Fantasy Sports, Boxing, Kickboxing, Bare Knuckle, Combat Sports, Free Tokens, Fantasy MMAadness"
+          content="Fantasy MMA, Fantasy UFC, Fantasy BKFC, Fantasy Boxing, Fantasy Kickboxing, Fantasy Bare Knuckle, Fantasy Combat, Fantasy Fighting, Fantasy Sports Betting Combat, Fantasy Fighter Rankings, Fantasy League Combat Sports, Fantasy Matchups, Fantasy Wrestling, Fantasy Combat Sports Analysis"
         />
         <script
           type="application/ld+json"
@@ -66,7 +65,7 @@ const Home = ({ slideData }) => {
               "@type": "WebSite",
               "name": "Fantasy MMAadness",
               "url": "https://www.fantasymmadness.com",
-              "description": "Create, manage, and win in fantasy MMA and combat sports leagues.",
+              "description": "Play Fantasy MMA, Boxing, Kickboxing, and Fantasy Combat Sports leagues. Draft fighters, score big, and win rewards.",
               "potentialAction": {
                 "@type": "SearchAction",
                 "target": "https://www.fantasymmadness.com/search?q={search_term_string}",
@@ -87,16 +86,14 @@ const Home = ({ slideData }) => {
 
         <div className="video-embed-wrapper">
           <div className="no-hover">
-          <ReactPlayer
-  url="https://www.youtube.com/watch?v=erHfHDovoCE"
-  playing
-  loop
-  controls={false}
-  
-  width="100%"
-  height="100%"
-/>
-
+            <ReactPlayer
+              url="https://www.youtube.com/watch?v=erHfHDovoCE"
+              playing
+              loop
+              controls={false}
+              width="100%"
+              height="100%"
+            />
           </div>
         </div>
       </div>
@@ -105,7 +102,7 @@ const Home = ({ slideData }) => {
       <div className={styles.thirdHomePageSection}>
         <Image
           src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744521308/home/ftanjih5z8hupq8wpl4z.png"
-          alt="money"
+          alt="fantasy money tokens"
           className={styles.moneyone}
           width={300}
           height={300}
@@ -113,16 +110,16 @@ const Home = ({ slideData }) => {
         />
         <Image
           src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744521309/home/bepreufoaj9gpazw9eho.png"
-          alt="money"
+          alt="free fantasy tokens"
           className={styles.moneytwo}
           width={300}
           height={300}
           loading="lazy"
         />
-        <h3 className={styles.thirdHomePageHeading}>🎉 Welcome, NEW USERS! 🎉</h3>
-        <h2 className={styles.thirdHomePageSubheading}>Claim Your $20 Tokens Free Today!</h2>
+        <h3 className={styles.thirdHomePageHeading}>🎉 Welcome to Fantasy Combat Madness! 🎉</h3>
+        <h2 className={styles.thirdHomePageSubheading}>Claim Your $20 Free Fantasy MMA Tokens Today!</h2>
         <p className={styles.thirdHomePageDescription}>
-          As a new user, you’ll receive $20 worth of free tokens — a powerful head start to fuel your journey.
+          Join now and kickstart your fantasy fighting journey with $20 worth of free tokens! Build fantasy matchups, climb fantasy fighter rankings, and dominate Fantasy Combat leagues across MMA, Boxing, and Bare Knuckle Fighting Championships.
         </p>
         <Link href="/CreateAccount">
           <button className={styles.thirdHomePageButton}>Sign Up Now 🚀</button>
@@ -132,56 +129,55 @@ const Home = ({ slideData }) => {
       {/* INFO SECTIONS */}
       <div className={styles.fourthHomepageSection}>
         {[
-  {
-    title: "Claim Your $20 in Free Fantasy Combat Tokens",
-    content:
-      "Looking to dive into the high-stakes world of fantasy MMA? Fantasy Mmadness is giving new users $20 in free fantasy combat tokens to start building their dream lineups. Whether you're a casual fan curious about fantasy sports or a seasoned strategist ready to dominate, this bonus gives you a real edge. Use your tokens to join contests, draft top fighters, and experience every knockout and takedown like never before — all with zero risk.",
-    seoLink: "https://www.getfanatics.app/",
-  },
-  {
-    title: "What Is Fantasy Combat Sports?",
-    content:
-      "Fantasy combat sports is the perfect mix of fight night thrills and strategic thinking. At Fantasy Mmadness, players draft real MMA, boxing, and kickboxing athletes and earn points based on in-ring performance — think strikes landed, takedowns, and submission attempts. The more active and effective your fighters, the better your score. It’s an interactive way to engage with the action, test your fight IQ, and climb the leaderboard while doing it.",
-    seoLink: "https://www.tapology.com/fantasy/",
-  },
-  {
-    title: "Why Play on Fantasy Mmadness?",
-    content:
-      "Fantasy Mmadness isn't just another platform — it's a home for fans who live and breathe combat sports. With an intuitive interface, real-time scoring, and contests spanning major and regional events, the experience is built for both hardcore analysts and casual players. Gain access to exclusive rewards, compete in community-driven leagues, and enjoy seamless gameplay designed by fight fans, for fight fans. This is the evolution of fantasy sports.",
-    seoLink: "https://enchloom.com/",
-  },
-  {
-    title: "The Thrill of Combat Meets Strategic Gameplay",
-    content:
-      "Fantasy Mmadness delivers the rush of real fights with the deep tactics of fantasy sports. Every decision counts — will your pick land a submission in Round 1 or go the distance with relentless striking? Success isn’t just about choosing winners, but predicting action and maximizing point potential. Find underdog value, avoid risky matchups, and prove your skills by outmaneuvering the competition on the virtual scorecard.",
-    seoLink: "https://marketplace.draftkings.com/fantasy-ufc",
-  },
-  {
-    title: "How It Works",
-    content:
-      "Getting started with Fantasy Mmadness is simple and rewarding. Sign up for free, and you’ll receive $20 in tokens instantly — no deposit required. Use these tokens to enter live contests based on real upcoming fight cards. Draft a lineup of fighters based on stats, matchups, and gut instinct, then watch the points roll in as the action unfolds. Win, earn more tokens, and keep the fantasy brawls going week after week.",
-    seoLink: "https://www.fantasylabs.com/fantasy-mma/",
-  },
-  {
-    title: "Join a Growing Community of Fight Fans",
-    content:
-      "Fantasy Mmadness is more than just a game — it’s a vibrant community of passionate fight fans. Whether you're swapping picks in the Discord, battling for leaderboard dominance, or joining weekly tournaments, you’ll find a crew that loves the sport as much as you do. Dive into strategy chats, celebrate upsets, and build rivalries in a space where everyone understands the hype of a spinning back fist finish.",
-    seoLink: "https://underdogfantasy.com/",
-  },
-  {
-    title: "Don’t Just Watch the Fight — Be a Part of It",
-    content:
-      "With Fantasy Mmadness, you're not just watching from the sidelines — you're in the middle of the action. Draft fighters, create dream matchups, and experience every card like it’s your own championship run. Whether it's a title bout or a gritty prelim, every strike matters to your score. This is where fandom meets function — it’s time to move from spectator to strategist.",
-    seoLink: "https://boomfantasy.com/",
-  },
-  {
-    title: "Start Playing Now — Your Fantasy Fight Journey Begins Here",
-    content:
-      "There’s never been a better time to level up your love for combat sports. Fantasy Mmadness puts the power in your hands, offering free tokens, fierce competition, and a platform that rewards real knowledge. Claim your signup bonus, explore upcoming events, and start building lineups that hit hard. Whether you're in it for fun or fame, your fantasy fight journey starts here.",
-    seoLink: "https://www.prizepicks.com/",
-  },
-]
-.map((section, idx) => (
+          {
+            title: "Unlock Your Fantasy Combat Sports Journey",
+            content:
+              "Fantasy Mmadness offers the ultimate experience for Fantasy MMA, Fantasy Boxing, and Fantasy Kickboxing enthusiasts. Get your $20 free tokens and dive into Fantasy BKFC, Fantasy Bare Knuckle matchups, and more!",
+            seoLink: "https://www.getfanatics.app/",
+          },
+          {
+            title: "What is Fantasy Fighting?",
+            content:
+              "Fantasy Fighting is where strategy meets excitement! Draft real fighters from MMA, boxing, or wrestling events. Score based on strikes, takedowns, and submissions. Experience fantasy combat sports at a new level with Fantasy Matchups that keep you on your toes.",
+            seoLink: "https://www.tapology.com/fantasy/",
+          },
+          {
+            title: "Master Fantasy Combat Sports Analysis",
+            content:
+              "Sharpen your skills with expert Fantasy Combat Sports Analysis. Whether it's Fantasy UFC, Fantasy BKFC, or bare knuckle fantasy matchups, knowing your fighters is key to dominating fantasy fighter rankings and winning big!",
+            seoLink: "https://enchloom.com/",
+          },
+          {
+            title: "Climb the Fantasy Fighter Rankings",
+            content:
+              "Draft smart, pick underdogs, and climb the Fantasy Fighter Rankings leaderboard. From Fantasy MMA to Fantasy Wrestling leagues, your strategy and passion will determine your rise to the top!",
+            seoLink: "https://marketplace.draftkings.com/fantasy-ufc",
+          },
+          {
+            title: "Create Epic Fantasy Matchups",
+            content:
+              "Want to see a dream Fantasy Boxing bout or Fantasy Combat showdown? Now you can! Build your fantasy league with wild Fantasy Matchups across all combat sports. Unleash your imagination and strategic mind.",
+            seoLink: "https://www.fantasylabs.com/fantasy-mma/",
+          },
+          {
+            title: "Join the Ultimate Fantasy Combat Community",
+            content:
+              "Connect with fellow Fantasy MMA, Boxing, and Wrestling fans. Discuss fantasy sports betting strategies, debate Fantasy League outcomes, and celebrate fantasy combat victories together!",
+            seoLink: "https://underdogfantasy.com/",
+          },
+          {
+            title: "Bet Smarter with Fantasy Sports Betting in Combat",
+            content:
+              "Turn every fight night into a fantasy triumph! Engage in Fantasy Sports Betting within our combat leagues — combining thrilling fantasy fighting with smart wagering tactics.",
+            seoLink: "https://boomfantasy.com/",
+          },
+          {
+            title: "Your Fantasy Combat Legacy Starts Now",
+            content:
+              "Sign up today to build your fantasy fighting legacy. Whether it's Fantasy UFC, Fantasy Bare Knuckle, or Fantasy Wrestling, Fantasy Mmadness gives you the tools to rise, win, and celebrate greatness.",
+            seoLink: "https://www.prizepicks.com/",
+          },
+        ].map((section, idx) => (
           <div key={idx} className={styles.newaddedContentSection}>
             <h4>{section.title}</h4>
             <p dangerouslySetInnerHTML={{ __html: section.content }} />
