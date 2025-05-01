@@ -36,7 +36,7 @@ export default function Document() {
             
 <meta property="og:title" content="Fantasy Mmadness | Fantasy Sports Reimagined" />
 <meta property="og:description" content="Join Fantasy Mmadness for exciting fantasy MMA games and more." />
-<meta property="og:image" content="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1745340449/rst8a10vaefxjmjfaxoq.png" />
+<meta property="og:image" content="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1746109925/mmuxewnnzsm3tvh3lzat.png" />
 <meta property="og:url" content="https://fantasymmadness.com" />
 <meta property="og:type" content="website" />
 
@@ -44,7 +44,7 @@ export default function Document() {
 <meta name="twitter:site" content="@davis_kell51697" />
 <meta name="twitter:title" content="Fantasy Mmadness | Fantasy Sports Reimagined" />
 <meta name="twitter:description" content="Join Fantasy Mmadness for exciting fantasy MMA games and more." />
-<meta name="twitter:image" content="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1745340449/rst8a10vaefxjmjfaxoq.png" />
+<meta name="twitter:image" content="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1746109925/mmuxewnnzsm3tvh3lzat.png" />
 
 
 
@@ -55,7 +55,7 @@ export default function Document() {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Fantasy MMAadness",
-      "image": "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1745340449/rst8a10vaefxjmjfaxoq.png",
+      "image": "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1746109925/mmuxewnnzsm3tvh3lzat.png",
       "url": "https://fantasymmadness.com",
       "telephone": "+1-555-555-5555",
       "address": {
