@@ -21,9 +21,9 @@ min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(/Assets/RING1.png);
+    background-image: url(/Assets/RING3.png);
     background-size: cover;
-    background-position: center 60%;
+    background-position: center 58%;
   }
   .fantasyTipsWrapper .date {
     font-weight: bold;
