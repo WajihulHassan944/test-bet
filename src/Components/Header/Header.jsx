@@ -296,6 +296,8 @@ const Header = () => {
                 <Link href="/global-leaderboard" className="submenuLink">Fighters Leaderboard</Link>
                 <Link href="/spin-wheel" className="submenuLink">Spin the Wheel</Link>
                 <Link href="/blogs" className="submenuLink">Fight Blogs</Link>
+                <Link href="/fantasy-tips" className="submenuLink">Fantasy Tips</Link>
+           
               </div>
             </Link>
             <Link href="/Sponsors" className={`anchorlinks ${pathname === "/Sponsors" ? "activeLink" : ""}`}>Sponsors</Link>
@@ -385,6 +387,7 @@ const Header = () => {
                 <Link href="/calendar-of-fights" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Fight Calendar</Link>
                 <Link href="/blogs" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Fight Blogs</Link>
                 <Link href="/Sponsors" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Sponsors</Link>
+                <Link href="/fantasy-tips" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Fantasy Tips</Link>
                 <Link href="/login" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>
                   <i className="fa fa-sign-in" aria-hidden="true"></i> Login
                 </Link>

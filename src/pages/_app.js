@@ -152,7 +152,7 @@ function AppContent({ children }) {
             "/faqs", "/about", "/past-fights-records", "/fights-rewards",
             "/sponsor-dashboard", "/global-leaderboard", "/testimonials",
             "/spin-wheel", "/calendar-of-fights", "/AffiliateDashboard",
-            "/past-fights", "/HowItWorks", "/affiliate-league"
+            "/past-fights", "/HowItWorks", "/affiliate-league", "/fantasy-tips"
           ];
 
           const redRoutes = ["/fights-news"];
