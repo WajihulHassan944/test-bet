@@ -6,6 +6,29 @@ import MembershipCheckout from '../CreateAccount/MembershipCheckout';
 import { useRouter } from 'next/router';
 
 
+function ReferFriendModal({ userId, onClose }) {
+  const referralLink = `https://fantasymmadness.com/invite/${userId}`;
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(referralLink);
+    alert('Referral link copied!');
+    onClose();
+  };
+
+  return (
+    <div className="referrer-modal__overlay">
+      <div className="referrer-modal__content">
+        <h3 className="referrer-modal__title">Refer a friend and earn 3 tokens free:</h3>
+        <p className="referrer-modal__link">{referralLink}</p>
+        <div className="referrer-modal__buttons">
+          <button className="referrer-modal__button" onClick={handleCopy}>Copy Link</button>
+          <button className="referrer-modal__button referrer-modal__button--cancel" onClick={onClose}>Cancel</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const Profile = () => {
   const router = useRouter();
    
@@ -35,7 +58,11 @@ const Profile = () => {
       const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(
         user?.preferredPaymentMethod || ''
       );
+      const [showModal, setShowModal] = useState(false);
 
+      const handleReferFriend = () => {
+        setShowModal(true);
+      };
       const [loadingTwo, setLoadingTwo] = useState(false);
 const [membershipGo, setMembershipGo] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -418,13 +445,25 @@ const [membershipGo, setMembershipGo] = useState(null);
                    
                   <button type="submit" className='btn-grad profile-btn' style={{width:'40%'}} onClick={() => handlepaymentDetailsClick()}>My Payment Details</button>
                    <button type="submit" className='btn-grad profile-btn' style={{width:'40%'}} onClick={() => handleAddTokenClick()}>Add tokens to Wallet</button>
-             
+                
+                   <button
+    type="submit"
+    className="btn-grad profile-btn"
+    style={{ width: '40%' }}
+    onClick={handleReferFriend}
+  >
+    Refer a Friend
+  </button>
+
+  {showModal && (
+    <ReferFriendModal userId={user._id} onClose={() => setShowModal(false)} />
+  )}
                   <div className='pairOfHtags'>
                    <h1>Your Public player profile link:</h1>
                    <h1>fantasymmadness.com/{user._id}</h1>
    
    </div>
-  <h1>Preferred payment method - choose 1</h1>
+   <h1>Preferred payment method - choose 1</h1>
 
   {/* Venmo */}
   <div className='inputParent'>

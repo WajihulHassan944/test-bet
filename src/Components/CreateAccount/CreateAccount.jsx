@@ -4,6 +4,7 @@ import UploadAvatar from './UploadAvatar';  // Import UploadAvatar component
 import ReCAPTCHA from "react-google-recaptcha";  // Import reCAPTCHA
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 
 const CreateAccount = () => {
     const router = useRouter();  
@@ -60,12 +61,18 @@ const CreateAccount = () => {
         setButtonText('Saving! Please wait');
 
         try {
+            const searchParams = new URLSearchParams(window.location.search);
+        const referrerId = searchParams.get('referrer');
+        const postData = {
+            ...formData,
+            ...(referrerId && { referrerId }) // include only if referrer exists
+        };
             const response = await fetch('https://fantasymmadness-game-server-three.vercel.app/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(postData),
             });
 
             const data = await response.text();

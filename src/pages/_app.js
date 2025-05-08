@@ -40,6 +40,7 @@ import "@/styles/faqs.css";
 import "@/styles/threaddetails.css";
 import "@/styles/adminaddnewblog.css";
 import "@/styles/blogs.css";
+import "@/styles/invite.css";
 import Script from "next/script";
 import { Provider } from "react-redux";
 import { wrapper } from "../Redux/store"; // Updated for next-redux-wrapper
@@ -152,14 +153,15 @@ function AppContent({ children }) {
             "/faqs", "/about", "/past-fights-records", "/fights-rewards",
             "/sponsor-dashboard", "/global-leaderboard", "/testimonials",
             "/spin-wheel", "/calendar-of-fights", "/AffiliateDashboard",
-            "/past-fights", "/HowItWorks", "/affiliate-league", "/fantasy-tips"
+            "/past-fights", "/HowItWorks", "/affiliate-league", "/fantasy-tips", "/invite"
           ];
 
           const redRoutes = ["/fights-news"];
+          const baseRoute = '/' + router.asPath.split('/')[1];
 
-          if (darkRoutes.includes(router.pathname)) {
+          if (darkRoutes.includes(baseRoute)) {
             header.style.backgroundColor = "#000000";
-          } else if (redRoutes.includes(router.pathname)) {
+          } else if (redRoutes.includes(baseRoute)) {
             header.style.backgroundColor = "#dc1606";
           } else {
             header.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
