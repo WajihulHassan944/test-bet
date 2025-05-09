@@ -210,7 +210,6 @@ function AppContent({ children }) {
     return deviceId;
   };
 
-  // Track page view (instead of clicks)
   useEffect(() => {
     const deviceId = getOrCreateDeviceId();
 
