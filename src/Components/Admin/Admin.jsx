@@ -52,12 +52,14 @@ const Admin = () => {
   if (showAnalytics) {
     return (
      <>
+     {/*
       <i
         className="fa fa-arrow-circle-left shadowFightLibraryIcon"
         aria-hidden="true" onClick={() => setShowAnalytics(null)} style={{background:'#fff', overflow:'hidden', height:'21px', display:'flex',
           justifyContent:'center', alignItems:'center', borderRadius:'50%'
         }}></i>
 
+      */}
       <VisitorsAnalytics
         totalClicks={dashboardCounts.totalClicks}
         onResetStats={handleResetStats}

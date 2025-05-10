@@ -2,16 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 
-const VisitorsAnalytics = ({ onResetStats }) => {
-  const [selectedFilter, setSelectedFilter] = useState('All');
-  const [visitorType, setVisitorType] = useState('All'); // 'All' or 'Unique'
+const VisitorsAnalytics = () => {
+  const [visitorType, setVisitorType] = useState('All');
   const [clicksData, setClicksData] = useState({});
   const [uniqueClicksData, setUniqueClicksData] = useState({});
-  const [totalClicks, setTotalClicks] = useState(0);
   const [allClicks, setAllClicks] = useState(0);
+  const [totalClicks, setTotalClicks] = useState(0);
   const [filteredData, setFilteredData] = useState([]);
-
-  const filterOptions = ['All','Today', 'This Week', 'This Month', 'This Year'];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,12 +17,13 @@ const VisitorsAnalytics = ({ onResetStats }) => {
         const data = await response.json();
         const stats = data.stats;
 
-        setClicksData(stats.clicksByDate || {});
+        setClicksData(stats.allClicksByDate || {});
         setUniqueClicksData(stats.clicksByDate || {});
         setAllClicks(stats.allClicks || 0);
         setTotalClicks(stats.totalClicks || 0);
-        
-        setFilteredData(Object.entries(visitorType === 'All' ? stats.allClicksByDate || {} : stats.clicksByDate || {}));
+
+        const selectedData = visitorType === 'All' ? stats.allClicksByDate : stats.clicksByDate;
+        setFilteredData(Object.entries(selectedData || {}));
       } catch (error) {
         console.error('Error fetching stats:', error);
       }
@@ -34,37 +32,54 @@ const VisitorsAnalytics = ({ onResetStats }) => {
     fetchData();
   }, [visitorType]);
 
-  const handleFilterChange = (filter) => {
-    setSelectedFilter(filter);
+  const computeClicks = (range) => {
+    const now = new Date();
+    const today = now.toISOString().split('T')[0];
+    const startOfWeek = new Date(now);
+    startOfWeek.setDate(now.getDate() - now.getDay() + 1);
+    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+    const startOfYear = new Date(now.getFullYear(), 0, 1);
 
     const dataToUse = visitorType === 'All' ? clicksData : uniqueClicksData;
 
-    const now = new Date();
-    const today = now.toISOString().split('T')[0];
-    const oneDayMs = 24 * 60 * 60 * 1000;
-    const startOfWeek = new Date(now.setDate(now.getDate() - now.getDay() + 1)).toISOString().split('T')[0];
-    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString().split('T')[0];
-    const startOfYear = new Date(now.getFullYear(), 0, 1).toISOString().split('T')[0];
-
-    const filtered = Object.entries(dataToUse).filter(([date]) => {
-      if (filter === 'Today') return date === today;
-      if (filter === 'This Week') return date >= startOfWeek && date <= today;
-      if (filter === 'This Month') return date >= startOfMonth && date <= today;
-      if (filter === 'This Year') return date >= startOfYear && date <= today;
-      return true;
-    });
-
-    setFilteredData(filtered);
+    return Object.entries(dataToUse).reduce((sum, [date, value]) => {
+      const d = new Date(date);
+      if (range === 'Today' && date === today) return sum + value;
+      if (range === 'This Week' && d >= startOfWeek) return sum + value;
+      if (range === 'This Month' && d >= startOfMonth) return sum + value;
+      if (range === 'This Year' && d >= startOfYear) return sum + value;
+      if (range === 'All') return sum + value;
+      return sum;
+    }, 0);
   };
 
   const handleVisitorTypeChange = (type) => {
     setVisitorType(type);
-    setFilteredData(Object.entries(type === 'All' ? clicksData : uniqueClicksData));
+    const selectedData = type === 'All' ? clicksData : uniqueClicksData;
+    setFilteredData(Object.entries(selectedData || {}));
   };
 
-  const handleResetClick = () => {
-    if (window.confirm('Are you sure you want to reset all visitor stats?')) {
-      onResetStats();
+  const handleResetAllVisitors = async () => {
+    if (!window.confirm('Are you sure you want to reset all visitor stats?')) return;
+    try {
+      const res = await fetch('https://fantasymmadness-game-server-three.vercel.app/reset-all-visitors', { method: 'POST' });
+      const data = await res.json();
+      alert(data.message);
+      window.location.reload();
+    } catch (err) {
+      alert('Failed to reset all visitor stats.');
+    }
+  };
+
+  const handleResetUniqueVisitors = async () => {
+    if (!window.confirm('Are you sure you want to reset unique visitor stats?')) return;
+    try {
+      const res = await fetch('https://fantasymmadness-game-server-three.vercel.app/reset-unique-visitors', { method: 'POST' });
+      const data = await res.json();
+      alert(data.message);
+      window.location.reload();
+    } catch (err) {
+      alert('Failed to reset unique visitor stats.');
     }
   };
 
@@ -74,111 +89,49 @@ const VisitorsAnalytics = ({ onResetStats }) => {
       {
         label: `${visitorType} Visitors`,
         data: filteredData.map(([, clicks]) => clicks),
-        borderColor: 'rgba(75,192,192,1)',
-        backgroundColor: 'rgba(75,192,192,0.2)',
+        borderColor: '#d20a0a',
+        backgroundColor: 'rgba(210, 10, 10, 0.2)',
         fill: true,
-        tension: 0.3,
+        tension: 0.4,
       },
     ],
   };
 
-  const totalClicksToDisplay =
-    selectedFilter === 'All'
-      ? visitorType === 'All' ? allClicks : totalClicks
-      : filteredData.reduce((sum, [, clicks]) => sum + clicks, 0);
-
-
-      const handleResetAllVisitors = async () => {
-        const confirmReset = window.confirm('Are you sure you want to reset all visitor stats?');
-        if (!confirmReset) return;
-      
-        try {
-          const res = await fetch('https://fantasymmadness-game-server-three.vercel.app/reset-all-visitors', {
-            method: 'POST',
-          });
-          const data = await res.json();
-          alert(data.message);
-          window.location.reload(); // Optional: refresh to reflect changes
-        } catch (error) {
-          console.error('Error resetting all visitors:', error);
-          alert('Failed to reset all visitor stats.');
-        }
-      };
-      
-      const handleResetUniqueVisitors = async () => {
-        const confirmReset = window.confirm('Are you sure you want to reset unique visitor stats?');
-        if (!confirmReset) return;
-      
-        try {
-          const res = await fetch('https://fantasymmadness-game-server-three.vercel.app/reset-unique-visitors', {
-            method: 'POST',
-          });
-          const data = await res.json();
-          alert(data.message);
-          window.location.reload(); // Optional: refresh to reflect changes
-        } catch (error) {
-          console.error('Error resetting unique visitors:', error);
-          alert('Failed to reset unique visitor stats.');
-        }
-      };
-      
-
-
   return (
     <div className='visitorsAnalyticsWrapper'>
-      <div className='visitorwrapper'>
+      <div className='analyticsHeader'>
         <h1>Visitor Analytics</h1>
-        <div className='flexed-div'>
-          <button className='resetStatsBtn' onClick={handleResetClick}>
-            Reset All Stats
-          </button>
-          <button
-            className='resetStatsBtn'
-            style={visitorType === 'All' ? { boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)' } : {}}
-            onClick={() => handleVisitorTypeChange('All')}
-          >
-            All Visitors
-          </button>
-          <button
-            className='resetStatsBtn'
-            style={visitorType === 'Unique' ? { boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)' } : {}}
-            onClick={() => handleVisitorTypeChange('Unique')}
-          >
-            Unique Visitors
-          </button>
-        </div>
+       
+         <div className='resetButtons'>
+        <button onClick={handleResetAllVisitors}>Reset All visitors</button>
+        <button onClick={handleResetUniqueVisitors}>Reset Unique visitors</button>
+         <select className='dropdown' onChange={(e) => handleVisitorTypeChange(e.target.value)} value={visitorType}>
+          <option value="All">All Visitors</option>
+          <option value="Unique">Unique Visitors</option>
+        </select>
+      </div>
+       
+       
+      </div>
 
-        <div className='graphWrapper'>
-          <Line data={graphData} />
-        </div>
-
-        <div className='filterOptions'>
-          <h3>Stats for :</h3>
-          <div className='filters'>
-            {filterOptions.map((filter) => (
-              <button
-                key={filter}
-                className={`filterBtn ${selectedFilter === filter ? 'active' : ''}`}
-                onClick={() => handleFilterChange(filter)}
-              >
-                {filter}
-              </button>
-            ))}
+      <div className='metricsCards'>
+        {['All', 'Today', 'This Week', 'This Month', 'This Year'].map((range) => (
+          <div key={range} className="metricCard">
+            <span>{range}</span>
+            <h3>{computeClicks(range)}</h3>
           </div>
-        </div>
+        ))}
+      </div>
 
-        <div className='filteredStats'>
-          <h2>
-            Total {visitorType} Visitors for {selectedFilter} : {totalClicksToDisplay}
-          </h2>
-        </div>
-        <div className='flexed-div'>
-  <button className='reset-btns-bottom' onClick={handleResetAllVisitors}>Reset All visitors</button>
-  <button className='reset-btns-bottom' onClick={handleResetUniqueVisitors}>Reset Unique visitors</button>
-</div>
-
+      <div className='graphSection'>
+      <Line data={graphData} options={{
+    responsive: true,
+    maintainAspectRatio: false
+  }} />
 
       </div>
+
+    
     </div>
   );
 };
