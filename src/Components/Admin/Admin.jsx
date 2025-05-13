@@ -8,7 +8,8 @@ const Admin = () => {
     matchesCount: 0,
     usersCount: 0,
     shadowTemplatesCount: 0,
-    totalClicks: 0, // Add totalClicks state
+    totalClicks: 0,
+    unreadNotificationsCount: 0, 
   });
 
   const router = useRouter();
@@ -47,7 +48,7 @@ const Admin = () => {
   };
 
   // Destructure the counts from the state
-  const { affiliatesCount, matchesCount, usersCount, shadowTemplatesCount, totalClicks } = dashboardCounts;
+  const { affiliatesCount, matchesCount, usersCount, shadowTemplatesCount, totalClicks, unreadNotificationsCount } = dashboardCounts;
 
   if (showAnalytics) {
     return (
@@ -95,6 +96,12 @@ const Admin = () => {
           <i className='fa fa-handshake-o'></i>
           <h2>Affiliates</h2>
           <p>{affiliatesCount}</p> {/* Render affiliates count */}
+        </div>
+
+        <div className='boxx boxnotifications' onClick={() => router.push('/administration/notifications')}>
+          <i className='fa fa-bell-o'></i>
+          <h2>Notifications</h2>
+          <p>{unreadNotificationsCount}</p> 
         </div>
 
         <div
