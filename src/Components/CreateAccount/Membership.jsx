@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import MembershipCheckout from './MembershipCheckout';
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 const Membership = ({ email }) => {
   const [memberName, setMemberName] = useState('');
@@ -11,8 +11,9 @@ const Membership = ({ email }) => {
   const [loading, setLoading] = useState(true);
   const [selectedPlan, setSelectedPlan] = useState(null);
 
-  const navigate = useNavigate();
+  const router = useRouter();
   useEffect(() => {
+
     const fetchUserDetails = async () => {
       try {
         const response = await fetch(`https://fantasymmadness-game-server-three.vercel.app/user/${email}`);
@@ -47,7 +48,7 @@ const handleSelectPlan = async (plan) => {
 
             if (response.ok) {
                 toast.success('You have successfully subscribed to the Free membership plan.');
-                navigate('/UserDashboard'); 
+                router.push('/UserDashboard'); 
              
               } else {
                 toast.error('Failed to subscribe to the Free membership plan');
@@ -71,7 +72,8 @@ const handleSelectPlan = async (plan) => {
   }
 
   return (
-    <div className='membership-wrapper'>
+    <div className='membership-wrapper' style={{paddingTop:'140px'}}>
+   {/*
       <div className='member-header'>
         <div className='member-header-image'>
           <img src={memberAvatar} alt="Member Avatar" />
@@ -80,6 +82,7 @@ const handleSelectPlan = async (plan) => {
         <h3><span className='toRemove'>Current</span> Plan: None</h3>
       </div>
 
+    */}
       <div className='mermbership-cards'>
         <div className='cardone'>
           <h1 className='cardHeading'>Standard membership</h1>
