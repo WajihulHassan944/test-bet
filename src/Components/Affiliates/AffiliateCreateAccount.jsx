@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import AffiliateThankyou from './AffiliateThankyou';  // Import Thankyou component
 import ReCAPTCHA from "react-google-recaptcha";  // Import reCAPTCHA
 
+import { toast } from 'react-toastify';
+import { GoogleLogin } from '@react-oauth/google';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAffiliate } from '@/Redux/affiliateAuthSlice';
+import { useRouter } from 'next/navigation';
+
 const AffiliateCreateAccount = () => {
+    const router = useRouter();  
+
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -17,6 +25,9 @@ const AffiliateCreateAccount = () => {
         password: '',
         affiliateImage: null,
     });
+    const { isAuthenticatedAffiliate, loading,  userAffiliate } = useSelector((state) => state.affiliateAuth);
+      const dispatch = useDispatch();
+  
     const [isRegistered, setIsRegistered] = useState(false);
     const [buttonText, setButtonText] = useState('Register');  // State for button text
     const [recaptchaToken, setRecaptchaToken] = useState('');  // State for reCAPTCHA token
@@ -103,10 +114,92 @@ const AffiliateCreateAccount = () => {
         return <AffiliateThankyou />;  // Pass the dynamic response as prop to Thankyou
     }
 
+
+
+  const handleGoogleSuccess = async (response) => {
+    const { credential } = response;
+  
+    const googleLoginPromise = new Promise(async (resolve, reject) => {
+      try {
+        // Send the Google token to your backend API for verification and user handling
+        const res = await fetch('https://fantasymmadness-game-server-three.vercel.app/affiliate-google-login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            token: credential, // Send the token here
+          }),
+        });
+  
+        if (!res.ok) {
+          throw new Error('Google login failed'); // Throw an error if response is not ok
+        }
+  
+        const data = await res.json();
+        console.log('Google login response:', data);
+  
+        if (data.token) {
+          localStorage.setItem('affiliateAuthToken', data.token);
+          dispatch(fetchAffiliate(data.token));
+  
+          if (!data.affiliate.verified) {
+            // If user is not verified, show a toast and reject the promise
+            toast.warning('Your account is pending admin approval. You are not authenticated to access the dashboard.');
+            reject(new Error('Account pending admin approval. Please be patient and wait !'));
+         setIsRegistered(true);
+          } else {
+            resolve(); // Resolve the promise if verified
+          }
+        } else {
+          reject(new Error('No token returned from Google login.')); // Reject if no token
+        }
+      } catch (error) {
+        console.error('Error during Google login:', error);
+        reject(new Error('Error during Google login.')); // Reject on error
+      }
+    });
+  
+    // Use toast.promise to handle pending, success, and error states
+    toast.promise(googleLoginPromise, {
+      pending: 'Signing up with Google...',
+      success: 'Google Sign up successful! 👌',
+      error: {
+        render({ data }) {
+          return data.message || 'Google login failed';
+        },
+      },
+    });
+  };
+  
+
+  const handleGoogleError = () => {
+    console.error('Google Login Failed');
+  };
+
+
+
+  // Check if user is authenticated and has a valid plan
+  if (userAffiliate) {
+    if (!userAffiliate.verified) {
+      console.log("Please wait for your affiliate status approval from admin");
+    } else if (isAuthenticatedAffiliate) {
+       router.push("/AffiliateDashboard"); // Redirect to UserDashboard
+    }
+  }
+
+
     return (
         <div className='createAccount affiliateCreateAccount'>
             <div className='registerCard'>
                 <h1>Affiliate Registration</h1>
+                      <div className="google-login-wrapper">
+               <GoogleLogin 
+                 onSuccess={handleGoogleSuccess} 
+                 onError={handleGoogleError}
+               />
+             </div>
+              
                 <form onSubmit={handleSubmit}>
                     {/* Form Fields */}
                     <div className='input-wrap-one'>

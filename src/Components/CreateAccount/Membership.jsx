@@ -49,6 +49,7 @@ const handleSelectPlan = async (plan) => {
             if (response.ok) {
                 toast.success('You have successfully subscribed to the Free membership plan.');
                 router.push('/UserDashboard'); 
+                router.refresh(); 
              
               } else {
                 toast.error('Failed to subscribe to the Free membership plan');

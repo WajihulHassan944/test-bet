@@ -2,12 +2,20 @@ import React, { useState, useEffect } from 'react';
 import Thankyou from './Thankyou';  // Import Thankyou component
 import UploadAvatar from './UploadAvatar';  // Import UploadAvatar component
 import ReCAPTCHA from "react-google-recaptcha";  // Import reCAPTCHA
-import { useRouter } from 'next/router';
-import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
+
+import { toast } from 'react-toastify';
+
+import { GoogleLogin } from '@react-oauth/google';
+import { fetchUser } from '@/Redux/authSlice';
+import Membership from './Membership';
+import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/navigation';
 
 const CreateAccount = () => {
     const router = useRouter();  
+    const dispatch = useDispatch();
+   const { isAuthenticated, loading, user } = useSelector((state) => state.auth);
+ 
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -157,6 +165,79 @@ const CreateAccount = () => {
         return <Thankyou response={response} />;  // Pass the dynamic response as prop to Thankyou
     }
 
+
+
+  const handleGoogleSuccess = async (response) => {
+    const { credential } = response;
+  
+    const googleLoginPromise = new Promise(async (resolve, reject) => {
+      try {
+        // Send the Google token to your backend API for verification and user handling
+        const res = await fetch('https://fantasymmadness-game-server-three.vercel.app/google-login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            token: credential, // Send the token here
+          }),
+        });
+  
+        if (!res.ok) {
+          throw new Error('Google login failed'); // Throw an error if response is not ok
+        }
+  
+        const data = await res.json();
+        console.log('Google login response:', data);
+  
+        if (data.token) {
+          localStorage.setItem('authToken', data.token);
+          dispatch(fetchUser(data.token));  // Fetch the user info after successful login
+          resolve(); // Resolve the promise on successful login
+        } else {
+          reject(new Error('No token returned from Google login.')); // Reject if no token
+        }
+      } catch (error) {
+        console.error('Error during Google login:', error);
+        reject(new Error('Error during Google login.')); // Reject on error
+      }
+    });
+  
+  
+  // Use toast.promise to handle pending, success, and error states
+  toast.promise(googleLoginPromise, {
+    pending: 'Signing up with Google...',
+    success: 'Google Sign up successful! 👌',
+    error: {
+      render({ data }) {
+        return data.message || 'Google Sign up failed';
+      }
+    }
+  });
+
+};
+
+  const handleGoogleError = () => {
+    console.error('Google Login Failed');
+  };
+
+
+
+  if (user) {
+    if (user.currentPlan === 'None') {
+      return <Membership email={user.email} />;
+    } else if (isAuthenticated) {
+     router.push("/UserDashboard");
+    }
+  }
+
+
+
+
+
+
+
+
     return (
         <div className='createAccount'>
          <i
@@ -170,6 +251,12 @@ const CreateAccount = () => {
         <p className='affiliateLink' onClick={handleAffiliateLink} >Are you an Affiliate? Click here</p>
             <div className='registerCard'>
                 <h1>Register for membership</h1>
+               <div className="google-login-wrapper">
+  <GoogleLogin 
+    onSuccess={handleGoogleSuccess} 
+    onError={handleGoogleError}
+  />
+</div>
                 <form onSubmit={handleSubmit}>
                     {/* Form Fields */}
                     <div className='input-wrap-one'>
