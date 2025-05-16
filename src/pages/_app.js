@@ -153,7 +153,7 @@ function AppContent({ children }) {
             "/faqs", "/about", "/past-fights-records", "/fights-rewards",
             "/sponsor-dashboard", "/global-leaderboard", "/testimonials",
             "/spin-wheel", "/calendar-of-fights", "/AffiliateDashboard",
-            "/past-fights", "/HowItWorks", "/affiliate-league", "/fantasy-tips", "/invite"
+            "/past-fights", "/HowItWorks", "/affiliate-league", "/fantasy-tips","/FantasyLeagues", "/invite"
           ];
 
           const redRoutes = ["/fights-news"];

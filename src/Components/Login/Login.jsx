@@ -9,7 +9,7 @@ import AffiliateLogin from '../Affiliates/AffiliateLogin';
 import SponsorLogin from './SponsorLogin';
 import { useRouter } from 'next/router';
 
-const Login = ({ redirectTo }) => {
+const Login = ({ onSuccess, redirectTo }) => {
   const dispatch = useDispatch();
   const { isAuthenticated, loading, user } = useSelector((state) => state.auth);
   const [email, setEmail] = useState('');
@@ -74,8 +74,10 @@ const Login = ({ redirectTo }) => {
           router.push(`/threads/${redirectTo.threadId}`);
         } else if (redirectTo.type === 'create-thread') {
           router.push('/create-thread');
-        }
+        } 
       }
+
+      if (onSuccess) onSuccess();
     });
   };
 
@@ -141,6 +143,7 @@ const Login = ({ redirectTo }) => {
         router.push('/create-thread');
       }
     }
+      if (onSuccess) onSuccess();
   });
 };
 

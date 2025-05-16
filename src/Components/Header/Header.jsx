@@ -302,6 +302,7 @@ const Header = () => {
             </Link>
             <Link href="/Sponsors" className={`anchorlinks ${pathname === "/Sponsors" ? "activeLink" : ""}`}>Sponsors</Link>
             <Link href="/faqs" className={`anchorlinks ${pathname === "/faqs" ? "activeLink" : ""}`}>Faqs</Link>
+            <Link href="/FantasyLeagues" className={`anchorlinks ${pathname === "/FantasyLeagues" ? "activeLink" : ""}`}>Leagues</Link>
             <Link href="/login" className={`anchorlinks ${pathname === "/login" ? "activeLink" : ""}`}>Login</Link>
           </div>
           <div className="sideLinkswrap">
@@ -388,6 +389,7 @@ const Header = () => {
                 <Link href="/blogs" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Fight Blogs</Link>
                 <Link href="/Sponsors" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Sponsors</Link>
                 <Link href="/fantasy-tips" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Fantasy Tips</Link>
+                <Link href="/FantasyLeagues" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Fantasy Leagues</Link>
                 <Link href="/login" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>
                   <i className="fa fa-sign-in" aria-hidden="true"></i> Login
                 </Link>
