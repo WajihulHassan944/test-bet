@@ -13,8 +13,46 @@ const AffiliateUsers = () => {
   const [addAffiliatePopup, setAddAffiliatePopup] = useState(false);
   const [loading, setLoading] = useState(false);
 
+const [showDistinctionPopup, setShowDistinctionPopup] = useState(false);
+const [distinctionAffiliateId, setDistinctionAffiliateId] = useState(null);
+const [rewardTitle, setRewardTitle] = useState('');
+const [rewardImage, setRewardImage] = useState(null);
+
+
 const [deleteText, setDeleteText] = useState("Delete");
 const router = useRouter();
+
+const uploadDistinction = async () => {
+  if (!distinctionAffiliateId || !rewardTitle || !rewardImage) {
+    toast.error("All fields are required");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append('affiliateId', distinctionAffiliateId);
+  formData.append('rewardTitle', rewardTitle);
+  formData.append('image', rewardImage);
+
+  try {
+    const response = await fetch('https://fantasymmadness-game-server-three.vercel.app/upload-affiliate-reward', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (response.ok) {
+      toast.success("Distinction added successfully");
+      setShowDistinctionPopup(false);
+      fetchData();
+    } else {
+      const err = await response.json();
+      toast.error(err.message || 'Failed to add distinction');
+    }
+  } catch (error) {
+    console.error('Upload error:', error);
+    toast.error('Server error');
+  }
+};
+
 
 const fetchData = async () => {
   try {
@@ -189,6 +227,7 @@ const fetchData = async () => {
             <h1>First Name</h1>
             <h1>Last Name</h1>
             <h1>Status</h1>
+          <h1>Distinction</h1>
             <h1>View</h1>
             <h1>Delete</h1>
           </div>
@@ -199,6 +238,18 @@ const fetchData = async () => {
                 <h1>{user.firstName}</h1>
                 <h1>{user.lastName}</h1>
                 <h1>{user.verified ? 'Approved' : 'Pending'}</h1>
+                <button
+  className='addDistinctionBtn'
+  onClick={() => {
+    setDistinctionAffiliateId(user._id);
+    setRewardTitle(user.rewardTitle || '');
+    setRewardImage(null);
+    setShowDistinctionPopup(true);
+  }}
+>
+  {user.rewardTitle ? 'Distinction Added' : 'Add Distinction'}
+</button>
+
                 <button className='viewButton' onClick={() => handleViewUserDetails(user)}>View</button>
                 <button className='deleteButton' onClick={() => handleDeleteUser(user._id)}>{deleteText}</button>
               </div>
@@ -208,6 +259,35 @@ const fetchData = async () => {
           )}
         </div>
       </div>
+
+{showDistinctionPopup && (
+  <div className="distinctionPopup-overlay">
+    <div className="distinctionPopup-modal">
+      <h2>Add Distinction</h2>
+      <label>Reward Title:</label>
+      <input
+        type="text"
+        value={rewardTitle}
+        onChange={(e) => setRewardTitle(e.target.value)}
+        required
+      />
+
+      <label>Reward Image:</label>
+      <input
+        type="file"
+        accept="image/*"
+        onChange={(e) => setRewardImage(e.target.files[0])}
+        required
+      />
+
+      <div className="distinctionPopup-actions">
+        <button onClick={() => setShowDistinctionPopup(false)}>Cancel</button>
+       <button onClick={uploadDistinction}>Submit</button>
+       </div>
+    </div>
+  </div>
+)}
+
 
       {addAffiliatePopup && (
   <div className="Popup styledPopup">

@@ -121,6 +121,12 @@ console.log("affiliate is", affiliate);
 
           return (
             <div className={styles.card} key={affiliate._id}>
+             {affiliate.rewardTitle && (
+    <div className={styles.rewardBadgeNew}>
+      <img src={affiliate.rewardImageUrl} alt="Reward" />
+      <span>{affiliate.rewardTitle}</span>
+    </div>
+  )}
               <div className={styles.cardContent}>
                 <div className={styles.logoWrapper}>
                   <img
