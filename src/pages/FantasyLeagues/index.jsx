@@ -135,7 +135,9 @@ console.log("affiliate is", affiliate);
                     className={styles.logo}
                   />
                 </div>
-                <div className={styles.details}>
+                <div  className={`${styles.details} ${
+      affiliate.rewardTitle ? styles.hasReward : ''
+    }`}>
                   <div className={styles.name}>
                     {affiliate.firstName} {affiliate.lastName}
                   </div>

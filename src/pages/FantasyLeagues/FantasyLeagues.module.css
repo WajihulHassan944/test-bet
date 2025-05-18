@@ -62,7 +62,9 @@
   align-items: center;
   gap: 1rem;
 }
-
+.hasReward{
+  padding-top: 11px;
+}
 .wrapperAffLeaguesPublic .logoWrapper {
   flex-shrink: 0;
 }
@@ -140,6 +142,10 @@
   color: #ccc;
 }
 @media (max-width: 768px) {
+  
+.hasReward{
+  padding-top: 15px;
+}
   .wrapperAffLeaguesPublic {
     padding: 2rem 5%;
     padding-top: 180px;
@@ -172,7 +178,9 @@
 }
 
 .rewardBadgeNew img {
-  width: 40px;
+  max-height: 30px;
+  max-width: 40px;
+  object-fit: contain;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
