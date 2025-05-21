@@ -103,7 +103,12 @@ const AffiliateProfile = () => {
       });
   };
 
-  
+   const copyToClipboard = () => {
+    const text = `https://fantasymmadness.com/my-fantasy-team?referenceId=${affiliate._id}`;
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Link copied to clipboard!');
+    });
+  };
   const handleSubmittingDetails = async (e) => {
       e.preventDefault();
       setLoading(true);
@@ -440,6 +445,13 @@ const AffiliateProfile = () => {
 </div>
 
       </div>
+
+<div className='affiliateTeamLinkWrap'>
+  <h1>Fantasy Team Link</h1>
+  <h2>https://fantasymmadness.com/my-fantasy-team?referenceId={affiliate._id}</h2>
+  <button onClick={copyToClipboard}>Click to copy</button>
+</div>
+
     </div>
   );
 };
