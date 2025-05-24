@@ -4,6 +4,7 @@ import 'chart.js/auto';
 
 const VisitorsAnalytics = () => {
   const [visitorType, setVisitorType] = useState('All');
+  const [selectedDomain, setSelectedDomain] = useState('https://fantasymmadness.com/');
   const [clicksData, setClicksData] = useState({});
   const [uniqueClicksData, setUniqueClicksData] = useState({});
   const [allClicks, setAllClicks] = useState(0);
@@ -13,7 +14,7 @@ const VisitorsAnalytics = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://fantasymmadness-game-server-three.vercel.app/get-total-clicks');
+        const response = await fetch(`https://fantasymmadness-game-server-three.vercel.app/get-total-clicks?domain=${encodeURIComponent(selectedDomain)}`);
         const data = await response.json();
         const stats = data.stats;
 
@@ -30,7 +31,7 @@ const VisitorsAnalytics = () => {
     };
 
     fetchData();
-  }, [visitorType]);
+  }, [visitorType, selectedDomain]);
 
   const computeClicks = (range) => {
     const now = new Date();
@@ -62,7 +63,11 @@ const VisitorsAnalytics = () => {
   const handleResetAllVisitors = async () => {
     if (!window.confirm('Are you sure you want to reset all visitor stats?')) return;
     try {
-      const res = await fetch('https://fantasymmadness-game-server-three.vercel.app/reset-all-visitors', { method: 'POST' });
+      const res = await fetch('https://fantasymmadness-game-server-three.vercel.app/reset-all-visitors', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ domain: selectedDomain })
+      });
       const data = await res.json();
       alert(data.message);
       window.location.reload();
@@ -74,7 +79,11 @@ const VisitorsAnalytics = () => {
   const handleResetUniqueVisitors = async () => {
     if (!window.confirm('Are you sure you want to reset unique visitor stats?')) return;
     try {
-      const res = await fetch('https://fantasymmadness-game-server-three.vercel.app/reset-unique-visitors', { method: 'POST' });
+      const res = await fetch('https://fantasymmadness-game-server-three.vercel.app/reset-unique-visitors', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ domain: selectedDomain })
+      });
       const data = await res.json();
       alert(data.message);
       window.location.reload();
@@ -101,17 +110,20 @@ const VisitorsAnalytics = () => {
     <div className='visitorsAnalyticsWrapper'>
       <div className='analyticsHeader'>
         <h1>Visitor Analytics</h1>
-       
-         <div className='resetButtons'>
-        <button onClick={handleResetAllVisitors}>Reset All visitors</button>
-        <button onClick={handleResetUniqueVisitors}>Reset Unique visitors</button>
-         <select className='dropdown' onChange={(e) => handleVisitorTypeChange(e.target.value)} value={visitorType}>
-          <option value="All">All Visitors</option>
-          <option value="Unique">Unique Visitors</option>
-        </select>
-      </div>
-       
-       
+        <div className='resetButtons'>
+          <select className='dropdown' value={selectedDomain} onChange={(e) => setSelectedDomain(e.target.value)}>
+            <option value="https://fantasymmadness.com/">Fantasy Mmadness</option>
+            <option value="https://betfantasymadness.com">Bet Fantasy Madness</option>
+            <option value="https://betfmma.com/">Betfmma</option>
+            <option value="https://betcombatsports.com/">Bet Combat Sports</option>
+          </select>
+          <button onClick={handleResetAllVisitors}>Reset All visitors</button>
+          <button onClick={handleResetUniqueVisitors}>Reset Unique visitors</button>
+          <select className='dropdown' onChange={(e) => handleVisitorTypeChange(e.target.value)} value={visitorType}>
+            <option value="All">All Visitors</option>
+            <option value="Unique">Unique Visitors</option>
+          </select>
+        </div>
       </div>
 
       <div className='metricsCards'>
@@ -124,14 +136,11 @@ const VisitorsAnalytics = () => {
       </div>
 
       <div className='graphSection'>
-      <Line data={graphData} options={{
-    responsive: true,
-    maintainAspectRatio: false
-  }} />
-
+        <Line data={graphData} options={{
+          responsive: true,
+          maintainAspectRatio: false
+        }} />
       </div>
-
-    
     </div>
   );
 };

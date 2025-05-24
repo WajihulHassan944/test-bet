@@ -113,7 +113,6 @@ const index = ({ affiliate, matchData }) => {
           Join {affiliate.firstName}'s league
         </h3>
         <p className="lastp">Affiliate: {affiliate.firstName} - Free Signup</p>
-      </div>
 
       {matchData.matchPromotionalVideoUrl && (
         <div className="videoContainer">
@@ -123,6 +122,8 @@ const index = ({ affiliate, matchData }) => {
           </video>
         </div>
       )}
+      </div>
+
     </>
   );
 };

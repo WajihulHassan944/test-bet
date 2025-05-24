@@ -34,9 +34,9 @@ const AffiliateMatchDetails = ({ matchId, affiliateId }) => {
  const [isRecording, setIsRecording] = useState(false);
  const [requiredUsers, setRequiredUsers] = useState(null);
   const imageData = {
-    logoImage: "https://www.fantasymmadness.com/static/media/logo.c2aa609dbe0ed6c1af42.png"
+    logoImage: "https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp"
   };
-  const [backgroundImgVar, setBackgroundImgVar] = useState("https://i.ibb.co/sWZ5QFh/imgone.png");
+  const [backgroundImgVar, setBackgroundImgVar] = useState("https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743561422/home/qf8hkfqxlaobsriijvmj.png");
   
   useEffect(() => {
     if (match?.matchTokens > 0) {
@@ -301,50 +301,52 @@ const actualProfit = extraActualProfit / 2;
     link.click();
   };
 
-  const handleSave = async (blobUrl) => {
-    const fileName = `${Date.now()}.mp4`;
-  
-    // Create a promise for the upload process
-    const uploadPromise = new Promise(async (resolve, reject) => {
-      try {
-        // Fetch the blob data from blobUrl
-        const response = await fetch(blobUrl);
-        const blob = await response.blob();
-  
-        const params = {
-          Bucket: 'promotionsvideos',
-          Key: fileName,
-          Body: blob,
-          ContentType: 'video/mp4'
-        };
-  
-        // Upload video to S3
-        s3.upload(params, (err, data) => {
-          if (err) {
-            console.error('Upload Error', err);
-            reject(new Error('Upload failed. Please try again.'));
-          } else {
-            saveVideoUrlToDatabase(data.Location);
-            resolve(); // Resolve on successful upload
-          }
-        });
-      } catch (error) {
-        console.error('Error fetching blob:', error);
-        reject(new Error('Failed to fetch video data.'));
+const handleSave = async (blobUrl) => {
+  const fileName = `${Date.now()}.mp4`;
+
+  const uploadPromise = new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(blobUrl);
+      const blob = await response.blob();
+
+      const formData = new FormData();
+      formData.append('file', blob, fileName);
+      formData.append('upload_preset', process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET);
+      formData.append('resource_type', 'video');
+
+      const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/video/upload`;
+
+      const uploadRes = await fetch(cloudinaryUrl, {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await uploadRes.json();
+
+      if (data.secure_url) {
+        saveVideoUrlToDatabase(data.secure_url);
+        resolve();
+      } else {
+        console.error('Cloudinary upload error:', data);
+        reject(new Error('Upload failed. Please try again.'));
       }
-    });
-  
-    // Use toast.promise to handle pending, success, and error states
-    toast.promise(uploadPromise, {
-      pending: 'Uploading video...',
-      success: 'Upload successful! 🎉',
-      error: {
-        render({ data }) {
-          return data.message || 'Upload failed. Please try again.';
-        }
-      }
-    });
-  };
+    } catch (error) {
+      console.error('Error uploading to Cloudinary:', error);
+      reject(new Error('Failed to upload video.'));
+    }
+  });
+
+  toast.promise(uploadPromise, {
+    pending: 'Uploading video...',
+    success: 'Upload successful! 🎉',
+    error: {
+      render({ data }) {
+        return data.message || 'Upload failed. Please try again.';
+      },
+    },
+  });
+};
+
   
   
   const saveVideoUrlToDatabase = (videoUrl) => {
@@ -460,7 +462,7 @@ const actualProfit = extraActualProfit / 2;
    <h3>Fight promotion url below <span onClick={copyToClipboard} style={{ cursor: 'pointer' }}>Click to copy</span></h3></div>
 
    <div class="promotional-details-row promotional-details-row-four">
-   <h3>fantasymmadness.com/shadow/{match.matchName}/{affiliate.firstName} {affiliate.lastName}</h3></div>
+   <h3 onClick={copyToClipboard} style={{cursor:'pointer'}}>fantasymmadness.com/shadow/{match.matchName}/{affiliate.firstName} {affiliate.lastName}</h3></div>
 
 <div className='flexed-div'>
    <button 

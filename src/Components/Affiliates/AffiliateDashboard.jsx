@@ -74,7 +74,11 @@ const AffiliateDashboard = () => {
   const handlePromoMatchClick = (matchId, affiliateId) => {
     setPromoMatchDetails({ matchId, affiliateId });
   };
-
+ useEffect(() => {
+    if (promoMatchDetails.matchId) {
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // Optional: smooth scroll
+    }
+  }, [promoMatchDetails.matchId]);
   if (promoMatchDetails.matchId) {
     return (
       <>
