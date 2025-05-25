@@ -77,40 +77,55 @@ const index = ({ affiliate, matchData }) => {
 
   return (
     <>
-          <Head>
-        <title>Fantasy MMAadness | Fantasy Combat Sports, MMA, Boxing</title>
-        <meta
-          name="description"
-          content="Play Fantasy MMA, Fantasy Boxing, Fantasy UFC, Fantasy BKFC, Fantasy Kickboxing, and Fantasy Bare Knuckle. Create dream fantasy fights, climb fighter rankings, and dominate fantasy combat leagues."
-        />
-        <meta property="og:title" content="Fantasy MMAadness - Fantasy Fighting Action Awaits" />
-        <meta
-          property="og:description"
-          content="Join Fantasy MMAadness and experience the ultimate fantasy combat sports world. Build lineups for Fantasy MMA, Boxing, Wrestling, and more!"
-        />
-        <meta property="og:url" content="https://fantasymmadness.com/" />
-        <meta
-          name="keywords"
-          content="Fantasy MMA, Fantasy UFC, Fantasy BKFC, Fantasy Boxing, Fantasy Kickboxing, Fantasy Bare Knuckle, Fantasy Combat, Fantasy Fighting, Fantasy Sports Betting Combat, Fantasy Fighter Rankings, Fantasy League Combat Sports, Fantasy Matchups, Fantasy Wrestling, Fantasy Combat Sports Analysis"
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "Fantasy MMAadness",
-              "url": "https://www.fantasymmadness.com",
-              "description": "Play Fantasy MMA, Boxing, Kickboxing, and Fantasy Combat Sports leagues. Draft fighters, score big, and win rewards.",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://www.fantasymmadness.com/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-              }
-            }),
-          }}
-        />
-      </Head>
+       <Head>
+  <title>Fantasy MMAadness | Fantasy Combat Sports, MMA, Boxing</title>
+  <meta
+    name="description"
+    content="Play Fantasy MMA, Fantasy Boxing, Fantasy UFC, Fantasy BKFC, Fantasy Kickboxing, and Fantasy Bare Knuckle. Create dream fantasy fights, climb fighter rankings, and dominate fantasy combat leagues."
+  />
+  
+  {/* Open Graph Meta Tags */}
+  <meta property="og:title" content="Fantasy MMAadness - Fantasy Fighting Action Awaits" />
+  <meta
+    property="og:description"
+    content="Join Fantasy MMAadness and experience the ultimate fantasy combat sports world. Build lineups for Fantasy MMA, Boxing, Wrestling, and more!"
+  />
+  <meta property="og:url" content="https://fantasymmadness.com/" />
+  <meta property="og:image" content="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" />
+  <meta property="og:type" content="website" />
+  
+  {/* Twitter Card Meta Tags */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fantasy MMAadness - Fantasy Fighting Action Awaits" />
+  <meta name="twitter:description" content="Join Fantasy MMAadness and experience the ultimate fantasy combat sports world." />
+  <meta name="twitter:image" content="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" />
+  <meta name="twitter:site" content="@fantasymmadness" /> {/* optional if you have a handle */}
+  
+  {/* SEO Keywords */}
+  <meta
+    name="keywords"
+    content="Fantasy MMA, Fantasy UFC, Fantasy BKFC, Fantasy Boxing, Fantasy Kickboxing, Fantasy Bare Knuckle, Fantasy Combat, Fantasy Fighting, Fantasy Sports Betting Combat, Fantasy Fighter Rankings, Fantasy League Combat Sports, Fantasy Matchups, Fantasy Wrestling, Fantasy Combat Sports Analysis"
+  />
+
+  {/* Structured Data */}
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Fantasy MMAadness",
+        "url": "https://www.fantasymmadness.com",
+        "description": "Play Fantasy MMA, Boxing, Kickboxing, and Fantasy Combat Sports leagues. Draft fighters, score big, and win rewards.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.fantasymmadness.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }),
+    }}
+  />
+</Head>
 
       <div className="promotional-updated-design">
         <div className="fighter-images-promotional">
