@@ -264,3 +264,45 @@ text-transform: capitalize;
 }
 
 }
+.fight-card {
+  position: relative;
+}
+
+.fight-card .copy-button {
+  position: absolute;
+  bottom: 10px;
+  right: 5%;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.copy-button .copy-icon {
+  color: #fff;
+  font-size: 1rem;
+}
+
+/* Tooltip styles */
+.copy-button::after {
+  content: "Fight Promotional URL";
+  position: absolute;
+  bottom: 110%; /* position above the icon */
+  right: 0;
+  background-color: #000;
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(5px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100;
+}
+
+.copy-button:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -4,6 +4,7 @@ import AffiliateAddNewMatch from './AffiliateAddNewMatch';
 import AffiliateMatchDetails from './AffiliateMatchDetails';
 import { fetchMatches } from '../../Redux/matchSlice';
 import Image from 'next/image';
+import { FiCheck ,  FiCode,  FiCopy} from 'react-icons/fi';
 const MAX_CARDS = 5; 
 
 const AffiliateDashboard = () => {
@@ -13,7 +14,9 @@ const AffiliateDashboard = () => {
   const [promoMatches, setPromoMatches] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [userDetails, setUserDetails] = useState([]);
-  
+const [copiedId, setCopiedId] = useState(null);
+
+
   const matches = useSelector((state) => state.matches.data);
   const matchStatus = useSelector((state) => state.matches.status);
   const dispatch = useDispatch();
@@ -70,6 +73,26 @@ const AffiliateDashboard = () => {
       </>
     );
   }
+  
+  const handleCopy = async (e, match, affiliate) => {
+  e.stopPropagation();
+  try {
+    if (match && affiliate) {
+      const fullName = `${affiliate.firstName} ${affiliate.lastName}`;
+      const encodedMatchName = encodeURIComponent(match.matchName);
+      const encodedFullName = encodeURIComponent(fullName);
+      
+      const url = `https://fantasymmadness.com/shadow/${encodedMatchName}/${encodedFullName}`;
+      
+      await navigator.clipboard.writeText(url);
+      setCopiedId(match._id);
+      setTimeout(() => setCopiedId(null), 2000);
+    }
+  } catch (err) {
+    console.error("Failed to copy: ", err);
+  }
+};
+
 
   const handlePromoMatchClick = (matchId, affiliateId) => {
     setPromoMatchDetails({ matchId, affiliateId });
@@ -175,6 +198,18 @@ const AffiliateDashboard = () => {
                     <div className='fight-date'><span className='date'>{promotedStartIndex + index + 1}</span></div>
                     <div className='fight-info'><h2>{match.matchFighterA.split(' ')[0]} Vs {match.matchFighterB.split(' ')[0]}</h2>
                       <p>{match.matchCategoryTwo ? match.matchCategoryTwo : match.matchCategory} | Max Rounds: {match.maxRounds}</p>
+        <button
+  className="copy-button"
+  onClick={(e) => handleCopy(e, match, affiliate)}
+>
+  {copiedId === match._id ? (
+    <FiCheck className="copy-icon" />
+  ) : (
+    <FiCopy className="copy-icon" />
+  )}
+</button>
+
+
                     </div>
                   </div>
                 ))}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import AffiliateFightLeaderboard from "@/Components/Affiliates/AffiliateFightLeaderboard";
+import Head from "next/head";
 const index = ({ affiliate, matchData }) => {
   const router = useRouter();
   const { matchName, fullName } = router.query;
@@ -76,6 +77,41 @@ const index = ({ affiliate, matchData }) => {
 
   return (
     <>
+          <Head>
+        <title>Fantasy MMAadness | Fantasy Combat Sports, MMA, Boxing</title>
+        <meta
+          name="description"
+          content="Play Fantasy MMA, Fantasy Boxing, Fantasy UFC, Fantasy BKFC, Fantasy Kickboxing, and Fantasy Bare Knuckle. Create dream fantasy fights, climb fighter rankings, and dominate fantasy combat leagues."
+        />
+        <meta property="og:title" content="Fantasy MMAadness - Fantasy Fighting Action Awaits" />
+        <meta
+          property="og:description"
+          content="Join Fantasy MMAadness and experience the ultimate fantasy combat sports world. Build lineups for Fantasy MMA, Boxing, Wrestling, and more!"
+        />
+        <meta property="og:url" content="https://fantasymmadness.com/" />
+        <meta
+          name="keywords"
+          content="Fantasy MMA, Fantasy UFC, Fantasy BKFC, Fantasy Boxing, Fantasy Kickboxing, Fantasy Bare Knuckle, Fantasy Combat, Fantasy Fighting, Fantasy Sports Betting Combat, Fantasy Fighter Rankings, Fantasy League Combat Sports, Fantasy Matchups, Fantasy Wrestling, Fantasy Combat Sports Analysis"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Fantasy MMAadness",
+              "url": "https://www.fantasymmadness.com",
+              "description": "Play Fantasy MMA, Boxing, Kickboxing, and Fantasy Combat Sports leagues. Draft fighters, score big, and win rewards.",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.fantasymmadness.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            }),
+          }}
+        />
+      </Head>
+
       <div className="promotional-updated-design">
         <div className="fighter-images-promotional">
           <div className="img-container">
