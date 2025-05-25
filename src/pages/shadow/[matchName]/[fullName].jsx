@@ -91,14 +91,16 @@ const index = ({ affiliate, matchData }) => {
     content="Join Fantasy MMAadness and experience the ultimate fantasy combat sports world. Build lineups for Fantasy MMA, Boxing, Wrestling, and more!"
   />
   <meta property="og:url" content="https://fantasymmadness.com/" />
-  <meta property="og:image" content="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" />
+  <meta property="og:image" content={matchData.promotionBackground} />
+
   <meta property="og:type" content="website" />
   
   {/* Twitter Card Meta Tags */}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Fantasy MMAadness - Fantasy Fighting Action Awaits" />
   <meta name="twitter:description" content="Join Fantasy MMAadness and experience the ultimate fantasy combat sports world." />
-  <meta name="twitter:image" content="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" />
+  <meta name="twitter:image" content={matchData.promotionBackground} />
+
   <meta name="twitter:site" content="@fantasymmadness" /> {/* optional if you have a handle */}
   
   {/* SEO Keywords */}
