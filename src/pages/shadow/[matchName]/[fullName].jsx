@@ -79,91 +79,102 @@ const index = ({ affiliate, matchData }) => {
   return (
     <>
 <Head>
-  <title>{`Fantasy MMAadness | ${matchData.matchFighterA} vs ${matchData.matchFighterB} | ${matchData.matchCategory} Fantasy Fight`}</title>
+  {(() => {
+    const categoryLabel = matchData.matchCategoryTwo?.trim()
+      ? `${matchData.matchCategoryTwo}`
+      : `${matchData.matchCategory}`;
 
-  <meta
-    name="description"
-    content={`Watch the fantasy showdown between ${matchData.matchFighterA} and ${matchData.matchFighterB} in ${matchData.matchCategory}, ${matchData.matchCategoryTwo}. ${matchData.matchDescription}. Participate and win from a pot of ${matchData.pot} tokens.`}
-  />
+    const fullCategoryLabel = matchData.matchCategoryTwo?.trim()
+      ? `${matchData.matchCategory}, ${matchData.matchCategoryTwo}`
+      : `${matchData.matchCategory}`;
 
-  {/* Open Graph Meta Tags */}
-  <meta
-    property="og:title"
-    content={`${matchData.matchFighterA} vs ${matchData.matchFighterB} | Fantasy ${matchData.matchCategory} - Fantasy MMAadness`}
-  />
-  <meta
-    property="og:description"
-    content={`Join Fantasy MMAadness to play the ${matchData.matchCategory} fantasy fight between ${matchData.matchFighterA} and ${matchData.matchFighterB}. ${matchData.matchDescription} – ${matchData.maxRounds} rounds.`}
-  />
-  <meta
-    property="og:url"
-    content={`https://fantasymmadness.com/shadow/${matchData.matchName.replace(/\s+/g, '-').toLowerCase()}/${matchData.matchFighterA.replace(/\s+/g, '-')}-vs-${matchData.matchFighterB.replace(/\s+/g, '-')}`}
-  />
-  <meta
-    property="og:image"
-    content={matchData.promotionBackground.replace('/upload/', '/upload/c_fill,g_north,h_630,w_1200/')}
-  />
-  <meta property="og:type" content="website" />
+    const matchUrl = `https://fantasymmadness.com/shadow/${matchData.matchName.replace(/\s+/g, '-').toLowerCase()}/${matchData.matchFighterA.replace(/\s+/g, '-')}-vs-${matchData.matchFighterB.replace(/\s+/g, '-')}`;
+    const matchImage = matchData.promotionBackground.replace('/upload/', '/upload/c_fill,g_north,h_630,w_1200/');
 
-  {/* Twitter Card Meta Tags */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta
-    name="twitter:title"
-    content={`${matchData.matchFighterA} vs ${matchData.matchFighterB} | Fantasy ${matchData.matchCategory} - Fantasy MMAadness`}
-  />
-  <meta
-    name="twitter:description"
-    content={`Fantasy fight: ${matchData.matchFighterA} vs ${matchData.matchFighterB} in ${matchData.matchCategoryTwo}. Win tokens, climb ranks, and enjoy shadow-mode matchups!`}
-  />
-  <meta
-    name="twitter:image"
-    content={matchData.promotionBackground.replace('/upload/', '/upload/c_fill,g_north,h_630,w_1200/')}
-  />
-  <meta name="twitter:site" content="@fantasymmadness" />
+    return (
+      <>
+        <title>{`Fantasy MMAadness | ${matchData.matchFighterA} vs ${matchData.matchFighterB} | ${categoryLabel} Fantasy Fight`}</title>
 
-  {/* SEO Keywords */}
-  <meta
-    name="keywords"
-    content={`Fantasy ${matchData.matchCategory}, Fantasy ${matchData.matchCategoryTwo}, ${matchData.matchFighterA} vs ${matchData.matchFighterB}, Fantasy Combat Sports, Fantasy Fighting, Fantasy MMA, Fantasy UFC, Fantasy BKFC, Fantasy Boxing, Shadow Match, Fighter Rankings`}
-  />
+        <meta
+          name="description"
+          content={`Watch the fantasy showdown between ${matchData.matchFighterA} and ${matchData.matchFighterB} in ${fullCategoryLabel}. ${matchData.matchDescription}. Participate and win from a pot of ${matchData.pot} tokens.`}
+        />
 
-  {/* Structured Data */}
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "SportsEvent",
-        "name": `${matchData.matchFighterA} vs ${matchData.matchFighterB}`,
-        "startDate": matchData.matchDate,
-        "url": `https://fantasymmadness.com/shadow/${matchData.matchName.replace(/\s+/g, '-').toLowerCase()}/${matchData.matchFighterA.replace(/\s+/g, '-')}-vs-${matchData.matchFighterB.replace(/\s+/g, '-')}`,
-        "description": matchData.matchDescription,
-        "eventStatus": matchData.matchStatus === 'Finished' ? "https://schema.org/EventCompleted" : "https://schema.org/EventScheduled",
-        "location": {
-          "@type": "VirtualLocation",
-          "url": `https://fantasymmadness.com/shadow/${matchData.matchName.replace(/\s+/g, '-').toLowerCase()}/${matchData.matchFighterA.replace(/\s+/g, '-')}-vs-${matchData.matchFighterB.replace(/\s+/g, '-')}`
-        },
-        "image": matchData.promotionBackground,
-        "performer": [
-          {
-            "@type": "Person",
-            "name": matchData.matchFighterA,
-            "image": matchData.fighterAImage
-          },
-          {
-            "@type": "Person",
-            "name": matchData.matchFighterB,
-            "image": matchData.fighterBImage
-          }
-        ],
-        "organizer": {
-          "@type": "Organization",
-          "name": "Fantasy MMAadness",
-          "url": "https://fantasymmadness.com"
-        }
-      }),
-    }}
-  />
+        {/* Open Graph Meta Tags */}
+        <meta
+          property="og:title"
+          content={`${matchData.matchFighterA} vs ${matchData.matchFighterB} | Fantasy ${categoryLabel} - Fantasy MMAadness`}
+        />
+        <meta
+          property="og:description"
+          content={`Join Fantasy MMAadness to play the ${categoryLabel} fantasy fight between ${matchData.matchFighterA} and ${matchData.matchFighterB}. ${matchData.matchDescription} – ${matchData.maxRounds} rounds.`}
+        />
+        <meta property="og:url" content={matchUrl} />
+        <meta property="og:image" content={matchImage} />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={`${matchData.matchFighterA} vs ${matchData.matchFighterB} | Fantasy ${categoryLabel} - Fantasy MMAadness`}
+        />
+        <meta
+          name="twitter:description"
+          content={`Fantasy fight: ${matchData.matchFighterA} vs ${matchData.matchFighterB} in ${categoryLabel}. Win tokens, climb ranks, and enjoy shadow-mode matchups!`}
+        />
+        <meta name="twitter:image" content={matchImage} />
+        <meta name="twitter:site" content="@fantasymmadness" />
+
+        {/* SEO Keywords */}
+        <meta
+          name="keywords"
+          content={`Fantasy ${matchData.matchCategory}, Fantasy ${matchData.matchCategoryTwo || ''}, ${matchData.matchFighterA} vs ${matchData.matchFighterB}, Fantasy Combat Sports, Fantasy Fighting, Fantasy MMA, Fantasy UFC, Fantasy BKFC, Fantasy Boxing, Shadow Match, Fighter Rankings`}
+        />
+
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SportsEvent",
+              "name": `${matchData.matchFighterA} vs ${matchData.matchFighterB}`,
+              "startDate": matchData.matchDate,
+              "url": matchUrl,
+              "description": matchData.matchDescription,
+              "eventStatus":
+                matchData.matchStatus === "Finished"
+                  ? "https://schema.org/EventCompleted"
+                  : "https://schema.org/EventScheduled",
+              "location": {
+                "@type": "VirtualLocation",
+                "url": matchUrl,
+              },
+              "image": matchData.promotionBackground,
+              "performer": [
+                {
+                  "@type": "Person",
+                  "name": matchData.matchFighterA,
+                  "image": matchData.fighterAImage,
+                },
+                {
+                  "@type": "Person",
+                  "name": matchData.matchFighterB,
+                  "image": matchData.fighterBImage,
+                },
+              ],
+              "organizer": {
+                "@type": "Organization",
+                "name": "Fantasy MMAadness",
+                "url": "https://fantasymmadness.com",
+              },
+            }),
+          }}
+        />
+      </>
+    );
+  })()}
 </Head>
 
       <div className="promotional-updated-design">
