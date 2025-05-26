@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import AffiliateFightLeaderboard from "@/Components/Affiliates/AffiliateFightLeaderboard";
 import Head from "next/head";
+import Image from "next/image";
 const index = ({ affiliate, matchData }) => {
   const router = useRouter();
   const { matchName, fullName } = router.query;
@@ -202,7 +203,11 @@ const index = ({ affiliate, matchData }) => {
           Join {affiliate.firstName}'s league
         </h3>
         <p className="lastp">Affiliate: {affiliate.firstName} - Free Signup</p>
-
+{matchData.promotionBackground && (
+        <div className="promotionImageContainer">
+         <Image src={matchData.promotionBackground} width={350} height={350} style={{objectFit:'contain', margin:'10px 0'}} />
+         </div>
+      )}
       {matchData.matchPromotionalVideoUrl && (
         <div className="videoContainer">
           <video className="responsiveVideo" controls>

@@ -17,12 +17,14 @@
 	justify-content:flex-start;
 	align-items:center;
 	background-image: url(/Assets/promotional/one.png);
+    background-attachment: fixed;
 	background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
 	position:relative;
 	padding-top:120px;
     padding-bottom: 70px;	
+    scroll-behavior:auto;
 }.fighter-images-promotional {
     display: flex;
     gap: 12%;
