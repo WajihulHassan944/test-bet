@@ -77,36 +77,53 @@ const index = ({ affiliate, matchData }) => {
 
   return (
     <>
-       <Head>
-  <title>Fantasy MMAadness | Fantasy Combat Sports, MMA, Boxing</title>
+<Head>
+  <title>{`Fantasy MMAadness | ${matchData.matchFighterA} vs ${matchData.matchFighterB} | ${matchData.matchCategory} Fantasy Fight`}</title>
+
   <meta
     name="description"
-    content="Play Fantasy MMA, Fantasy Boxing, Fantasy UFC, Fantasy BKFC, Fantasy Kickboxing, and Fantasy Bare Knuckle. Create dream fantasy fights, climb fighter rankings, and dominate fantasy combat leagues."
+    content={`Watch the fantasy showdown between ${matchData.matchFighterA} and ${matchData.matchFighterB} in ${matchData.matchCategory}, ${matchData.matchCategoryTwo}. ${matchData.matchDescription}. Participate and win from a pot of ${matchData.pot} tokens.`}
   />
-  
+
   {/* Open Graph Meta Tags */}
-  <meta property="og:title" content="Fantasy MMAadness - Fantasy Fighting Action Awaits" />
+  <meta
+    property="og:title"
+    content={`${matchData.matchFighterA} vs ${matchData.matchFighterB} | Fantasy ${matchData.matchCategory} - Fantasy MMAadness`}
+  />
   <meta
     property="og:description"
-    content="Join Fantasy MMAadness and experience the ultimate fantasy combat sports world. Build lineups for Fantasy MMA, Boxing, Wrestling, and more!"
+    content={`Join Fantasy MMAadness to play the ${matchData.matchCategory} fantasy fight between ${matchData.matchFighterA} and ${matchData.matchFighterB}. ${matchData.matchDescription} – ${matchData.maxRounds} rounds.`}
   />
-  <meta property="og:url" content="https://fantasymmadness.com/" />
-  <meta property="og:image" content={matchData.promotionBackground} />
-
+  <meta
+    property="og:url"
+    content={`https://fantasymmadness.com/shadow/${matchData.matchName.replace(/\s+/g, '-').toLowerCase()}/${matchData.matchFighterA.replace(/\s+/g, '-')}-vs-${matchData.matchFighterB.replace(/\s+/g, '-')}`}
+  />
+  <meta
+    property="og:image"
+    content={matchData.promotionBackground.replace('/upload/', '/upload/c_fill,g_north,h_630,w_1200/')}
+  />
   <meta property="og:type" content="website" />
-  
+
   {/* Twitter Card Meta Tags */}
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fantasy MMAadness - Fantasy Fighting Action Awaits" />
-  <meta name="twitter:description" content="Join Fantasy MMAadness and experience the ultimate fantasy combat sports world." />
-  <meta name="twitter:image" content={matchData.promotionBackground} />
+  <meta
+    name="twitter:title"
+    content={`${matchData.matchFighterA} vs ${matchData.matchFighterB} | Fantasy ${matchData.matchCategory} - Fantasy MMAadness`}
+  />
+  <meta
+    name="twitter:description"
+    content={`Fantasy fight: ${matchData.matchFighterA} vs ${matchData.matchFighterB} in ${matchData.matchCategoryTwo}. Win tokens, climb ranks, and enjoy shadow-mode matchups!`}
+  />
+  <meta
+    name="twitter:image"
+    content={matchData.promotionBackground.replace('/upload/', '/upload/c_fill,g_north,h_630,w_1200/')}
+  />
+  <meta name="twitter:site" content="@fantasymmadness" />
 
-  <meta name="twitter:site" content="@fantasymmadness" /> {/* optional if you have a handle */}
-  
   {/* SEO Keywords */}
   <meta
     name="keywords"
-    content="Fantasy MMA, Fantasy UFC, Fantasy BKFC, Fantasy Boxing, Fantasy Kickboxing, Fantasy Bare Knuckle, Fantasy Combat, Fantasy Fighting, Fantasy Sports Betting Combat, Fantasy Fighter Rankings, Fantasy League Combat Sports, Fantasy Matchups, Fantasy Wrestling, Fantasy Combat Sports Analysis"
+    content={`Fantasy ${matchData.matchCategory}, Fantasy ${matchData.matchCategoryTwo}, ${matchData.matchFighterA} vs ${matchData.matchFighterB}, Fantasy Combat Sports, Fantasy Fighting, Fantasy MMA, Fantasy UFC, Fantasy BKFC, Fantasy Boxing, Shadow Match, Fighter Rankings`}
   />
 
   {/* Structured Data */}
@@ -115,14 +132,33 @@ const index = ({ affiliate, matchData }) => {
     dangerouslySetInnerHTML={{
       __html: JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Fantasy MMAadness",
-        "url": "https://www.fantasymmadness.com",
-        "description": "Play Fantasy MMA, Boxing, Kickboxing, and Fantasy Combat Sports leagues. Draft fighters, score big, and win rewards.",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.fantasymmadness.com/search?q={search_term_string}",
-          "query-input": "required name=search_term_string"
+        "@type": "SportsEvent",
+        "name": `${matchData.matchFighterA} vs ${matchData.matchFighterB}`,
+        "startDate": matchData.matchDate,
+        "url": `https://fantasymmadness.com/shadow/${matchData.matchName.replace(/\s+/g, '-').toLowerCase()}/${matchData.matchFighterA.replace(/\s+/g, '-')}-vs-${matchData.matchFighterB.replace(/\s+/g, '-')}`,
+        "description": matchData.matchDescription,
+        "eventStatus": matchData.matchStatus === 'Finished' ? "https://schema.org/EventCompleted" : "https://schema.org/EventScheduled",
+        "location": {
+          "@type": "VirtualLocation",
+          "url": `https://fantasymmadness.com/shadow/${matchData.matchName.replace(/\s+/g, '-').toLowerCase()}/${matchData.matchFighterA.replace(/\s+/g, '-')}-vs-${matchData.matchFighterB.replace(/\s+/g, '-')}`
+        },
+        "image": matchData.promotionBackground,
+        "performer": [
+          {
+            "@type": "Person",
+            "name": matchData.matchFighterA,
+            "image": matchData.fighterAImage
+          },
+          {
+            "@type": "Person",
+            "name": matchData.matchFighterB,
+            "image": matchData.fighterBImage
+          }
+        ],
+        "organizer": {
+          "@type": "Organization",
+          "name": "Fantasy MMAadness",
+          "url": "https://fantasymmadness.com"
         }
       }),
     }}
