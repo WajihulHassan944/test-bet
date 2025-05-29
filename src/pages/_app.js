@@ -41,6 +41,7 @@ import "@/styles/threaddetails.css";
 import "@/styles/adminaddnewblog.css";
 import "@/styles/blogs.css";
 import "@/styles/invite.css";
+import "@/styles/fantasyChatroom.css";
 import Script from "next/script";
 import { Provider } from "react-redux";
 import { wrapper } from "../Redux/store"; // Updated for next-redux-wrapper

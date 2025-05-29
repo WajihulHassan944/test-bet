@@ -163,11 +163,12 @@ const Header = () => {
           <div className="anchorLinksWrapper">
             <Link href="/AffiliateDashboard" className={`anchorlinks ${pathname === "/AffiliateDashboard" ? "activeLink" : ""}`}>Fights</Link>
             <Link href="/HowItWorks" className={`anchorlinks ${pathname === "/HowItWorks" ? "activeLink" : ""}`}>How it works</Link>
-            <Link href="/affiliate-league" className={`anchorlinks ${pathname === "/affiliate-league" ? "activeLink" : ""}`}>My League</Link>
-            <Link href="/past-promotions" className={`anchorlinks ${pathname === "/past-promotions" ? "activeLink" : ""}`}>Past Promotions</Link>
+            <Link href="/affiliate-league" className={`anchorlinks ${pathname === "/affiliate-league" ? "activeLink" : ""}`}>League</Link>
+            <Link href="/past-promotions" className={`anchorlinks ${pathname === "/past-promotions" ? "activeLink" : ""}`}>Promotions</Link>
             <Link href="/AffiliateProfile" className={`anchorlinks ${pathname === "/AffiliateProfile" ? "activeLink" : ""}`}>Profile</Link>
             <Link href="/AffiliatePromotion" className={`anchorlinks ${pathname === "/AffiliatePromotion" ? "activeLink" : ""}`}>Insights</Link>
             <Link href="/affiliate-guides" className={`anchorlinks ${pathname === "/affiliate-guides" ? "activeLink" : ""}`}>Guides</Link>
+            <Link href="/fantasy-chatroom" className={`anchorlinks ${pathname === "/fantasy-chatroom" ? "activeLink" : ""}`}>Chat</Link>
             <Link href="/" onClick={handleLogoutAffiliate} className="anchorlinks">Logout</Link>
           </div>
           <div className="affiliateAccountShow">
@@ -210,6 +211,7 @@ const Header = () => {
             <Link href="/profile" className={`anchorlinks ${pathname === "/profile" ? "activeLink" : ""}`}>Profile</Link>
             <Link href="/community-forum" className={`anchorlinks ${pathname === "/community-forum" ? "activeLink" : ""}`}>Community</Link>
             <Link href="/guides" className={`anchorlinks ${pathname === "/guides" ? "activeLink" : ""}`}>Guides</Link>
+            <Link href="/fantasy-chatroom" className={`anchorlinks ${pathname === "/fantasy-chatroom" ? "activeLink" : ""}`}>Chatroom</Link>
           </div>
           <div className="sideLinkswrap">
             <Link href="/UserDashboard" className={`sideLinks ${pathname === "/UserDashboard" ? "activeLink" : ""}`}>
@@ -337,7 +339,8 @@ const Header = () => {
                 <Link href="/AffiliateProfile" className="anchorlinks" onClick={closeMenu}>Profile</Link>
                 <Link href="/AffiliatePromotion" className="anchorlinks" onClick={closeMenu}>Insights</Link>
                 <Link href="/affiliate-guides" className="anchorlinks" onClick={closeMenu}>Guides</Link>
-                <button onClick={() => { handleLogoutAffiliate(); closeMenu(); }} className="anchorlinks logoutButton" style={{ background: 'transparent', border: 'none', outline: 'none' }}>
+               <Link href="/fantasy-chatroom" className="anchorlinks" onClick={closeMenu}>Fantasy Chatroom</Link>
+                 <button onClick={() => { handleLogoutAffiliate(); closeMenu(); }} className="anchorlinks logoutButton" style={{ background: 'transparent', border: 'none', outline: 'none' }}>
                   <i className="fa fa-sign-out" aria-hidden="true"></i> Logout
                 </button>
                 <div className="affiliateAccountShow affiliateAccountShowMob">
@@ -356,6 +359,7 @@ const Header = () => {
                 <Link href="/guides" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Guides</Link>
                 <Link href="/community-forum" className="anchorlinks" onClick={closeMenu}>Community</Link>
                 <Link href="/UserDashboard" className="anchorlinks" onClick={closeMenu}>Dashboard</Link>
+                <Link href="/fantasy-chatroom" className="anchorlinks" onClick={closeMenu}>Fantasy Chatroom</Link>
                 <button onClick={() => { handleLogout(); closeMenu(); }} className="anchorlinks logoutButton" style={{ background: 'transparent', border: 'none', outline: 'none' }}>
                   <i className="fa fa-sign-out" aria-hidden="true"></i> Logout
                 </button>
