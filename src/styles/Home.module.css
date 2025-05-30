@@ -1209,3 +1209,42 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
  text-shadow: 3px 3px #000, 5px 5px 10px #000c !important;
  
 }
+
+.bannerButtons{
+  display: none;
+}
+@media(max-width:768px){
+  .bannerButtons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.bannerButtons .signupbtn{
+  padding: 8px 15px;
+  background: linear-gradient(216.01deg, #d20a0a 26.18%, #9e0808 93.27%);
+  border:none;
+  outline: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+    font-family: UfcSansRegular;
+    font-weight: 600;
+    box-shadow: 0 10px 20px #00000070;
+    text-decoration: none;
+     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+.bannerButtons .signupbtn:nth-of-type(2) {
+  background: linear-gradient(135deg, #0f766e, #128c7e, #25d366, #34b7f1);
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+  color: #fff;
+}
+  
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+}

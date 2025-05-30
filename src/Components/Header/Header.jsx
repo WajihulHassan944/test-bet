@@ -37,7 +37,7 @@ const Header = () => {
   
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowPromotion(true);
+      setShowPromotion(false);
     }, 5000); // 1-second delay
 
     return () => clearTimeout(timer);
@@ -378,11 +378,34 @@ const Header = () => {
               </>
             ) : (
               <>
+                <Link href="/login" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}  style={{
+    color: 'red',
+    fontWeight: 'bold',
+    padding: '8px 12px',
+    display: 'inline-block',
+    textDecoration: 'none'
+  }}>
+                  <i className="fa fa-sign-in" aria-hidden="true"></i> Login
+                </Link>
+                <Link  style={{
+    color: 'blue',
+    fontWeight: 'bold',
+    padding: '8px 12px',
+    display: 'inline-block',
+    textDecoration: 'none'
+  }} href="/CreateAccount" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}><i className="fa fa-user" aria-hidden="true"></i> User Create account</Link>
+                <Link  style={{
+    color: 'green',
+    fontWeight: 'bold',
+    padding: '8px 12px',
+    display: 'inline-block',
+    textDecoration: 'none'
+  }} href="/AffiliateCreateAccount" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Affiliate Create account</Link>
+             
                 <Link href="/home" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Home</Link>
                 <Link href="/playforfree" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Play for free</Link>
                 <Link href="/community-forum" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Community</Link>
                 <Link href="/upcomingfights" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Upcoming Fights</Link>
-                <Link href="/CreateAccount" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Create account</Link>
                 <Link href="/past-fights" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Past Fights</Link>
                 <Link href="/our-fighters" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Our Fighters</Link>
                 <Link href="/past-fights-records" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Past Fights Videos</Link>
@@ -394,9 +417,6 @@ const Header = () => {
                 <Link href="/Sponsors" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Sponsors</Link>
                 <Link href="/fantasy-tips" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Fantasy Tips</Link>
                 <Link href="/FantasyLeagues" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Fantasy Leagues</Link>
-                <Link href="/login" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>
-                  <i className="fa fa-sign-in" aria-hidden="true"></i> Login
-                </Link>
               </>
             )}
           </div>

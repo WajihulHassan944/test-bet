@@ -79,8 +79,12 @@ const Home = ({ slideData }) => {
       <div className={styles.homeFirst}>
         <div className={styles.bannerSliderWrapper}>
           <div className={styles.slide} key={currentSlide}>
-            <h1>{slideData[currentSlide].h1}</h1>
-            <h2>{slideData[currentSlide].h2}</h2>
+            <h1 style={{fontWeight:'100'}}>{slideData[currentSlide].h1}</h1>
+            <h2 style={{fontWeight:'100'}}>{slideData[currentSlide].h2}</h2>
+            <div className={styles.bannerButtons}>
+            <Link href="/CreateAccount" className={styles.signupbtn}>User Sign up</Link>
+            <Link href="/AffiliateCreateAccount" className={styles.signupbtn}>Affiliate Sign up</Link>
+            </div>
           </div>
         </div>
 

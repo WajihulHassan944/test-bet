@@ -239,7 +239,7 @@ const CreateAccount = () => {
 
 
     return (
-        <div className='createAccount'>
+        <div className='createAccount userCreateAccount'>
          <i
         className="fa fa-arrow-circle-left homecreateacc-arrow-circle"
         aria-hidden="true"

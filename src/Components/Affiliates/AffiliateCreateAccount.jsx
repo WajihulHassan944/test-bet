@@ -7,6 +7,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAffiliate } from '@/Redux/affiliateAuthSlice';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const AffiliateCreateAccount = () => {
     const router = useRouter();  
@@ -191,6 +192,10 @@ const AffiliateCreateAccount = () => {
 
     return (
         <div className='createAccount affiliateCreateAccount'>
+            <p className='affiliateLinkppp'  >Users Only!</p>
+        
+       <Link href="/CreateAccount"> <p className='affiliateLink'>Are you a User? Click here</p></Link>
+       
             <div className='registerCard'>
                 <h1>Affiliate Registration</h1>
                       <div className="google-login-wrapper">
