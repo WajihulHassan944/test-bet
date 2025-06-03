@@ -13,7 +13,9 @@
   position: relative;
   font-family: 'Open Sans', sans-serif;
 }
-
+.fantasy-chatroom.admin-chatroom {
+  padding-top: 80px;
+}
 /* Top Bar */
 .chat-topbar {
   display: flex;
@@ -187,7 +189,14 @@
   box-shadow: 0 2px 6px rgba(255, 0, 0, 0.4);
 }
 
+.adminChatroomContainer{
+  margin-left: 230px;
+}
 @media (max-width: 768px) {
+ 
+.adminChatroomContainer{
+  margin-left: 0;
+}
   .fantasy-chatroom {
     padding: 20px 5%;
     padding-top: 160px;
@@ -255,4 +264,46 @@
     font-size: 22px;
     margin-left: 0;
   }
+}
+
+
+
+/* Dots icon container */
+.message-options {
+  position: relative;
+  margin-left: 1px;
+  cursor: pointer;
+}
+
+/* The actual vertical dots icon (you'll render it using something like <FiMoreVertical />) */
+.message-options-icon {
+  font-size: 18px;
+  color: #888;
+}
+
+/* Dropdown menu container */
+.message-dropdown {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  min-width: 100px;
+  padding: 6px 0;
+}
+
+/* Dropdown item */
+.message-dropdown-option {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.message-dropdown-option:hover {
+  background-color: #f1f1f1;
 }

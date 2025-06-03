@@ -48,6 +48,7 @@ const AdminHeader = () => {
               <Link href="/administration/ShadowFightsLibrary" className={`anchorlinksAdmin ${pathname === "/administration/ShadowFightsLibrary" ? "activeLinkAdmin" : ""}`}>Shadow Fights Library</Link>
               <Link href="/administration/YoutubeArchive" className={`anchorlinksAdmin ${pathname === "/administration/YoutubeArchive" ? "activeLinkAdmin" : ""}`}>Youtube Archive</Link>
               <Link href="/administration/Community" className={`anchorlinksAdmin ${pathname === "/administration/Community" ? "activeLinkAdmin" : ""}`}>Community Forum</Link>
+              <Link href="/administration/chatroom" className={`anchorlinksAdmin ${pathname === "/administration/chatroom" ? "activeLinkAdmin" : ""}`}>Chatroom</Link>
               <Link href="/administration/faqs" className={`anchorlinksAdmin ${pathname === "/administration/faqs" ? "activeLinkAdmin" : ""}`}>Faqs</Link>
               <Link href="/administration/news" className={`anchorlinksAdmin ${pathname === "/administration/news" ? "activeLinkAdmin" : ""}`}>News</Link>
               <Link href="/administration/sponsors" className={`anchorlinksAdmin ${pathname === "/administration/sponsors" ? "activeLinkAdmin" : ""}`}>Sponsors</Link>
