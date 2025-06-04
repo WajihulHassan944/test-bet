@@ -116,6 +116,10 @@ const VisitorsAnalytics = () => {
             <option value="https://betfantasymadness.com">Bet Fantasy Madness</option>
             <option value="https://betfmma.com/">Betfmma</option>
             <option value="https://betcombatsports.com/">Bet Combat Sports</option>
+
+               <option value="https://combatdoorgym.com/">Combat Door Gym</option>
+                  <option value="https://www.z7neckbrace.online/">z7 Neck Braces</option>
+                     <option value="https://www.suckapunch.online/">Sucka-Punch</option>
           </select>
           <button onClick={handleResetAllVisitors}>Reset All visitors</button>
           <button onClick={handleResetUniqueVisitors}>Reset Unique visitors</button>
