@@ -66,12 +66,12 @@ const ThreadList = () => {
   
   return (
     <div className="thread-list-container-updated">
-     <i
+    {/*  <i
         className="fa fa-arrow-circle-left home-arrow-circle home-arrow-circle-forum"
         aria-hidden="true"
         onClick={() => router.push(-1)} // Go back to the previous page
         
-      ></i>
+      ></i> */}
       <div className='toFlexHeading'>
      <h1 className="forum-heading-updated">Discussion Forum</h1>
       <button className="create-thread-btn-updated" onClick={createThread}>Have a question?</button>

@@ -51,7 +51,7 @@ const AdminForumList = () => {
     };
   
     return (
-      <div className="thread-list-container adminSideThreadsContainer">
+      <div className=" adminSideThreadsContainer">
        <i
         className="fa fa-arrow-circle-left"
         aria-hidden="true"
