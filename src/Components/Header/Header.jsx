@@ -299,6 +299,7 @@ const Header = () => {
                 <Link href="/spin-wheel" className="submenuLink">Spin the Wheel</Link>
                 <Link href="/blogs" className="submenuLink">Fight Blogs</Link>
                 <Link href="/fantasy-tips" className="submenuLink">Fantasy Tips</Link>
+              <Link href="/fighter-performance-tracker" className="submenuLink">Fighter Tracker</Link>
            
               </div>
             </Link>
@@ -417,6 +418,7 @@ const Header = () => {
                 <Link href="/Sponsors" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Sponsors</Link>
                 <Link href="/fantasy-tips" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Fantasy Tips</Link>
                 <Link href="/FantasyLeagues" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Fantasy Leagues</Link>
+                <Link href="/fighter-performance-tracker" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Fighter Tracker</Link>
               </>
             )}
           </div>

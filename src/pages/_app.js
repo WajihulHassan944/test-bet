@@ -42,6 +42,7 @@ import "@/styles/adminaddnewblog.css";
 import "@/styles/blogs.css";
 import "@/styles/invite.css";
 import "@/styles/fantasyChatroom.css";
+import "@/styles/FighterTracker.css";
 import Script from "next/script";
 import { Provider } from "react-redux";
 import { wrapper } from "../Redux/store"; // Updated for next-redux-wrapper
@@ -154,7 +155,7 @@ function AppContent({ children }) {
             "/faqs", "/about", "/past-fights-records", "/fights-rewards",
             "/sponsor-dashboard", "/global-leaderboard", "/testimonials",
             "/spin-wheel", "/calendar-of-fights", "/AffiliateDashboard",
-            "/past-fights", "/HowItWorks", "/affiliate-league", "/fantasy-tips","/FantasyLeagues", "/invite"
+            "/past-fights", "/HowItWorks", "/affiliate-league", "/fantasy-tips","/FantasyLeagues", "/invite", "/fighter-performance-tracker"
           ];
 
           const redRoutes = ["/fights-news"];
