@@ -23,7 +23,11 @@ const [copiedId, setCopiedId] = useState(null);
 
   const [promoStartIndex, setPromoStartIndex] = useState(0);
   const [promotedStartIndex, setPromotedStartIndex] = useState(0);
-
+ useEffect(() => {
+    if (shadowMatchId) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [shadowMatchId]);
   useEffect(() => {
     if (matchStatus === 'idle') {
       dispatch(fetchMatches());
@@ -65,14 +69,6 @@ const [copiedId, setCopiedId] = useState(null);
     setShadowMatchId(matchId);
   };
 
-  if (shadowMatchId) {
-    return (
-      <>
-        <i className="fa fa-arrow-circle-left dashboard-arrow-circle" aria-hidden="true" onClick={() => setShadowMatchId(null)}></i>
-        <AffiliateAddNewMatch matchId={shadowMatchId} />
-      </>
-    );
-  }
   
   const handleCopy = async (e, match, affiliate) => {
   e.stopPropagation();
@@ -145,6 +141,15 @@ const [copiedId, setCopiedId] = useState(null);
       setPromotedStartIndex(promotedStartIndex - MAX_CARDS);
     }
   };
+
+  if (shadowMatchId) {
+    return (
+      <>
+        <i className="fa fa-arrow-circle-left dashboard-arrow-circle" aria-hidden="true" onClick={() => setShadowMatchId(null)}></i>
+        <AffiliateAddNewMatch matchId={shadowMatchId} />
+      </>
+    );
+  }
 
   return (
     <div style={{ minHeight: '100vh' }}>

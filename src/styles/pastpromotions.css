@@ -132,8 +132,23 @@
 @media(max-width:768px){
     
 
+.past-fights-wrapper .past-fights-wrapper-title{
+    font-size: 30px;
+  }
+.past-fights-wrapper .past-fights-wrapper-subtitle{
+    font-size: 35px;
+    margin-top: -10px;
+   }
+
+.past-fights-wrapper .past-fights-wrapper-sub-sub{
+    font-size: 25px;
+  }
+
+
+
+
 .past-fight-aff-div-outer {
-    width: 130px; 
+    width: 100px; 
     height: 40px;  
 }
 
@@ -144,19 +159,31 @@
     object-fit: cover;
     position: absolute;
     top:-1px;
+
 }
 .past-fight-aff-div-center {
     font-size: 14px;
     padding: 5px 15px;
     border-radius: 10px;
     z-index: 1;
-    width: 70px;
+    width: 50px;
 }
 
 .past-fight-aff-div-center h2{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6), 
     0px 0px 10px rgba(255, 0, 0, 0.7), 
     0px 0px 20px rgba(255, 165, 0, 0.9);
+}
+.past-fight-aff-div-outer .left-img {
+    left: -30px;
+}
+.past-fight-aff-div-outer .right-img {
+    right: -30px;
+}
+
+.past-fight-aff-div-outer h1 {
+    font-size: 14px;
+  
 }
 
 }
