@@ -4,40 +4,44 @@ import AffiliateAddNewMatch from './AffiliateAddNewMatch';
 import AffiliateMatchDetails from './AffiliateMatchDetails';
 import { fetchMatches } from '../../Redux/matchSlice';
 import Image from 'next/image';
-import { FiCheck ,  FiCode,  FiCopy} from 'react-icons/fi';
-const MAX_CARDS = 5; 
+import { FiCheck, FiCode, FiCopy } from 'react-icons/fi';
+
+const MAX_CARDS = 5;
 
 const AffiliateDashboard = () => {
+  const dispatch = useDispatch();
+  const affiliate = useSelector((state) => state.affiliateAuth.userAffiliate);
+  const matches = useSelector((state) => state.matches.data);
+  const matchStatus = useSelector((state) => state.matches.status);
+
   const [shadowMatchId, setShadowMatchId] = useState(null);
   const [promoMatchDetails, setPromoMatchDetails] = useState({ matchId: null, affiliateId: null });
-  const affiliate = useSelector((state) => state.affiliateAuth.userAffiliate);
   const [promoMatches, setPromoMatches] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [userDetails, setUserDetails] = useState([]);
-const [copiedId, setCopiedId] = useState(null);
-
-
-  const matches = useSelector((state) => state.matches.data);
-  const matchStatus = useSelector((state) => state.matches.status);
-  const dispatch = useDispatch();
-
+  const [copiedId, setCopiedId] = useState(null);
   const [promoStartIndex, setPromoStartIndex] = useState(0);
   const [promotedStartIndex, setPromotedStartIndex] = useState(0);
- useEffect(() => {
+
+  // Always scroll on shadow match change
+  useEffect(() => {
     if (shadowMatchId) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [shadowMatchId]);
+
+  // Fetch matches on load
   useEffect(() => {
     if (matchStatus === 'idle') {
       dispatch(fetchMatches());
     }
   }, [matchStatus, dispatch]);
 
+  // Fetch affiliate users if popup is shown
   useEffect(() => {
-    if (showPopup) {
+    if (showPopup && affiliate?.usersJoined?.length) {
       fetch("https://fantasymmadness-game-server-three.vercel.app/users")
-        .then((response) => response.json())
+        .then((res) => res.json())
         .then((data) => {
           const matchedUsers = affiliate.usersJoined.map((affiliateUser) => {
             const matchedUser = data.find((user) => user._id === affiliateUser.userId);
@@ -47,8 +51,9 @@ const [copiedId, setCopiedId] = useState(null);
         })
         .catch((error) => console.error("Error fetching users:", error));
     }
-  }, [showPopup]);
+  }, [showPopup, affiliate]);
 
+  // Fetch promo matches
   useEffect(() => {
     const fetchPromoMatches = async () => {
       try {
@@ -57,67 +62,66 @@ const [copiedId, setCopiedId] = useState(null);
         const data = await response.json();
         setPromoMatches(data);
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     };
     fetchPromoMatches();
   }, []);
 
+  // Scroll on promo match click
+  useEffect(() => {
+    if (promoMatchDetails.matchId) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [promoMatchDetails.matchId]);
+
+  // Don't render until affiliate is ready
   if (!affiliate) return <div>Loading...</div>;
 
+  // Handlers
   const handleShadowMatchClick = (matchId) => {
     setShadowMatchId(matchId);
   };
 
-  
-  const handleCopy = async (e, match, affiliate) => {
-  e.stopPropagation();
-  try {
-    if (match && affiliate) {
-      const fullName = `${affiliate.firstName} ${affiliate.lastName}`;
-      const encodedMatchName = encodeURIComponent(match.matchName);
-      const encodedFullName = encodeURIComponent(fullName);
-      
-      const url = `https://fantasymmadness.com/shadow/${encodedMatchName}/${encodedFullName}`;
-      
-      await navigator.clipboard.writeText(url);
-      setCopiedId(match._id);
-      setTimeout(() => setCopiedId(null), 2000);
-    }
-  } catch (err) {
-    console.error("Failed to copy: ", err);
-  }
-};
-
-
   const handlePromoMatchClick = (matchId, affiliateId) => {
     setPromoMatchDetails({ matchId, affiliateId });
   };
- useEffect(() => {
-    if (promoMatchDetails.matchId) {
-      window.scrollTo({ top: 0, behavior: 'smooth' }); // Optional: smooth scroll
-    }
-  }, [promoMatchDetails.matchId]);
-  if (promoMatchDetails.matchId) {
-    return (
-      <>
-        <i className="fa fa-arrow-circle-left dashboard-arrow-circle" aria-hidden="true" onClick={() => setPromoMatchDetails({})}></i>
-        <AffiliateMatchDetails matchId={promoMatchDetails.matchId} affiliateId={promoMatchDetails.affiliateId} />
-      </>
-    );
-  }
 
-  const promotionFights = promoMatches.filter(match => 
-    match.matchType === "SHADOW" && 
-    !match.AffiliateIds.some(affiliateObj => affiliateObj.AffiliateId === affiliate._id.toString())
+  const handleCopy = async (e, match, affiliate) => {
+    e.stopPropagation();
+    try {
+      if (match && affiliate) {
+        const fullName = `${affiliate.firstName} ${affiliate.lastName}`;
+        const encodedMatchName = encodeURIComponent(match.matchName);
+        const encodedFullName = encodeURIComponent(fullName);
+
+        const url = `https://fantasymmadness.com/shadow/${encodedMatchName}/${encodedFullName}`;
+        await navigator.clipboard.writeText(url);
+
+        setCopiedId(match._id);
+        setTimeout(() => setCopiedId(null), 2000);
+      }
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+    }
+  };
+
+  // Match filtering
+  const promotionFights = promoMatches.filter(
+    (match) =>
+      match.matchType === "SHADOW" &&
+      !match.AffiliateIds.some((affiliateObj) => affiliateObj.AffiliateId === affiliate._id.toString())
   );
-  
-  const promotedFights = promoMatches.filter(match => 
-    match.AffiliateIds.some(affiliateObj => 
-      affiliateObj.AffiliateId === affiliate._id.toString() && 
-      matches.some(m => m._id === affiliateObj.matchId && m.matchShadowOpenStatus === "open")
+
+  const promotedFights = promoMatches.filter((match) =>
+    match.AffiliateIds.some(
+      (affiliateObj) =>
+        affiliateObj.AffiliateId === affiliate._id.toString() &&
+        matches.some((m) => m._id === affiliateObj.matchId && m.matchShadowOpenStatus === "open")
     )
   );
+
+  // Pagination handlers
   const handlePromoNext = () => {
     if (promoStartIndex + MAX_CARDS < promotionFights.length) {
       setPromoStartIndex(promoStartIndex + MAX_CARDS);
@@ -142,10 +146,31 @@ const [copiedId, setCopiedId] = useState(null);
     }
   };
 
+  // Conditional rendering
+  if (promoMatchDetails.matchId) {
+    return (
+      <>
+        <i
+          className="fa fa-arrow-circle-left dashboard-arrow-circle"
+          aria-hidden="true"
+          onClick={() => setPromoMatchDetails({ matchId: null, affiliateId: null })}
+        ></i>
+        <AffiliateMatchDetails
+          matchId={promoMatchDetails.matchId}
+          affiliateId={promoMatchDetails.affiliateId}
+        />
+      </>
+    );
+  }
+
   if (shadowMatchId) {
     return (
       <>
-        <i className="fa fa-arrow-circle-left dashboard-arrow-circle" aria-hidden="true" onClick={() => setShadowMatchId(null)}></i>
+        <i
+          className="fa fa-arrow-circle-left dashboard-arrow-circle"
+          aria-hidden="true"
+          onClick={() => setShadowMatchId(null)}
+        ></i>
         <AffiliateAddNewMatch matchId={shadowMatchId} />
       </>
     );
