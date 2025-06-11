@@ -49,15 +49,20 @@ const FighterTracker = () => {
     relevantFights.forEach((match) => {
       const isA = match.matchFighterA === name;
       const stats = match.BoxingMatch?.[isA ? "fighterOneStats" : "fighterTwoStats"] || [];
+      const opponentStats = match.BoxingMatch?.[isA ? "fighterTwoStats" : "fighterOneStats"] || [];
 
       const totalPoints = calculatePoints(stats);
       allPoints.push({ totalPoints });
 
-      const roundsWon = stats.reduce((count, r) => {
+      const roundsWon = stats.reduce((count, r, idx) => {
         const fighterTotal = r.HP + r.BP + r.TP + r.KO + r.SP;
-        const opponentStats = match.BoxingMatch?.[isA ? "fighterTwoStats" : "fighterOneStats"] || [];
-        const opponentRound = opponentStats[stats.indexOf(r)] || {};
-        const opponentTotal = (opponentRound.HP || 0) + (opponentRound.BP || 0) + (opponentRound.TP || 0) + (opponentRound.KO || 0) + (opponentRound.SP || 0);
+        const opponentRound = opponentStats[idx] || {};
+        const opponentTotal =
+          (opponentRound.HP || 0) +
+          (opponentRound.BP || 0) +
+          (opponentRound.TP || 0) +
+          (opponentRound.KO || 0) +
+          (opponentRound.SP || 0);
         return count + (fighterTotal > opponentTotal ? 1 : 0);
       }, 0);
       if (roundsWon >= 2) simulatedWins++;
@@ -72,7 +77,10 @@ const FighterTracker = () => {
         opponent: isA ? match.matchFighterB : match.matchFighterA,
         event: match.matchName,
         image: isA ? match.fighterAImage : match.fighterBImage,
-        roundStats: stats,
+        roundStatsCombined: combineStatsPerRound(
+          match.BoxingMatch?.fighterOneStats || [],
+          match.BoxingMatch?.fighterTwoStats || []
+        ),
       };
 
       const isUpcoming = new Date(match.matchDate) > new Date();
@@ -109,8 +117,28 @@ const FighterTracker = () => {
     });
   };
 
-  const handleFightClick = (roundStats) => {
-    setSelectedFightStats(roundStats);
+  const combineStatsPerRound = (fighterOne, fighterTwo) => {
+    const maxRounds = Math.max(fighterOne.length, fighterTwo.length);
+    const combined = [];
+
+    for (let i = 0; i < maxRounds; i++) {
+      const f1 = fighterOne[i] || {};
+      const f2 = fighterTwo[i] || {};
+      combined.push({
+        roundNumber: i + 1,
+        HP: (f1.HP || 0) + (f2.HP || 0),
+        BP: (f1.BP || 0) + (f2.BP || 0),
+        TP: (f1.TP || 0) + (f2.TP || 0),
+        KO: (f1.KO || 0) + (f2.KO || 0),
+        SP: (f1.SP || 0) + (f2.SP || 0),
+      });
+    }
+
+    return combined;
+  };
+
+  const handleFightClick = (combinedRoundStats) => {
+    setSelectedFightStats(combinedRoundStats);
     setShowPopup(true);
   };
 
@@ -153,7 +181,12 @@ const FighterTracker = () => {
               <div className="fight-history">
                 <h4>Recent Fight History</h4>
                 {fighterStats.past.map((f, i) => (
-                  <div className="fight-item" key={i} onClick={() => handleFightClick(f.roundStats)} style={{cursor:'pointer'}}>
+                  <div
+                    className="fight-item"
+                    key={i}
+                    onClick={() => handleFightClick(f.roundStatsCombined)}
+                    style={{ cursor: "pointer" }}
+                  >
                     <span className="win">Fought</span> {f.opponent}{" "}
                     <span className="event">{f.event}</span>
                     <div className="date">{new Date(f.date).toLocaleDateString()}</div>
@@ -165,20 +198,20 @@ const FighterTracker = () => {
                 <h4>Fantasy Points Recap</h4>
                 <div className="points">
                   <div className="fight-item">
-                    <strong>{fighterStats.pointsSummary.total}</strong> Total Fantasy Points
+                    <strong>{fighterStats.pointsSummary.total}</strong> Total Points
                   </div>
                   <div className="fight-item">
-                    <strong>{fighterStats.pointsSummary.average}</strong> Average Points Per Fight
+                    <strong>{fighterStats.pointsSummary.average}</strong> Average Points
                   </div>
                   <div className="fight-item">
-                    <strong>{fighterStats.pointsSummary.highest}</strong> Highest-Scoring Fight
+                    <strong>{fighterStats.pointsSummary.highest}</strong> Highest Points
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="grid-row">
-              <div className="stats-summary">
+             <div className="stats-summary">
                 <h4>Striking & Grappling Stats Summary</h4>
                 <div className="stat-bar">
                   <div className="label">Strikes Landed</div>
@@ -202,7 +235,8 @@ const FighterTracker = () => {
                 </div>
               </div>
 
-              <div className="community-accuracy">
+             
+  <div className="community-accuracy">
                 <h4>Community Prediction Accuracy</h4>
                 <div className="accuracy-circle">
                   <div className="circle">
@@ -216,14 +250,16 @@ const FighterTracker = () => {
                   </div>
                 </div>
               </div>
-            </div>
+</div>
 
-            <div className="next-fight">
+          
+ <div className="next-fight">
               <h4>Next Scheduled Fight</h4>
               {fighterStats.upcoming.length > 0 ? (
-                <div className="next-opponent">
-                  <span className="calendar-icon">📅</span>
-                  <span>
+                 <div className="fight-item">
+                     <span className="calendar-icon">📅</span>
+              
+                   <span>
                     <strong>{fighterStats.upcoming[0].opponent}</strong>
                     <br />
                     {fighterStats.upcoming[0].event} &nbsp;
@@ -231,16 +267,18 @@ const FighterTracker = () => {
                   </span>
                 </div>
               ) : (
-                <div className="next-opponent">No upcoming fight</div>
+              <div >
+                 No upcoming fight</div>
               )}
             </div>
+
           </>
         )}
 
         {showPopup && selectedFightStats && (
           <div className="popup-overlay" onClick={() => setShowPopup(false)}>
             <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-              <h4>Round-by-Round Points</h4>
+              <h4>Round-by-Round Points (Combined)</h4>
               {selectedFightStats.map((round, index) => {
                 const roundPoints =
                   round.HP * 2 + round.BP * 1.5 + round.TP * 1 + round.KO * 0.1 + round.SP * 0.05;
