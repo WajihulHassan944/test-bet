@@ -278,7 +278,7 @@ const FighterTracker = () => {
         {showPopup && selectedFightStats && (
           <div className="popup-overlay" onClick={() => setShowPopup(false)}>
             <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-              <h4>Round-by-Round Points (Combined)</h4>
+              <h4>Round-by-Round Points</h4>
               {selectedFightStats.map((round, index) => {
                 const roundPoints =
                   round.HP * 2 + round.BP * 1.5 + round.TP * 1 + round.KO * 0.1 + round.SP * 0.05;
