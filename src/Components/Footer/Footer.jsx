@@ -30,11 +30,15 @@ const Footer = () => {
 
       <div className={styles.footerCenter}>
         <p className={styles.footerLinks}>
-          <Link href="/privacy-policy" className={styles.footerLink}>
-            Privacy policy
+          <Link href="/referral-leaderboard" className={styles.footerLink}>
+            Referral Leaderboard
           </Link>
+        
           <Link href="/terms-of-service" className={styles.footerLink}>
             Terms of service
+          </Link>
+          <Link href="/privacy-policy" className={styles.footerLink}>
+            Privacy policy
           </Link>
           <Link href="/testimonials" className={styles.footerLink}>
             Testimonials

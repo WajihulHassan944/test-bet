@@ -172,15 +172,21 @@ const CreateAccount = () => {
   
     const googleLoginPromise = new Promise(async (resolve, reject) => {
       try {
+         const searchParams = new URLSearchParams(window.location.search);
+      const referrerId = searchParams.get('referrer'); // 👈 extract from URL
+
+      const payload = {
+        token: credential,
+        ...(referrerId && { referrerId })  // 👈 only include if exists
+      };
+
         // Send the Google token to your backend API for verification and user handling
         const res = await fetch('https://fantasymmadness-game-server-three.vercel.app/google-login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            token: credential, // Send the token here
-          }),
+        body: JSON.stringify(payload),
         });
   
         if (!res.ok) {
