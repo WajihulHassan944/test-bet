@@ -6794,3 +6794,9 @@ margin: 20px;
 
 
 }
+a[href*="chatbase.co"] {
+  display: none !important;
+}
+.ml-1{
+  display: none !important;
+}

@@ -65,6 +65,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import "react-calendar/dist/Calendar.css";
 import AdminHeader from "@/Components/Header/AdminHeader";
+import ChatbaseWidget from "@/Components/ChatbaseWidget";
 
 
 
@@ -240,6 +241,7 @@ function AppContent({ children }) {
    
       {!hideLayout && <Header />}
       {hideLayout && isAdminAuthenticated && <AdminHeader />}
+      <ChatbaseWidget />
       <main>{children}</main>
       {!hideLayout && <Footer />}
     </>
