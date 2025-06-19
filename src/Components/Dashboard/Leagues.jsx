@@ -12,7 +12,7 @@ const Leagues = () => {
   const matches = useSelector((state) => state.matches.data);
   const matchStatus = useSelector((state) => state.matches.status);
 const router = useRouter();
-
+const [leavingAffiliateId, setLeavingAffiliateId] = useState(null);
   useEffect(() => {
     if (matchStatus === 'idle') {
       dispatch(fetchMatches());
@@ -129,34 +129,71 @@ const router = useRouter();
         <div className='completedFights fightscontainer'>
           <h1 className='fightsheadingtwo'>Joined Leagues</h1>
 
-          {affiliates.map((affiliate) => {
-            const userInLeague = affiliate.usersJoined.some((joinedUser) => joinedUser.userId === user._id);
+   {affiliates.map((affiliate) => {
+  const userInLeague = affiliate.usersJoined.some((joinedUser) => joinedUser.userId === user._id);
 
-            if (userInLeague) {
-              return (
-                <div key={affiliate._id} className="fightItem" >
-                  <div className='fightItemOne leagueFightItem' style={{position:'relative'}}>
-                    {renderAffiliateImage(affiliate)}
-                    <div className={`transformed-div`}>
-                      <h1 style={{ marginLeft: '30%', fontSize: '20px' }}>
-                        {affiliate.firstName} {affiliate.lastName}
-                      </h1>
-                    </div>
-                    <div className="transformed-div-two">
-                      <div className='transformed-div-two-partOne'>
-                        <h1>Users: {affiliate.usersJoined.length}</h1>
-                      </div>
-                      <div className='transformed-div-two-partTwo'>
-                        <p>Joined: {new Date(affiliate.usersJoined.find((joinedUser) => joinedUser.userId === user._id).joinedAt).toLocaleDateString()}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            } else {
-              return null;
-            }
-          })}
+  if (userInLeague) {
+    const handleLeaveLeague = async () => {
+      setLeavingAffiliateId(affiliate._id); // start loading
+      try {
+        const res = await fetch(`https://fantasymmadness-game-server-three.vercel.app/affiliate/${affiliate._id}/remove-user`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ userId: user._id }),
+        });
+
+        if (!res.ok) throw new Error('Failed to leave league');
+
+        alert('Successfully left the league');
+        window.location.reload(); // Optional: better to update state
+      } catch (error) {
+        console.error(error);
+        alert('An error occurred while trying to leave the league.');
+      } finally {
+        setLeavingAffiliateId(null); // reset loading
+      }
+    };
+
+    return (
+      <div key={affiliate._id} className="fightItem">
+        <div className='fightItemOne leagueFightItem unjoinLeagues' style={{ position: 'relative' }}>
+          {renderAffiliateImage(affiliate)}
+
+          <div className="transformed-div">
+            <h1 style={{ marginLeft: '30%', fontSize: '20px' }}>
+              {affiliate.firstName} {affiliate.lastName}
+            </h1>
+          </div>
+
+          <div className="transformed-div-two">
+            <button
+              className='unjoinLeaguebtn'
+              onClick={handleLeaveLeague}
+              disabled={leavingAffiliateId === affiliate._id}
+            >
+              {leavingAffiliateId === affiliate._id ? '...' : 'Leave'}
+            </button>
+
+            <div className='transformed-div-two-partOne'>
+              <h1>Users: {affiliate.usersJoined.length}</h1>
+            </div>
+            <div className='transformed-div-two-partTwo'>
+              <p>
+                Joined: {new Date(affiliate.usersJoined.find((joinedUser) => joinedUser.userId === user._id).joinedAt).toLocaleDateString()}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  } else {
+    return null;
+  }
+})}
+
+
         </div>
 
         <div className='pendingFights fightscontainer'>

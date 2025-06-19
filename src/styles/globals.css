@@ -6768,12 +6768,10 @@ color: #eee;
 
 
 @media (max-width: 767px){
- 
 .membership-chackout-wrapper .mermbership-cards{
   align-items: center;
   gap:50px;
 } 
-
 .cardaimg{
   width: 300px;
 }
@@ -6781,13 +6779,10 @@ color: #eee;
 
 
 @media(max-width:768px){
-  
 .adminSideThreadsContainer{ 
 width: 100%;
 margin-left: 0;     
 }
-
-/* Thread item styling */
 .thread-item {
 margin: 20px;
 }
@@ -6799,4 +6794,26 @@ a[href*="chatbase.co"] {
 }
 .ml-1{
   display: none !important;
+}
+
+
+
+.unjoinLeagues{
+  position: relative;
+}
+.unjoinLeagues .unjoinLeaguebtn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 3px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.unjoinLeagues .unjoinLeaguebtn:hover{
+  background-color: #0b4c80;
 }
