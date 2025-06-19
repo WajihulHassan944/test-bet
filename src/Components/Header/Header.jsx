@@ -156,7 +156,7 @@ const Header = () => {
       {isAuthenticatedAffiliate ? (
         <div className="header user-header" style={headerStyles}>
           <div className="logoimg">
-            <Link href="/">
+            <Link href="https://fantasymmadness.com/">
               <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
             </Link>
           </div>
@@ -184,7 +184,7 @@ const Header = () => {
       ) : isAuthenticated ? (
         <div className="header user-header">
           <div className="logoimg">
-            <Link href="/">
+            <Link href="https://fantasymmadness.com/">
               <img  loading="lazy" src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
             </Link>
           </div>
@@ -228,7 +228,7 @@ const Header = () => {
       ) : authStatusSponsor ? (
         <div className="header public-header" style={headerStyles}>
           <div className="logoimg">
-            <Link href="/">
+            <Link href="https://fantasymmadness.com/">
               <img  loading="lazy" src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
             </Link>
           </div>
@@ -269,7 +269,7 @@ const Header = () => {
       ) : (
         <div className="header public-header" style={headerStyles}>
           <div className="logoimg">
-            <Link href="/">
+            <Link href="https://fantasymmadness.com/">
               <img  loading="lazy" src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
             </Link>
           </div>
@@ -323,7 +323,7 @@ const Header = () => {
           <i className="fa fa-times"></i>
         </div>
         <div className="logoimg">
-          <Link href="/" onClick={closeMenu}>
+          <Link href="https://fantasymmadness.com/" onClick={closeMenu}>
             <center>
               <img  loading="lazy" src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp" alt="Logo" className="logoimageactual" />
             </center>

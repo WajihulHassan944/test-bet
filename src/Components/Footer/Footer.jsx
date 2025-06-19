@@ -8,12 +8,14 @@ const Footer = () => {
   return (
     <footer className={styles.footerDistributed}>
       <div className={styles.footerLeft}>
-        <Image
+       <Link href="https://www.fantasymmadness.com/">
+         <Image
           src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743079917/home/rtr4tmlkw82rmk1kywuc.webp"
           alt="Logo"
           width={70}
           height={70}
         />
+       </Link>
         <p>2350 Beaver Ruin Rd, Norcross Georgia 30071</p>
         <p>
         <Image
