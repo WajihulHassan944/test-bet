@@ -130,73 +130,71 @@ const Home = ({ slideData }) => {
           <button className={styles.thirdHomePageButton}>Sign Up Now 🚀</button>
         </Link>
       </div>
+{/* BRAND ANCHOR PARAGRAPHS */}
+<div className={styles.fourthHomepageSection}>
+  <div className={styles.newaddedContentSection}>
+    <h4>Why Fans Love Fantasy MMADNESS</h4>
+    <p
+      dangerouslySetInnerHTML={{
+        __html: `
+        <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Fantasy MMADNESS</a> is not just another sports platform—it's the home of the most exciting <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">MMA fantasy prediction game</a> out there. Whether you're looking to <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Play Fantasy MMADNESS</a> or simply visit the <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Fantasy MMADNESS Official Site</a>, you'll find a world built for combat sports fans.
+        
+        As the <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">best MMA fantasy app</a> of 2025, it combines a <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">real-time fight prediction game</a> with a live scoring system. You can <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">challenge friends in fantasy MMA</a>, <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">compete in MMA fantasy tournaments</a>, and <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">earn rewards predicting fights</a>.
 
-      {/* INFO SECTIONS */}
-      <div className={styles.fourthHomepageSection}>
-        {[
-          {
-            title: "Unlock Your Fantasy Combat Sports Journey",
-            content:
-              "Fantasy Mmadness offers the ultimate experience for Fantasy MMA, Fantasy Boxing, and Fantasy Kickboxing enthusiasts. Get your $20 free tokens and dive into Fantasy BKFC, Fantasy Bare Knuckle matchups, and more!",
-            seoLink: "https://www.getfanatics.app/",
-          },
-          {
-            title: "What is Fantasy Fighting?",
-            content:
-              "Fantasy Fighting is where strategy meets excitement! Draft real fighters from MMA, boxing, or wrestling events. Score based on strikes, takedowns, and submissions. Experience fantasy combat sports at a new level with Fantasy Matchups that keep you on your toes.",
-            seoLink: "https://www.tapology.com/fantasy/",
-          },
-          {
-            title: "Master Fantasy Combat Sports Analysis",
-            content:
-              "Sharpen your skills with expert Fantasy Combat Sports Analysis. Whether it's Fantasy UFC, Fantasy BKFC, or bare knuckle fantasy matchups, knowing your fighters is key to dominating fantasy fighter rankings and winning big!",
-            seoLink: "https://enchloom.com/",
-          },
-          {
-            title: "Climb the Fantasy Fighter Rankings",
-            content:
-              "Draft smart, pick underdogs, and climb the Fantasy Fighter Rankings leaderboard. From Fantasy MMA to Fantasy Wrestling leagues, your strategy and passion will determine your rise to the top!",
-            seoLink: "https://marketplace.draftkings.com/fantasy-ufc",
-          },
-          {
-            title: "Create Epic Fantasy Matchups",
-            content:
-              "Want to see a dream Fantasy Boxing bout or Fantasy Combat showdown? Now you can! Build your fantasy league with wild Fantasy Matchups across all combat sports. Unleash your imagination and strategic mind.",
-            seoLink: "https://www.fantasylabs.com/fantasy-mma/",
-          },
-          {
-            title: "Join the Ultimate Fantasy Combat Community",
-            content:
-              "Connect with fellow Fantasy MMA, Boxing, and Wrestling fans. Discuss fantasy sports betting strategies, debate Fantasy League outcomes, and celebrate fantasy combat victories together!",
-            seoLink: "https://underdogfantasy.com/",
-          },
-          {
-            title: "Bet Smarter with Fantasy Sports Betting in Combat",
-            content:
-              "Turn every fight night into a fantasy triumph! Engage in Fantasy Sports Betting within our combat leagues — combining thrilling fantasy fighting with smart wagering tactics.",
-            seoLink: "https://boomfantasy.com/",
-          },
-          {
-            title: "Your Fantasy Combat Legacy Starts Now",
-            content:
-              "Sign up today to build your fantasy fighting legacy. Whether it's Fantasy UFC, Fantasy Bare Knuckle, or Fantasy Wrestling, Fantasy Mmadness gives you the tools to rise, win, and celebrate greatness.",
-            seoLink: "https://www.prizepicks.com/",
-          },
-        ].map((section, idx) => (
-          <div key={idx} className={styles.newaddedContentSection}>
-            <h4>{section.title}</h4>
-            <p
-  dangerouslySetInnerHTML={{
-    __html: section.content.replace(
-      /Fantasy Mmadness/g,
-      '<a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer" style="color: #007bff; text-decoration: underline;text-shadow:none;">Fantasy Mmadness</a>'
-    ),
-  }}
-/>
-            <a style={{ display: "none" }} href={section.seoLink}>{section.title}</a>
-          </div>
-        ))}
-      </div>
+        On the <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Fantasy MMADNESS Platform</a>, users can <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">create your fantasy MMA league</a>, explore <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">interactive MMA fantasy games</a>, and climb the <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">fantasy fight leaderboard</a> with each strategic pick.
+
+        Whether you’re into <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Fantasy MMADNESS Online</a> or using the app, you’ll experience <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">fantasy fight stats and leaderboards</a> like never before. With the <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Fantasy MMADNESS Fight Predictor</a>, users get a true edge in the game.
+
+        Fans can <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">predict UFC-style fights online</a>, <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">start predicting fights now</a>, and even enter a <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">free MMA fantasy contest</a>. It's a place to <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">get in on the MMA fantasy action</a> and <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">play & win MMA fantasy cash prizes</a>.
+
+        Looking to <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">test your fight prediction skills</a>? Join the <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Fantasy MMADNESS Website</a> today and experience a <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">strategy-based fight prediction</a> experience tailored for true fans.
+
+        You can <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">join MMA fantasy leagues</a> built on precision and compete in <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">high-stakes MMA fantasy matches</a>. It’s truly the <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">ultimate MMA fantasy platform</a> for anyone passionate about the fight game.
+
+        Whether you're in it for <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">fantasy MMA contests</a>, the thrill of a <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">round-by-round fight prediction game</a>, or building your legacy through <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">online MMA fantasy sports platform</a>, we've got you covered.
+
+        So <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">make your MMA predictions today</a>, <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">climb the fantasy fight leaderboard</a>, and discover why it’s known as the <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">MMA fan’s favorite fantasy game</a>.
+
+        <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Fantasy MMADNESS – predict and win</a>, <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">where fight fans play and win</a>, and live out <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">MMA fantasy battles that pay</a>.
+        `
+      }}
+    />
+    <a style={{ display: "none" }} href="https://www.fantasymmadness.com/">Explore Fantasy MMADNESS</a>
+  </div>
+    <div className={styles.newaddedContentSection}>
+    <h4>What You Can Do on Fantasy MMADNESS</h4>
+    <p
+      dangerouslySetInnerHTML={{
+        __html: `
+        At <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Fantasy MMADNESS</a>, players can explore a fully <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">free-to-play MMA fantasy tournament</a> experience that brings fans closer to the sport they love. This isn’t just a game—it's a <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">live MMA fantasy scoring system</a> where every strike, takedown, and decision counts.
+
+        If you’re ready to dive deeper, <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">visit Fantasy MMADNESS</a> and explore how <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">MMA pick’em challenges</a> are changing the way we predict fights. Whether you're looking to <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">play fantasy MMA with friends</a> or want to take on the world, this is your home.
+
+        <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Join Fantasy MMADNESS</a> and start competing in a <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">fantasy fight game online</a> designed by fans, for fans. Here, strategy meets action in a way that transforms every fight night.
+
+        Experience <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Fantasy MMADNESS Online</a> like never before, where every pick matters and every round could make or break your leaderboard position. There's no better place to connect with your passion and test your predictions.
+        `
+      }}
+    />
+    <a style={{ display: "none" }} href="https://www.fantasymmadness.com/">What You Can Do on Fantasy MMADNESS</a>
+  </div>
+  <div className={styles.newaddedContentSection}>
+    <h4>Join the Movement</h4>
+    <p
+      dangerouslySetInnerHTML={{
+        __html: `
+        If you're searching for <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">your next favorite fantasy sports app</a>, look no further than <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Fantasy MMADNESS</a>. It’s where smart fans meet to <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">win money predicting MMA fights</a> in real-time.
+
+        This <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">combat sports fantasy game</a> brings together UFC fans, data analysts, and casual predictors in one place. You'll discover a truly <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">online MMA fantasy sports platform</a> that rewards insight and intuition.
+
+        <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Visit the Fantasy MMADNESS Website</a> today and take the first step toward building your fight-night legacy. From expert picks to fan-fueled forums, <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Fantasy MMADNESS</a> is the all-in-one experience where fight fans play smarter, bolder, and better.
+        `
+      }}
+    />
+    <a style={{ display: "none" }} href="https://www.fantasymmadness.com/">Join the Movement</a>
+  </div>
+</div>
+
 
 {/* 
       <FeaturedSponsors /> */}

@@ -1173,7 +1173,13 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
-
+.newaddedContentSection a {
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration-color: red;
+}
 
 
 
@@ -1183,12 +1189,11 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   justify-content: flex-start;
   align-items: center;
   gap:20px;
-  padding: 30px 16%;
-  padding-top: 70px;
-  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('/Assets/affiliateDashboard/profileu.png');
-  background-attachment: fixed;
+  padding: 70px 16%;
+  padding-top: 80px;
+  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),url('/Assets/affiliateDashboard/profileu.png');
   background-size: cover;
-  background-position: center 60px;
+  background-position: center 0;
   background-repeat: no-repeat;
   text-align: center;
   color: #fff;
