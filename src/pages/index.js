@@ -121,7 +121,7 @@ const Home = ({ slideData }) => {
           height={300}
           loading="lazy"
         />
-        <h3 className={styles.thirdHomePageHeading}>🎉 Welcome to Fantasy Combat Madness! 🎉</h3>
+        <h3 className={styles.thirdHomePageHeading}>🎉 Welcome to Fantasy Combat Mmadness! 🎉</h3>
         <h2 className={styles.thirdHomePageSubheading}>Claim Your $20 Free Fantasy MMA Tokens Today!</h2>
         <p className={styles.thirdHomePageDescription}>
           Join now and kickstart your fantasy fighting journey with $20 worth of free tokens! Build fantasy matchups, climb fantasy fighter rankings, and dominate Fantasy Combat leagues across MMA, Boxing, and Bare Knuckle Fighting Championships.
@@ -185,13 +185,22 @@ const Home = ({ slideData }) => {
         ].map((section, idx) => (
           <div key={idx} className={styles.newaddedContentSection}>
             <h4>{section.title}</h4>
-            <p dangerouslySetInnerHTML={{ __html: section.content }} />
+            <p
+  dangerouslySetInnerHTML={{
+    __html: section.content.replace(
+      /Fantasy Mmadness/g,
+      '<a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer" style="color: #007bff; text-decoration: underline;text-shadow:none;">Fantasy Mmadness</a>'
+    ),
+  }}
+/>
             <a style={{ display: "none" }} href={section.seoLink}>{section.title}</a>
           </div>
         ))}
       </div>
 
-      <FeaturedSponsors />
+{/* 
+      <FeaturedSponsors /> */}
+
     </>
   );
 };
