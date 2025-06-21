@@ -1175,13 +1175,15 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 .newaddedContentSection a {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
   font-weight: 500;
-  text-decoration-color: red;
 }
 
 
+.newaddedContentSection a:hover{
+  color: red;
+}
 
 .fourthHomepageSection{
   display: flex;
@@ -1191,7 +1193,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   gap:20px;
   padding: 70px 16%;
   padding-top: 80px;
-  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),url('/Assets/affiliateDashboard/profileu.png');
+  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('/Assets/affiliateDashboard/profileu.png');
   background-size: cover;
   background-position: center 0;
   background-repeat: no-repeat;
