@@ -6817,3 +6817,33 @@ a[href*="chatbase.co"] {
 .unjoinLeagues .unjoinLeaguebtn:hover{
   background-color: #0b4c80;
 }
+
+
+
+.bot-wrapper-blogs {
+  margin-left: 230px;
+  padding: 0.5rem 1rem;
+  min-height: 82vh;
+  background-color: #000; /* fallback in case image fails */
+}
+
+.bot-background {
+  background-image: url(/Assets/RING3.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+@media(max-width:768px){
+  
+.bot-wrapper-blogs {
+  margin-left:0;
+  padding: 0;
+  padding-top: 100px;
+
+ }
+}
