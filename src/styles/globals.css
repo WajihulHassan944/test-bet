@@ -6847,3 +6847,29 @@ a[href*="chatbase.co"] {
 
  }
 }
+.readMoreBtn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: #d90429; /* Vivid red */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(217, 4, 41, 0.3);
+  transition: all 0.3s ease;
+}
+
+.readMoreBtn:hover {
+  background-color: #a60321; /* Deeper red on hover */
+  box-shadow: 0 6px 12px rgba(166, 3, 33, 0.4);
+  transform: translateY(-2px);
+}
+
+.readMoreBtn:active {
+  background-color: #7d0219;
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(125, 2, 25, 0.3);
+}

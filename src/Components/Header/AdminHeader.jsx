@@ -66,6 +66,7 @@ const AdminHeader = () => {
               <Link href="/administration/blogs" className={`anchorlinksAdmin ${pathname === "/administration/blogs" || pathname?.startsWith('/administration/blogs/blog-details-admin') ? "activeLinkAdmin" : ""}`}>All Blogs</Link>
               <Link href="/administration/blogs/add-new-blog" className={`anchorlinksAdmin ${pathname === "/administration/blogs/add-new-blog" ? "activeLinkAdmin" : ""}`}>Add a blog</Link>
               <Link href="/administration/BlogsAiBot" className={`anchorlinksAdmin ${pathname === "/administration/BlogsAiBot" ? "activeLinkAdmin" : ""}`}>Blog AI Bot</Link>
+              <Link href="/administration/SocialAiBot" className={`anchorlinksAdmin ${pathname === "/administration/SocialAiBot" ? "activeLinkAdmin" : ""}`}>Social AI Bot</Link>
           
 
 

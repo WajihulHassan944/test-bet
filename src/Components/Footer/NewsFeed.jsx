@@ -46,13 +46,25 @@ const NewsFeed = () => {
                   aria-hidden="true"
                 ></i>
               </div>
-              <div
-                className={`newsBody ${
-                  activeIndex === index ? "open" : ""
-                }`}
-              >
-                {article.description}
-              </div>
+           <div
+  className={`newsBody ${
+    activeIndex === index ? "open" : ""
+  }`}
+>
+  <p>{article.description}</p>
+
+  {article.source === 'rss' && article.link && (
+    <a
+      href={article.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="readMoreBtn"
+    >
+      Read more →
+    </a>
+  )}
+</div>
+
             </div>
           ))
         ) : (
