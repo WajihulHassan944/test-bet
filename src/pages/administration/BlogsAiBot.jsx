@@ -123,7 +123,6 @@ const postBlogToBackend = async (parsedBlog) => {
       const parsed = parseBlogContent(aiContent);
       await postBlogToBackend(parsed);
       alert('✅ Blog generated and submitted!');
-      router.push('/administration/blogs');
     } catch (err) {
       console.warn('⚠️ Parsing failed but response shown to user:', err);
       alert('⚠️ Blog was generated but could not be submitted automatically. You can copy it manually.');
