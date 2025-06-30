@@ -6873,3 +6873,147 @@ a[href*="chatbase.co"] {
   transform: translateY(0);
   box-shadow: 0 2px 5px rgba(125, 2, 25, 0.3);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bot-wrapper-blogs {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  margin-left: 230px;
+  padding: 50px;
+  padding-right: 14%;
+}
+
+.bg-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.chat-box-blogs {
+  width: 100%;
+  max-width: 750px;
+  height: 85vh;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 2;
+  margin: 0;
+}
+
+.header-ai-blogs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e2e2;
+  background: #fff;
+}
+
+.bot-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.bot-intro h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.bot-intro p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.chat-history {
+  flex: 1;
+  margin-top: 20px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.message {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #d7f0ff;
+  color: #000;
+  padding: 10px 14px;
+  border-radius: 16px;
+  max-width: 80%;
+  text-align: right;
+}
+
+.bot-message {
+  align-self: flex-start;
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 10px 14px;
+  border-radius: 16px;
+  max-width: 80%;
+  text-align: left;
+}
+
+.chat-input-blogs-ai {
+  display: flex;
+  gap: 10px;
+  border-top:  1px solid #e2e2e2;
+  padding-top: 10px;
+  background: #fff;
+}
+
+.chat-input-blogs-ai input {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.chat-input-blogs-ai button {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #3f3f47;
+  transform: rotate(-20deg);
+  padding: 0 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
