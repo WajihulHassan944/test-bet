@@ -313,7 +313,7 @@ abbr[title] {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   padding: 10px 0;
   overflow: hidden; /* Hide anything outside the container */
-  z-index: 999;
+  z-index: 99999999;
 }
 
 /* Inner container styles */
@@ -891,6 +891,7 @@ abbr[title] {
   }
 .header{
   background: black;
+  z-index: 99999999;
 }  
 .affiliateAccountShowMob{
   display: flex;
@@ -6928,7 +6929,10 @@ a[href*="chatbase.co"] {
   z-index: 2;
   margin: 0;
 }
-
+.header{
+   z-index: 99999999;
+   background: #000 !important;
+}
 .header-ai-blogs {
   display: flex;
   align-items: center;
@@ -7016,4 +7020,54 @@ a[href*="chatbase.co"] {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+
+
+/* ✅ Hides only the top Google banner */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}
+
+
+/* ✅ Clean up Google branding */
+.goog-logo-link {
+  display: none !important;
+}
+.goog-te-gadget {
+  font-size: 0 !important;
+}
+
+/* ✅ Style the dropdown itself */
+.goog-te-combo {
+  font-size: 14px;
+  background-color: black;
+  color: white;
+  border: 2px solid red;
+  padding: 6px 10px;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.goog-te-combo:hover {
+  background-color: red;
+  color: white;
+  border-color: black;
+}
+
+
+.download-btn{
+  padding: 8px 15px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: red;
+  border-radius: 5px;
 }

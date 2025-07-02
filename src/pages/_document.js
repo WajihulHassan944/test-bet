@@ -79,7 +79,7 @@ export default function Document() {
     }),
   }}
 />
-
+<meta name="google" content="notranslate" />
 
             </Head>
             <body>

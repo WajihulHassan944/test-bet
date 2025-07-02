@@ -4,6 +4,9 @@ import { getWinnerDetails } from '../../CustomFunctions/winnerUtils';
 import { useDispatch } from 'react-redux';
 import { stopMusic, playMusic } from '../../Redux/musicSlice';
 import { useRouter } from 'next/router';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+
 const FinishedFightUserBoard = ({ matchId }) => {
      const router = useRouter();
     
@@ -404,6 +407,49 @@ const FinishedFightUserBoard = ({ matchId }) => {
 
     const userScore = scores.length > 0 ? scores[0] : null;
 
+    
+const downloadPredictionPDF = async () => {
+  const input = document.getElementById('pdfContent');
+  if (!input) return;
+
+  // Ensure it's fully rendered and visible
+  input.style.maxHeight = 'none';
+
+  // Use scrollHeight to dynamically set height
+  const originalHeight = input.scrollHeight;
+
+  const canvas = await html2canvas(input, {
+    scale: 2,
+    useCORS: true,
+    allowTaint: true,
+    scrollY: -window.scrollY,
+    windowHeight: originalHeight,
+  });
+
+  const imgData = canvas.toDataURL('image/png');
+  const pdf = new jsPDF('p', 'mm', 'a4');
+  const pdfWidth = pdf.internal.pageSize.getWidth();
+  const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+  let heightLeft = pdfHeight;
+  let position = 0;
+
+  // Add first page
+  pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight);
+  heightLeft -= pdf.internal.pageSize.getHeight();
+
+  // Add remaining pages if content exceeds one page
+  while (heightLeft > 0) {
+    position = heightLeft - pdfHeight;
+    pdf.addPage();
+    pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight);
+    heightLeft -= pdf.internal.pageSize.getHeight();
+  }
+
+  pdf.save('My_Predictions_Report.pdf');
+};
+
+
     return (
         <div className='finishedFightUserBoard'>
             <div className='fightLeaderboard'>
@@ -459,6 +505,7 @@ const FinishedFightUserBoard = ({ matchId }) => {
     <div className='leaderboardHeading'>
                             <h3 data-aos="zoom-in">FIGHT COMPLETED</h3>
                         </div>
+                     <div id="pdfContent" style={{width:'100%'}}>
                         <div className='roundResultsWrapper'>
                             {userScore ? renderRoundResults(userScore.predictions) : <p>No data available.</p>}
                             <div className='winnerDiv'>
@@ -476,7 +523,11 @@ const FinishedFightUserBoard = ({ matchId }) => {
                                     <h2>{totalPoints}</h2>
                                 </div>
                             </div>
-                        </div>  
+                        </div> </div>
+                        <button onClick={downloadPredictionPDF} className="download-btn">
+  Download Prediction Report
+</button>
+ 
                     </div>  
                 </div>
             </div>
