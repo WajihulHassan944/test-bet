@@ -2,7 +2,7 @@ import React from 'react';
 
 const SocialAiBot = () => {
   return (
-    <div className="bot-wrapper-blogs">
+    <div className="bot-wrapper-social">
       <div className="bot-background">
         <iframe
           src="https://www.chatbase.co/chatbot-iframe/j0NTHqkDPmqruYoSnR_TY"

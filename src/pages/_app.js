@@ -234,36 +234,6 @@ function AppContent({ children }) {
       dispatch(playMusic());
     }
   };
-useEffect(() => {
-    // Define global callback before loading script
-    window.googleTranslateElementInit = () => {
-      console.log("🚀 googleTranslateElementInit called");
-      if (window.google?.translate?.TranslateElement) {
-        new window.google.translate.TranslateElement(
-          {
-            pageLanguage: 'en',
-            includedLanguages: 'en,es,fr,de,ur,hi,ar',
-            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false,
-          },
-          'google_translate_element'
-        );
-      } else {
-        console.warn("⚠️ TranslateElement not available yet");
-      }
-    };
-
-    // Avoid re-adding script
-    if (!document.getElementById('google-translate-script')) {
-      const script = document.createElement('script');
-      script.id = 'google-translate-script';
-      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-      script.async = true;
-      script.onload = () => console.log("✅ Google Translate script loaded");
-      script.onerror = () => console.error("❌ Failed to load Google Translate script");
-      document.body.appendChild(script);
-    }
-  }, []);
 
   return (
     <>
@@ -272,7 +242,6 @@ useEffect(() => {
       {!hideLayout && <Header />}
       {hideLayout && isAdminAuthenticated && <AdminHeader />}
       <ChatbaseWidget />
-       <div id="google_translate_element" style={{ position: 'fixed', top: 260, right: 44, zIndex: 9999 }} />
     
       <main>{children}</main>
       {!hideLayout && <Footer />}
