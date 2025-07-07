@@ -93,22 +93,7 @@ const Footer = () => {
           </a>
 
           <a
-            href="https://x.com/davis_kell51697"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ background: "transparent" }}
-          >
-            <Image
-              src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1744520575/home/okbosgyxz2el7kqdrtlb.png"
-              alt="Twitter (X)"
-              width={40}
-              height={40}
-              style={{ objectFit: "cover", borderRadius: "50%" }}
-            />
-          </a>
-
-          <a
-            href="https://www.tiktok.com/@fantasy.mmadness"
+            href="https://www.tiktok.com/@fantasy.mmadness?_t=ZP-8xmvN5F9kCs&_r=1"
             target="_blank"
             rel="noopener noreferrer"
             style={{ background: "transparent" }}
@@ -121,9 +106,23 @@ const Footer = () => {
               style={{ objectFit: "cover", borderRadius: "50%" }}
             />
           </a>
+          <a
+            href="https://x.com/FMmadness2024"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ background: "transparent" }}
+          >
+            <Image
+              src="/Assets/twitter_logo.png"
+              alt="Twitter"
+              width={40}
+              height={40}
+              style={{ objectFit: "cover", borderRadius: "50%" }}
+            />
+          </a>
 
 <a
-  href="https://www.youtube.com/@FantasyMMadness"
+  href="https://www.youtube.com/channel/UCP4yMpNpD-QMmAi_XlCYozg"
   target="_blank"
   rel="noopener noreferrer"
   style={{ background: "transparent" }}

@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
-import { FaBullhorn, FaFacebookSquare, FaInstagram, FaLinkedin, FaUpload } from 'react-icons/fa';
-
+import {
+  FaBullhorn,
+  FaFacebookSquare,
+  FaInstagram,
+  FaLinkedin,
+  FaUpload,
+} from 'react-icons/fa';
 
 const MakePost = () => {
   const [prompt, setPrompt] = useState('');
   const [image, setImage] = useState(null);
+  const [video, setVideo] = useState(null);
+  const [youtubeTitle, setYoutubeTitle] = useState('');
   const [previewUrl, setPreviewUrl] = useState('');
+  const [videoPreviewUrl, setVideoPreviewUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
@@ -20,6 +28,15 @@ const MakePost = () => {
     }
   };
 
+  const handleVideoChange = (e) => {
+    const file = e.target.files[0];
+    setVideo(file);
+    if (file) {
+      const videoURL = URL.createObjectURL(file);
+      setVideoPreviewUrl(videoURL);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -27,98 +44,158 @@ const MakePost = () => {
     setError('');
 
     try {
-      const formData = new FormData();
-      formData.append('prompt', prompt);
-      if (image) formData.append('image', image);
+      // 1. Send social post (prompt + image)
+      const formDataSocial = new FormData();
+      formDataSocial.append('prompt', prompt);
+      if (image) formDataSocial.append('image', image);
 
-      const response = await fetch('https://hook.us2.make.com/1k93obipongu9lt4x2cnfusfjelvwiop', {
+      await fetch('https://hook.us2.make.com/1k93obipongu9lt4x2cnfusfjelvwiop', {
         method: 'POST',
-        body: formData,
+        body: formDataSocial,
       });
 
-      if (!response.ok) throw new Error('Something went wrong.');
+      // 2. Send YouTube upload (title + video)
+      const formDataYoutube = new FormData();
+      formDataYoutube.append('title', youtubeTitle);
+      if (video) formDataYoutube.append('file', video);
 
-      setSuccess(true);
+      await fetch('https://hook.us2.make.com/8xqbg348ac3awq9o3oxekjn273sv45aj', {
+        method: 'POST',
+        body: formDataYoutube,
+      });
+
+      // Clear form
       setPrompt('');
       setImage(null);
       setPreviewUrl('');
+      setVideo(null);
+      setVideoPreviewUrl('');
+      setYoutubeTitle('');
+      setSuccess(true);
     } catch (err) {
-      setError('Failed to create the post. Please try again.');
+      setError('Failed to submit. Please try again.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-   <div className='poster-form-wrapped'>
-     <div className="poster-form-container">
-      <h2 className="poster-title">
-        <FaBullhorn className="icon"  />
-        AI Social Post Generator for Facebook, LinkedIn, Instagram
-      </h2>
+    <div className='poster-form-wrapped'>
+      <div className="poster-form-container">
+        <h2 className="poster-title">
+          <FaBullhorn className="icon" />
+          AI Social Post Generator for Facebook, LinkedIn, Instagram
+        </h2>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter your post idea (e.g., Launch Fantasy MMAadness)"
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          required
-          className="text-input"
-        />
+        <form onSubmit={handleSubmit}>
+          {/* Social Post Input */}
+          <input
+            type="text"
+            placeholder="Enter your post idea (e.g., Launch Fantasy MMAadness)"
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            required
+            className="text-input"
+          />
 
-        <label htmlFor="file-upload" className="custom-file-upload">
-          <FaUpload className="icon" />
-          Upload Image
-        </label>
-        <input
-          id="file-upload"
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-          required
-        />
+          {/* Upload Image */}
+          <label htmlFor="file-upload" className="custom-file-upload">
+            <FaUpload className="icon" />
+            Upload Image
+          </label>
+          <input
+            id="file-upload"
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            required
+          />
+          {previewUrl && (
+            <img src={previewUrl} alt="Preview" className="image-preview" />
+          )}
 
-        {previewUrl && <img src={previewUrl} alt="Preview" className="image-preview" />}
+          {/* YouTube Section */}
+          <h2 className="poster-title" style={{ marginTop: '2rem' }}>
+            🎥 Upload to YouTube
+          </h2>
 
-        <button type="submit" disabled={loading} className="submit-button">
-          {loading ? 'Posting...' : 'Generate & Post'}
-        </button>
-      </form>
+          {/* YouTube Title */}
+          <input
+            type="text"
+            placeholder="Enter YouTube video title"
+            value={youtubeTitle}
+            onChange={(e) => setYoutubeTitle(e.target.value)}
+            required
+            className="text-input"
+          />
 
-      {success && (
-        <div className="success-message">
-          ✅ Post created successfully!
-          <div className="links">
-            <a
-              href="https://www.facebook.com/profile.php?id=61577983351864"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaFacebookSquare className="icon" /> View on Facebook
-            </a>
-            <a
-              href="https://www.instagram.com/your_instagram_username"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram className="icon" /> View on Instagram
-            </a>
-            <a
-              href="https://www.linkedin.com/in/your_linkedin_or_page"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedin className="icon" /> View on LinkedIn
-            </a>
+          {/* Upload Video */}
+          <label htmlFor="video-upload" className="custom-file-upload">
+            <FaUpload className="icon" />
+            Upload Video
+          </label>
+          <input
+            id="video-upload"
+            type="file"
+            accept="video/*"
+            onChange={handleVideoChange}
+            required
+          />
+          {videoPreviewUrl && (
+            <video
+              src={videoPreviewUrl}
+              controls
+              className="image-preview"
+              style={{ marginTop: '10px' }}
+            />
+          )}
+
+          {/* Submit */}
+          <button type="submit" disabled={loading} className="submit-button">
+            {loading ? 'Posting...' : 'Generate & Post'}
+          </button>
+        </form>
+
+        {/* Success Message */}
+        {success && (
+          <div className="success-message">
+            ✅ Post and Video uploaded successfully!
+            <div className="links">
+              <a
+                href="https://www.facebook.com/profile.php?id=61577983351864"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebookSquare className="icon" /> View on Facebook
+              </a>
+              <a
+                href="https://www.instagram.com/your_instagram_username"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram className="icon" /> View on Instagram
+              </a>
+              <a
+                href="https://www.linkedin.com/in/your_linkedin_or_page"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin className="icon" /> View on LinkedIn
+              </a>
+              <a
+                href="https://www.youtube.com/channel/UCP4yMpNpD-QMmAi_XlCYozg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                📺 View on YouTube
+              </a>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {error && <div className="error-message">{error}</div>}
+        {error && <div className="error-message">{error}</div>}
+      </div>
     </div>
-  
-   </div>
   );
 };
 
