@@ -6842,7 +6842,7 @@ a[href*="chatbase.co"] {
 }
 @media(max-width:768px){
   
-.bot-wrapper-blogs {
+.bot-wrapper-blogs, .bot-wrapper-social {
   margin-left:0;
   padding: 0;
   padding-top: 100px;
@@ -7158,4 +7158,13 @@ input[type="file"] {
 
 .links a:hover {
   text-decoration: underline;
+}
+
+@media(max-width:768px){
+  
+.poster-form-wrapped{
+  padding-left: 0;
+  padding-top: 110px;
+ }
+
 }
