@@ -13,10 +13,12 @@ const Header = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
   const { isAuthenticatedAffiliate } = useSelector((state) => state.affiliateAuth);
   const submenuRef = useRef(null);
+  const submenuRefTwo = useRef(null);
   const { pathname } = router || {}; // Ensure it never crashes
   const dispatch = useDispatch();
   const [menuOpen, setMenuOpen] = useState(false);
   const [submenuOpen, setSubmenuOpen] = useState(false);
+    const [submenuOpenTwo, setSubmenuOpenTwo] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [showPromotion, setShowPromotion] = useState(false);
   
@@ -54,6 +56,18 @@ const Header = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [submenuOpen]);
+  
+  useEffect(() => {
+    if (submenuOpenTwo) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [submenuOpenTwo]);
 
   const isFightsActive =
     pathname?.startsWith('/upcomingfights') ||
@@ -67,10 +81,17 @@ const Header = () => {
   const toggleSubmenu = () => {
     setSubmenuOpen(prev => !prev);
   };
+  
+  const toggleSubmenuTwo = () => {
+    setSubmenuOpenTwo(prev => !prev);
+  };
 
   const handleClickOutside = (event) => {
     if (submenuRef.current && !submenuRef.current.contains(event.target)) {
       setSubmenuOpen(false);
+    }
+     if (submenuRefTwo.current && !submenuRefTwo.current.contains(event.target)) {
+      setSubmenuOpenTwo(false);
     }
   };
 
@@ -203,15 +224,31 @@ const Header = () => {
                 <Link href="/upcomingfights" className="submenuLink">Upcoming Fights</Link>
                 <Link href="/past-fights" className="submenuLink">Past Fights</Link>
                 <Link href="/YourFights" className="submenuLink">Your Fights</Link>
-                <Link href="/our-fighters" className="submenuLink">Our Fighters</Link>
               </div>
             </Link>
+
+              <Link
+              href="#"
+              className={`anchorlinks fightsubmenu`}
+              onClick={toggleSubmenuTwo}
+              ref={submenuRefTwo}
+            >
+              Forums
+              <div
+                className={`submenu ${submenuOpenTwo ? 'submenuOpen' : 'submenuClosedclass'}`}
+                style={{ pointerEvents: submenuOpenTwo ? 'auto' : 'none' }}
+              >
+                <Link href="/community-forum" className="submenuLink">Discussion Forum</Link>
+                <Link href="/fantasy-chatroom" className="submenuLink">Chatroom</Link>
+              </div>
+            </Link>
+
+
             <Link href="/leaderboard" className={`anchorlinks ${pathname === "/leaderboard" ? "activeLink" : ""}`}>Leaderboard</Link>
             <Link href="/myLeagueRecords" className={`anchorlinks ${pathname === "/myLeagueRecords" ? "activeLink" : ""}`}>Leagues</Link>
-            <Link href="/profile" className={`anchorlinks ${pathname === "/profile" ? "activeLink" : ""}`}>Profile</Link>
-            <Link href="/community-forum" className={`anchorlinks ${pathname === "/community-forum" ? "activeLink" : ""}`}>Community</Link>
             <Link href="/guides" className={`anchorlinks ${pathname === "/guides" ? "activeLink" : ""}`}>Guides</Link>
-            <Link href="/fantasy-chatroom" className={`anchorlinks ${pathname === "/fantasy-chatroom" ? "activeLink" : ""}`}>Chatroom</Link>
+            <Link href="/profile" className={`anchorlinks ${pathname === "/profile" ? "activeLink" : ""}`}>Profile</Link>
+         
           </div>
           <div className="sideLinkswrap">
             <Link href="/UserDashboard" className={`sideLinks ${pathname === "/UserDashboard" ? "activeLink" : ""}`}>
@@ -257,7 +294,6 @@ const Header = () => {
               </div>
             </Link>
             <Link href="/Sponsors" className={`anchorlinks ${pathname === "/Sponsors" ? "activeLink" : ""}`}>Sponsors</Link>
-            <Link href="/faqs" className={`anchorlinks ${pathname === "/faqs" ? "activeLink" : ""}`}>Faqs</Link>
           </div>
           <div className="sideLinkswrap">
             <Link className="joinNowBtn" href="/login" onClick={handleLogoutSponsor}>Logout</Link>
@@ -275,8 +311,6 @@ const Header = () => {
           </div>
           <div className="anchorLinksWrapper">
             <Link href="/home" className={`anchorlinks ${pathname === "/home" ? "activeLink" : ""}`}>Home</Link>
-            <Link href="/playforfree" className={`anchorlinks ${pathname === "/playforfree" ? "activeLink" : ""}`}>Play for free</Link>
-            <Link href="/community-forum" className={`anchorlinks ${pathname === "/community-forum" ? "activeLink" : ""}`}>Community</Link>
             <Link
               className={`anchorlinks fightsubmenu ${isFightsActive ? 'activeLink' : ''}`}
               onClick={toggleSubmenu}
@@ -304,7 +338,6 @@ const Header = () => {
               </div>
             </Link>
             <Link href="/Sponsors" className={`anchorlinks ${pathname === "/Sponsors" ? "activeLink" : ""}`}>Sponsors</Link>
-            <Link href="/faqs" className={`anchorlinks ${pathname === "/faqs" ? "activeLink" : ""}`}>Faqs</Link>
             <Link href="/FantasyLeagues" className={`anchorlinks ${pathname === "/FantasyLeagues" ? "activeLink" : ""}`}>Leagues</Link>
             <Link href="/login" className={`anchorlinks ${pathname === "/login" ? "activeLink" : ""}`}>Login</Link>
           </div>
@@ -404,8 +437,6 @@ const Header = () => {
   }} href="/AffiliateCreateAccount" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Affiliate Create account</Link>
              
                 <Link href="/home" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Home</Link>
-                <Link href="/playforfree" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Play for free</Link>
-                <Link href="/community-forum" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Community</Link>
                 <Link href="/upcomingfights" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Upcoming Fights</Link>
                 <Link href="/past-fights" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Past Fights</Link>
                 <Link href="/our-fighters" className="anchorlinks mobileAnchorLinks" onClick={closeMenu}>Our Fighters</Link>

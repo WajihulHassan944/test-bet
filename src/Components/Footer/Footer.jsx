@@ -42,14 +42,22 @@ const Footer = () => {
           <Link href="/privacy-policy" className={styles.footerLink}>
             Privacy policy
           </Link>
+           <Link href="/community-forum" className={styles.footerLink}>
+            Community Forum
+          </Link>
           <Link href="/testimonials" className={styles.footerLink}>
             Testimonials
           </Link>
+           <Link href="/faqs" className={styles.footerLink}>
+            Faqs
+          </Link>
+          
           <Link href="/contact" className={styles.footerLink}>
             Contact
           </Link>
         </p>
       </div>
+      
 
       <div className={styles.footerRight}>
         <p className={styles.footerCompanyAbout}>

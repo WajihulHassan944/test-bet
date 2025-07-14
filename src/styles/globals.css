@@ -7159,7 +7159,6 @@ input[type="file"] {
 .links a:hover {
   text-decoration: underline;
 }
-
 @media(max-width:768px){
   
 .poster-form-wrapped{
@@ -7167,4 +7166,56 @@ input[type="file"] {
   padding-top: 110px;
  }
 
+}
+
+.tweet-form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-button {
+  padding: 10px 20px;
+  background: #1d9bf0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.form-button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.form-result {
+  margin-top: 20px;
+  color: green;
+}
+
+.tweet-preview {
+  background: #f5f8fa;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 15px;
 }

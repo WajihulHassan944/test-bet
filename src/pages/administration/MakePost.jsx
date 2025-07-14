@@ -55,14 +55,38 @@ const MakePost = () => {
       });
 
       // 2. Send YouTube upload (title + video)
-      const formDataYoutube = new FormData();
-      formDataYoutube.append('title', youtubeTitle);
-      if (video) formDataYoutube.append('file', video);
+     if (video) {
+  const formDataYoutube = new FormData();
+  formDataYoutube.append('title', youtubeTitle);
+  formDataYoutube.append('file', video);
 
-      await fetch('https://hook.us2.make.com/8xqbg348ac3awq9o3oxekjn273sv45aj', {
+  await fetch('https://hook.us2.make.com/8xqbg348ac3awq9o3oxekjn273sv45aj', {
+    method: 'POST',
+    body: formDataYoutube,
+  });
+}
+
+      // 3. Post to Twitter via GPT-generated content (using the same prompt)
+      const gptRes = await fetch('/api/tweet-gpt', {
         method: 'POST',
-        body: formDataYoutube,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt }),
       });
+
+      const gptData = await gptRes.json();
+      if (!gptRes.ok || !gptData.tweet) throw new Error('Failed to generate tweet.');
+
+      const tweetRes = await fetch('/api/tweet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: gptData.tweet }),
+      });
+
+      const tweetData = await tweetRes.json();
+      if (!tweetRes.ok) throw new Error(tweetData.message || 'Tweet post failed.');
+
+
+
 
       // Clear form
       setPrompt('');
@@ -84,7 +108,7 @@ const MakePost = () => {
       <div className="poster-form-container">
         <h2 className="poster-title">
           <FaBullhorn className="icon" />
-          AI Social Post Generator for Facebook, LinkedIn, Instagram
+          AI Social Post Generator for Facebook, LinkedIn, Instagram & X
         </h2>
 
         <form onSubmit={handleSubmit}>
@@ -125,7 +149,6 @@ const MakePost = () => {
             placeholder="Enter YouTube video title"
             value={youtubeTitle}
             onChange={(e) => setYoutubeTitle(e.target.value)}
-            required
             className="text-input"
           />
 
@@ -139,7 +162,7 @@ const MakePost = () => {
             type="file"
             accept="video/*"
             onChange={handleVideoChange}
-            required
+            
           />
           {videoPreviewUrl && (
             <video
@@ -188,6 +211,13 @@ const MakePost = () => {
                 rel="noopener noreferrer"
               >
                 📺 View on YouTube
+              </a>
+                <a
+                href="https://x.com/FMmadness2024 "
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on Twitter
               </a>
             </div>
           </div>

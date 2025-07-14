@@ -82,6 +82,7 @@ const Home = ({ slideData }) => {
           <div className={styles.slide} key={currentSlide}>
             <h1 style={{fontWeight:'100'}}>{slideData[currentSlide].h1}</h1>
             <h2 style={{fontWeight:'100'}}>{slideData[currentSlide].h2}</h2>
+             <Link href="/login" className={styles.loginhomebtn}>Play for free</Link>
             <div className={styles.bannerButtons}>
             <Link href="/CreateAccount" className={styles.signupbtn}>User Sign up</Link>
             <Link href="/AffiliateCreateAccount" className={styles.signupbtn}>Affiliate Sign up</Link>
@@ -131,28 +132,38 @@ const Home = ({ slideData }) => {
         </Link>
       </div>
 {/* BRAND ANCHOR PARAGRAPHS */}
+{/* BRAND ANCHOR PARAGRAPHS */}
 <div className={styles.fourthHomepageSection}>
-        <div className={styles.newaddedContentSection}>
-          <h4>Why Play Fantasy Combat Sports</h4>
-          <p>
-            With <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Fantasy MMADNESS</a>, you can <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">start predicting fights now</a>, join <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">MMA fantasy leagues</a>, and <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">win money predicting MMA fights</a>. Draft fighters, earn fantasy fight stats and leaderboards, and experience the <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">ultimate MMA fantasy platform</a> today.
-          </p>
-        </div>
+  <div className={styles.newaddedContentSection}>
+    <h4>Why Play Fantasy Combat Sports</h4>
+    <p>
+      With <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Fantasy MMADNESS</a>, you can <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">start predicting fights now</a>, join <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">MMA fantasy leagues</a>, and <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">win money predicting MMA fights</a>. 
+      Draft top fighters, earn fantasy fight stats and leaderboard points, and experience the <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">ultimate MMA fantasy platform</a> today.
+      <br /><br />
+      Enter <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">free-to-play fantasy leagues</a>, predict winners, methods (KO, submission, decision), and rounds — all while collecting badges and real-world rewards.
+    </p>
+  </div>
 
-        <div className={styles.newaddedContentSection}>
-          <h4>Live the Action</h4>
-          <p>
-            Enter a <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">free MMA fantasy contest</a> or <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">get in on the MMA fantasy action</a> with the <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Fantasy MMADNESS Fight Predictor</a>. It’s more than a game—it’s where <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">fight fans play and win</a>.
-          </p>
-        </div>
+  <div className={styles.newaddedContentSection}>
+    <h4>Live the Action</h4>
+    <p>
+      Enter a <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">free MMA fantasy contest</a> or <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">get in on the MMA fantasy action</a> with the <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Fantasy MMADNESS Fight Predictor</a>. 
+      It’s more than a game—it’s where <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">fight fans play and win</a>.
+      <br /><br />
+      Activate your fight IQ in real time. Use our <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">Live Fantasy Fight Predictor</a> to choose winners, methods, and rounds — and track your score during the event.
+      Snap decisions create live thrill, while instant scoring fuels competitive excitement on global leaderboards.
+    </p>
+  </div>
 
-        <div className={styles.newaddedContentSection}>
-          <h4>Strategy Meets Reward</h4>
-          <p>
-            Build your dream league and <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">create your fantasy MMA league</a>. Challenge friends in <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">fantasy MMA contests</a>, climb the <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">fantasy fight leaderboard</a>, and make your mark in <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">high-stakes MMA fantasy matches</a>.
-          </p>
-        </div>
-      </div>
+  <div className={styles.newaddedContentSection}>
+    <h4>Strategy Meets Reward</h4>
+    <p>
+      Build your dream league and <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">create your fantasy MMA league</a>. Challenge friends in <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">fantasy MMA contests</a>, climb the <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">fantasy fight leaderboard</a>, and make your mark in <a href="https://www.fantasymmadness.com/" target="_blank" rel="noopener noreferrer">high-stakes MMA fantasy matches</a>.
+      <br /><br />
+      Whether private or public, leagues offer full control: manage rosters, set custom scoring, trade fighters, and earn seasonal rewards. Dominate each round with smart predictions and strategic play.
+    </p>
+  </div>
+</div>
 
 {/* 
       <FeaturedSponsors /> */}
