@@ -49,7 +49,7 @@ const MakePost = () => {
       formDataSocial.append('prompt', prompt);
       if (image) formDataSocial.append('image', image);
 
-      await fetch('https://hook.us2.make.com/1k93obipongu9lt4x2cnfusfjelvwiop', {
+      await fetch('https://hook.us2.make.com/uwitrxu8b07bda6ng5itu3n99xpzlmum', {
         method: 'POST',
         body: formDataSocial,
       });
