@@ -7,6 +7,7 @@ import styles from "@/styles/Home.module.css";
 import { playMusic, stopMusic } from "@/Redux/musicSlice";
 import ReactPlayer from 'react-player/lazy';
 import FeaturedSponsors from "@/Components/Home/HomeSponsors/OurSponsors";
+import HomeLeaderboardTwo from "@/Components/GlobalLeaderboard/HomeLeaderBoardTwo";
 
 export async function getServerSideProps() {
   const slideData = [
@@ -167,7 +168,7 @@ const Home = ({ slideData }) => {
 
 {/* 
       <FeaturedSponsors /> */}
-
+<HomeLeaderboardTwo />
     </>
   );
 };
