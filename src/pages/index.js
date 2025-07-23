@@ -83,7 +83,7 @@ const Home = ({ slideData }) => {
           <div className={styles.slide} key={currentSlide}>
             <h1 style={{fontWeight:'100'}}>{slideData[currentSlide].h1}</h1>
             <h2 style={{fontWeight:'100'}}>{slideData[currentSlide].h2}</h2>
-             <Link href="/login" className={styles.loginhomebtn}>Play for free</Link>
+             <Link href="/mock-game" className={styles.loginhomebtn}>Play for free</Link>
             <div className={styles.bannerButtons}>
             <Link href="/CreateAccount" className={styles.signupbtn}>User Sign up</Link>
             <Link href="/AffiliateCreateAccount" className={styles.signupbtn}>Affiliate Sign up</Link>

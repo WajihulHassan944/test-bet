@@ -45,6 +45,7 @@ import "@/styles/fantasyChatroom.css";
 import "@/styles/FighterTracker.css";
 import "@/styles/referralLeaderboard.css";
 import "@/styles/homeleaderboardtwo.css";
+import "@/styles/mockpredictionsgame.css";
 import Script from "next/script";
 import { Provider } from "react-redux";
 import { wrapper } from "../Redux/store"; // Updated for next-redux-wrapper

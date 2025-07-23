@@ -1,0 +1,19 @@
+.makepredictionsmock{
+    padding-top:190px;
+}
+.lb2-nobg-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: 'Arial Black', sans-serif;
+width: 100%;
+}
+.lb2-nobg-container .lb2-title{
+    margin-bottom: 40px;
+}
+.mockpredheading{
+    color: red;
+    margin-bottom: 30px;
+      font-family: 'Arial Black', sans-serif;
+
+}
