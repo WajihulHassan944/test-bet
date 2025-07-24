@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import RoundByRoundMockScores from './RoundByRoundMockScores';
+import ReactPlayer from 'react-player/lazy';
 
 const index = () => {
   const isBoxing = true;
@@ -124,6 +125,18 @@ const [showPredictions, setShowPredictions] = useState(false);
   return (
     <div className='fightCosting makePredictions makepredictionsmock'>
       <h1 className='mockpredheading'>Mock Predictions Game</h1>
+       <div className="video-embed-wrapper" style={{marginBottom:'30px'}}>
+                <div className="no-hover">
+                  <ReactPlayer
+                    url="https://youtu.be/C5wHWEzPrrs?si=1AZi6wDVvWrfI0QH"
+                    playing
+                    loop
+                    controls={false}
+                    width="100%"
+                    height="100%"
+                  />
+                </div>
+              </div>
       <div className='fightDetailsContainer'>
         <h1 className='fightTypeInFightDetails'>
           Fight type: <span>Boxing</span> - 
