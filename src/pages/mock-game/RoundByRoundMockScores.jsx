@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MockLeaderboard from './MockLeaderboard';
 
-const RoundByRoundMockScores = ({ predictions }) => {
+const RoundByRoundMockScores = ({ predictions, matchCategory }) => {
   const [scores, setScores] = useState({ predictions: [] });
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const RoundByRoundMockScores = ({ predictions }) => {
   let totalPoints = 0;
     
    const match = {
-      "matchCategory": "boxing",
+      matchCategory: matchCategory,
     "matchCategoryTwo": "Bare-knuckle",
     "matchName": "BKFC Fight",
     "matchFighterA": "Michael Venom Page",
@@ -30,6 +30,133 @@ const RoundByRoundMockScores = ({ predictions }) => {
     "pot": 100,
     "matchType": "SHADOW",
     "maxRounds": 5,
+ "MMAMatch": {
+      "fighterOneStats": [
+        {
+          "roundNumber": 1,
+          "ST": 51,
+          "KI": 12,
+          "KN": 2,
+          "EL": 2,
+          "RW": 100,
+          "RL": 0,
+          "KO": 0,
+          "SP": 0,
+          "_id": "67320a02d4c626674e400a11"
+        },
+        {
+          "roundNumber": 2,
+          "ST": 48,
+          "KI": 11,
+          "KN": 5,
+          "EL": 2,
+          "RW": 25,
+          "RL": 0,
+          "KO": 0,
+          "SP": 0,
+          "_id": "67320a2fd4c626674e400a17"
+        },
+        {
+          "roundNumber": 3,
+          "ST": 49,
+          "KI": 13,
+          "KN": 2,
+          "EL": 5,
+          "RW": 100,
+          "RL": 0,
+          "KO": 0,
+          "SP": 0,
+          "_id": "67320a5bd4c626674e400a1f"
+        },
+        {
+          "roundNumber": 4,
+          "ST": 46,
+          "KI": 12,
+          "KN": 2,
+          "EL": 4,
+          "RW": 100,
+          "RL": 0,
+          "KO": 0,
+          "SP": 0,
+          "_id": "67320a84d5d5c0aa8920791d"
+        },
+        {
+          "roundNumber": 5,
+          "ST": 52,
+          "KI": 20,
+          "KN": 2,
+          "EL": 2,
+          "RW": 100,
+          "RL": 0,
+          "KO": 0,
+          "SP": 0,
+          "_id": "67320ae8d5d5c0aa89207a8d"
+        }
+      ],
+      "fighterTwoStats": [
+        {
+          "roundNumber": 1,
+          "ST": 47,
+          "KI": 16,
+          "KN": 2,
+          "EL": 2,
+          "RW": 0,
+          "RL": 25,
+          "KO": 0,
+          "SP": 500,
+          "_id": "67320a02d4c626674e400a12"
+        },
+        {
+          "roundNumber": 2,
+          "ST": 47,
+          "KI": 8,
+          "KN": 1,
+          "EL": 1,
+          "RW": 0,
+          "RL": 100,
+          "KO": 0,
+          "SP": 500,
+          "_id": "67320a2fd4c626674e400a18"
+        },
+        {
+          "roundNumber": 3,
+          "ST": 52,
+          "KI": 14,
+          "KN": 3,
+          "EL": 2,
+          "RW": 0,
+          "RL": 25,
+          "KO": 0,
+          "SP": 500,
+          "_id": "67320a5bd4c626674e400a20"
+        },
+        {
+          "roundNumber": 4,
+          "ST": 46,
+          "KI": 12,
+          "KN": 3,
+          "EL": 2,
+          "RW": 0,
+          "RL": 25,
+          "KO": 0,
+          "SP": 500,
+          "_id": "67320a84d5d5c0aa8920791e"
+        },
+        {
+          "roundNumber": 5,
+          "ST": 54,
+          "KI": 13,
+          "KN": 6,
+          "EL": 2,
+          "RW": 0,
+          "RL": 25,
+          "KO": 0,
+          "SP": 500,
+          "_id": "67320ae8d5d5c0aa89207a8e"
+        }
+      ]
+    },
+
     "BoxingMatch": {
       "fighterOneStats": [
         {
@@ -144,7 +271,37 @@ const RoundByRoundMockScores = ({ predictions }) => {
                 roundPoints += roundPrediction.koPrediction2 === fighterTwoRound.KO ? fighterTwoRound.KO : 0;
             }
     
-        } 
+        }  else if (match.matchCategory === 'mma') {
+            // For MMA
+            // Fighter One
+            addPoints(roundPrediction.hpPrediction1, fighterOneRound.ST, roundPrediction.hpPrediction1);
+            addPoints(roundPrediction.bpPrediction1, fighterOneRound.KI, roundPrediction.bpPrediction1);
+            addPoints(roundPrediction.tpPrediction1, fighterOneRound.KN, roundPrediction.tpPrediction1);
+            if (roundPrediction.rwPrediction1 !== null && roundPrediction.rwPrediction1 === fighterOneRound.RW) {
+                roundPoints += roundPrediction.rwPrediction1;
+            }
+            if (roundPrediction.koPrediction1 !== null) {
+                roundPoints += roundPrediction.koPrediction1 === fighterOneRound.KO ? fighterOneRound.KO : 0;
+            }
+            if (roundPrediction.elPrediction1 !== null) {
+                roundPoints += roundPrediction.elPrediction1 <= fighterOneRound.EL ? roundPrediction.elPrediction1 : 0;
+            }
+    
+            // Fighter Two
+            addPoints(roundPrediction.hpPrediction2, fighterTwoRound.ST, roundPrediction.hpPrediction2);
+            addPoints(roundPrediction.bpPrediction2, fighterTwoRound.KI, roundPrediction.bpPrediction2);
+            addPoints(roundPrediction.tpPrediction2, fighterTwoRound.KN, roundPrediction.tpPrediction2);
+            if (roundPrediction.rwPrediction2 !== null && roundPrediction.rwPrediction2 === fighterTwoRound.RW) {
+                roundPoints += roundPrediction.rwPrediction2;
+            }
+            if (roundPrediction.koPrediction2 !== null) {
+                roundPoints += roundPrediction.koPrediction2 === fighterTwoRound.KO ? fighterTwoRound.KO : 0;
+            }
+            if (roundPrediction.elPrediction2 !== null) {
+                roundPoints += roundPrediction.elPrediction2 <= fighterTwoRound.EL ? roundPrediction.elPrediction2 : 0;
+            }
+        }
+    
     
         return roundPoints;
     };

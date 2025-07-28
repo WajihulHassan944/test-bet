@@ -3,7 +3,7 @@ import RoundByRoundMockScores from './RoundByRoundMockScores';
 import ReactPlayer from 'react-player/lazy';
 
 const index = () => {
-  const isBoxing = true;
+  const [isBoxing, setIsBoxing] = useState(false);
 const [showPredictions, setShowPredictions] = useState(false);
 
   const [rounds, setRounds] = useState(
@@ -90,7 +90,7 @@ const [showPredictions, setShowPredictions] = useState(false);
     console.log("My predictions", rounds);
 
     // Only include relevant prediction data
-    const predictions = rounds.map(({ round, hpPrediction1, hpPrediction2, bpPrediction1, bpPrediction2, tpPrediction1, tpPrediction2, rwPrediction1, rwPrediction2, koPrediction1, koPrediction2 }) => ({
+    const predictions = rounds.map(({ round,elPrediction1,elPrediction2, hpPrediction1, hpPrediction2, bpPrediction1, bpPrediction2, tpPrediction1, tpPrediction2, rwPrediction1, rwPrediction2, koPrediction1, koPrediction2 }) => ({
       round,
       hpPrediction1: Number(hpPrediction1),
       hpPrediction2: Number(hpPrediction2),
@@ -98,6 +98,8 @@ const [showPredictions, setShowPredictions] = useState(false);
       bpPrediction2: Number(bpPrediction2),
       tpPrediction1: Number(tpPrediction1),
       tpPrediction2: Number(tpPrediction2),
+        elPrediction1: Number(elPrediction1),
+        elPrediction2: Number(elPrediction2),
       rwPrediction1,
       rwPrediction2,
       koPrediction1,
@@ -137,9 +139,20 @@ const [showPredictions, setShowPredictions] = useState(false);
                   />
                 </div>
               </div>
+              <div className="fight-type-selector">
+      <label htmlFor="fight-type">Select Fight Type:</label>
+      <select
+        id="fight-type"
+        value={isBoxing ? 'boxing' : 'mma'}
+        onChange={(e) => setIsBoxing(e.target.value === 'boxing')}
+      >
+        <option value="boxing">Boxing</option>
+        <option value="mma">MMA</option>
+      </select>
+    </div>
       <div className='fightDetailsContainer'>
         <h1 className='fightTypeInFightDetails'>
-          Fight type: <span>Boxing</span> - 
+          Fight type: <span>{isBoxing ? 'Boxing' : 'MMA'}</span> - 
           <span className='makeGreen'> SHADOW </span> - 
           <span>MIKAEL MAYER </span> VS <span> ALYCIA BAUMGARDNER </span>
         </h1>
@@ -249,7 +262,34 @@ const [showPredictions, setShowPredictions] = useState(false);
     />
   </div>
 </div>
-
+{!isBoxing && (
+                  <div className='roundInput'>
+                    <div className='roundInputDivOne'>
+                      <i className="fa fa-caret-left" aria-hidden="true"></i>
+                      <input
+                        type='number'
+                        style={{border:'2px solid #2a8adb'}}
+                        value={round.elPrediction1}
+                        onChange={(e) => handlePredictionChange(e, index, 'elPrediction1')}
+                      />
+                    </div>
+                    <div className='roundinput-image'>
+                      <h2>{label4}</h2>
+                      <div className='roundInputImgWrap'>
+                        <img src="https://res.cloudinary.com/dqi6vk2vn/image/upload/v1743258002/home/cozzru3dapikvamnd44q.png" alt={`${label4} Icon`} />
+                      </div>
+                    </div>
+                    <div className='roundInputDivOne'>
+                      <input
+                        type='number'
+                        style={{border:'2px solid #e1130c'}}
+                        value={round.elPrediction2}
+                        onChange={(e) => handlePredictionChange(e, index, 'elPrediction2')}
+                      />
+                      <i className="fa fa-caret-right" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                )}
                 <div className='roundInput' style={{ paddingLeft: '40px', paddingRight: '37px' }}>
   <div className='roundInputDivOne'>
     <input
@@ -329,7 +369,7 @@ const [showPredictions, setShowPredictions] = useState(false);
         </button>
       </div>
      {showPredictions && (
-  <RoundByRoundMockScores predictions={rounds.map(({ round, hpPrediction1, hpPrediction2, bpPrediction1, bpPrediction2, tpPrediction1, tpPrediction2, rwPrediction1, rwPrediction2, koPrediction1, koPrediction2 }) => ({
+  <RoundByRoundMockScores matchCategory={isBoxing ? 'boxing' : 'mma'} predictions={rounds.map(({ round,elPrediction1,elPrediction2, hpPrediction1, hpPrediction2, bpPrediction1, bpPrediction2, tpPrediction1, tpPrediction2, rwPrediction1, rwPrediction2, koPrediction1, koPrediction2 }) => ({
     round,
     hpPrediction1: Number(hpPrediction1),
     hpPrediction2: Number(hpPrediction2),
@@ -337,6 +377,8 @@ const [showPredictions, setShowPredictions] = useState(false);
     bpPrediction2: Number(bpPrediction2),
     tpPrediction1: Number(tpPrediction1),
     tpPrediction2: Number(tpPrediction2),
+      elPrediction1: Number(elPrediction1),
+        elPrediction2: Number(elPrediction2),
     rwPrediction1,
     rwPrediction2,
     koPrediction1,
