@@ -313,7 +313,7 @@ abbr[title] {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   padding: 10px 0;
   overflow: hidden; /* Hide anything outside the container */
-  z-index: 99999999;
+  z-index: 9;
 }
 
 /* Inner container styles */
@@ -6932,7 +6932,7 @@ a[href*="chatbase.co"] {
   margin: 0;
 }
 .header{
-   z-index: 99999999;
+   z-index: 9;
    background: #000 !important;
 }
 .header-ai-blogs {
