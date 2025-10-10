@@ -260,11 +260,11 @@ const AddNewMatch = () => {
           <div className='input-wrap-one'>
             <div className='input-group'>
               <label>Fighter 1 Image <span>*</span></label>
-              <input type='file' name='fighterAImage' onChange={handleChange} />
+              <input type='file' name='fighterAImage' onChange={handleChange} style={{display:'block'}} />
             </div>
             <div className='input-group'>
               <label>Fighter 2 Image <span>*</span></label>
-              <input type='file' name='fighterBImage' onChange={handleChange} />
+              <input type='file' name='fighterBImage' onChange={handleChange} style={{display:'block'}} />
             </div>
           </div>
 
