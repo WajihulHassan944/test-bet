@@ -294,7 +294,7 @@ const EditMatch = ({ matchId, isShadow }) => {
                 ? <img src={URL.createObjectURL(formData.fighterAImage)} alt="Fighter A" style={{ width: '80px', objectFit: 'cover', borderRadius: '50%', height: '80px' }} />
                 : <img src={formData.fighterAImage} alt="Fighter A" style={{ width: '80px', objectFit: 'cover', borderRadius: '50%', height: '80px' }} />
               }
-              <input type='file' name='fighterAImage' onChange={handleChange} />
+              <input type='file' name='fighterAImage' onChange={handleChange} style={{display:'block', marginTop:'10px'}} />
             </div>
             <div className='input-group'>
               <label>Fighter B Image </label>
@@ -302,7 +302,7 @@ const EditMatch = ({ matchId, isShadow }) => {
                 ? <img src={URL.createObjectURL(formData.fighterBImage)} alt="Fighter B" style={{ width: '80px', objectFit: 'cover', borderRadius: '50%', height: '80px' }} />
                 : <img src={formData.fighterBImage} alt="Fighter B" style={{ width: '80px', objectFit: 'cover', borderRadius: '50%', height: '80px' }} />
               }
-              <input type='file' name='fighterBImage' onChange={handleChange} />
+              <input type='file' name='fighterBImage' onChange={handleChange} style={{display:'block',marginTop:'10px'}}/>
             </div>
           </div>
 
