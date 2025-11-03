@@ -93,9 +93,19 @@ const AffiliateCreateAccount = () => {
                 body: formDataToSend,
             });
 
-            if (response.ok) {
-                setIsRegistered(true);
-            } 
+           const data = await response.text();
+
+if (response.ok) {
+    setIsRegistered(true);
+    toast.success('Affiliate registration successful!'); // ✅ success toast
+} else {
+    // ✅ Show error toast for duplicate or other issues
+    if (data.includes('Email already registered')) {
+        toast.error('This email is already registered. Please use another one.');
+    } else {
+        toast.error(data || 'There was an error registering. Please try again.');
+    }
+}
         } catch (error) {
             console.error('There was an error registering!', error);
         } finally {

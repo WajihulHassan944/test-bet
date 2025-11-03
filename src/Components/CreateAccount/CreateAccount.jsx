@@ -92,6 +92,12 @@ const CreateAccount = () => {
                     message: 'Please check your email to verify your account and complete the registration process.'
                 });  // Set dynamic response for success
             } else {
+                 if (data.includes('Email already registered')) {
+        toast.error('This email is already registered. Please use another one.');
+    } else {
+        toast.error(data || 'There was an error registering. Please try again.');
+    }
+
                 setResponse({
                     title: 'Registration Failed',
                     message: data || 'There was an error registering. Please try again.'
